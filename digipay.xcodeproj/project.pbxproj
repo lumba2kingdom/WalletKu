@@ -16,6 +16,12 @@
 		9B9FDCAD1C55D1E800DD7F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9FDCAB1C55D1E800DD7F24 /* LaunchScreen.storyboard */; };
 		9B9FDCB81C55D1E800DD7F24 /* digipayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCB71C55D1E800DD7F24 /* digipayTests.m */; };
 		9B9FDCC31C55D1E800DD7F24 /* digipayUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCC21C55D1E800DD7F24 /* digipayUITests.m */; };
+		9B9FDCD31C55D43700DD7F24 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */; };
+		9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */; };
+		9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */; };
+		9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */; };
+		9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64F1C577E78007587E0 /* TopUpViewController.m */; };
+		9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,18 @@
 		9B9FDCBE1C55D1E800DD7F24 /* digipayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = digipayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9FDCC21C55D1E800DD7F24 /* digipayUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = digipayUITests.m; sourceTree = "<group>"; };
 		9B9FDCC41C55D1E800DD7F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B9FDCD11C55D43700DD7F24 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9B9FDCD41C56215B00DD7F24 /* PayHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayHistoryTableViewController.h; sourceTree = "<group>"; };
+		9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayHistoryTableViewController.m; sourceTree = "<group>"; };
+		9B9FDCD81C5621D100DD7F24 /* PayHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayHistoryTableViewCell.h; sourceTree = "<group>"; };
+		9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayHistoryTableViewCell.m; sourceTree = "<group>"; };
+		9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterTableViewController.h; sourceTree = "<group>"; };
+		9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTableViewController.m; sourceTree = "<group>"; };
+		9BB1B64E1C577E78007587E0 /* TopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUpViewController.h; sourceTree = "<group>"; };
+		9BB1B64F1C577E78007587E0 /* TopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpViewController.m; sourceTree = "<group>"; };
+		9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +121,8 @@
 		9B9FDC991C55D1E800DD7F24 /* digipay */ = {
 			isa = PBXGroup;
 			children = (
+				9B9FDCD71C5621C000DD7F24 /* Cells */,
+				9B9FDCD01C55D41D00DD7F24 /* Controllers */,
 				9B9FDC9D1C55D1E800DD7F24 /* AppDelegate.h */,
 				9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */,
 				9B9FDCA01C55D1E800DD7F24 /* ViewController.h */,
@@ -141,6 +161,32 @@
 				9B9FDCC41C55D1E800DD7F24 /* Info.plist */,
 			);
 			path = digipayUITests;
+			sourceTree = "<group>";
+		};
+		9B9FDCD01C55D41D00DD7F24 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B9FDCD11C55D43700DD7F24 /* LoginViewController.h */,
+				9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */,
+				9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */,
+				9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */,
+				9B9FDCD41C56215B00DD7F24 /* PayHistoryTableViewController.h */,
+				9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */,
+				9BB1B64E1C577E78007587E0 /* TopUpViewController.h */,
+				9BB1B64F1C577E78007587E0 /* TopUpViewController.m */,
+				9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */,
+				9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9B9FDCD71C5621C000DD7F24 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B9FDCD81C5621D100DD7F24 /* PayHistoryTableViewCell.h */,
+				9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +320,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */,
+				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
+				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
+				9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */,
 				9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */,
+				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
+				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
 				9B9FDCA81C55D1E800DD7F24 /* digipay.xcdatamodeld in Sources */,
+				9B9FDCD31C55D43700DD7F24 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,10 +469,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Lutfi Azhar (6YVGUCK9C4)";
 				INFOPLIST_FILE = digipay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.testing.digipay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1ac58c41-b235-420f-83f1-0557dc5bd9d8";
 			};
 			name = Debug;
 		};
@@ -432,6 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.testing.digipay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1ac58c41-b235-420f-83f1-0557dc5bd9d8";
 			};
 			name = Release;
 		};
@@ -502,6 +557,7 @@
 				9B9FDCC91C55D1E800DD7F24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B9FDCCA1C55D1E800DD7F24 /* Build configuration list for PBXNativeTarget "digipayTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +566,7 @@
 				9B9FDCCC1C55D1E800DD7F24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B9FDCCD1C55D1E800DD7F24 /* Build configuration list for PBXNativeTarget "digipayUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +575,7 @@
 				9B9FDCCF1C55D1E800DD7F24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
