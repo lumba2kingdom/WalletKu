@@ -102,7 +102,7 @@
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@""
-                                      message:@"Please Fill Empty Field"
+                                      message:@"Mohon isi kolom yang kosong"
                                       preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okBtn = [UIAlertAction
@@ -130,7 +130,7 @@
             
             UIAlertController * alert=   [UIAlertController
                                           alertControllerWithTitle:@""
-                                          message:@"Invalid email address"
+                                          message:@"Alamat email tidak sesuai"
                                           preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* okBtn = [UIAlertAction
@@ -145,13 +145,30 @@
             [alert addAction:okBtn];
             
             [self presentViewController:alert animated:YES completion:nil];
-        }
-        
-        if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
+        }else if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
             
             UIAlertController * alert=   [UIAlertController
                                           alertControllerWithTitle:@""
-                                          message:@"Password doesn't match"
+                                          message:@"Password tidak sesuai"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okBtn = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        
+                                        
+                                    }];
+            
+            [alert addAction:okBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }else if (!self.pernyataanSwitch.isOn){
+            
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@""
+                                          message:@"Anda belum menyutujui pernyataan yang tertulis."
                                           preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* okBtn = [UIAlertAction
@@ -190,7 +207,7 @@
             [alert addAction:okBtn];
             
             UIAlertAction* cancelBtn = [UIAlertAction
-                                    actionWithTitle:@"Cancel"
+                                    actionWithTitle:@"Batal"
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action)
                                     {

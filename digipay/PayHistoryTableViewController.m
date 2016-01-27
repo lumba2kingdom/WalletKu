@@ -14,7 +14,7 @@
 @end
 
 @implementation PayHistoryTableViewController{
-    NSArray *paymentID, *paymentStatus, *paymentDate;
+    NSArray *paymentID, *paymentStatus, *paymentDate, *paymentIcon;
 }
 
 - (void)viewDidLoad {
@@ -23,6 +23,7 @@
     paymentID = [[NSArray alloc] initWithObjects:@"Pul1099111", @"Pul1099112", @"Pul1099113", @"Pul1099114", @"Pul1099115", @"Pul1099116", @"Pul1099117", @"Pul1099118", @"Pul1099119", @"Pul1099110", nil];
     paymentStatus = [[NSArray alloc] initWithObjects:@"Complete", @"Pending", @"Cancel", @"Complete", @"Pending", @"Cancel", @"Complete", @"Pending", @"Cancel", @"Complete", nil];
     paymentDate = [[NSArray alloc] initWithObjects:@"2 Sep 2015", @"3 Sep 2015", @"4 Sep 2015", @"5 Sep 2015", @"6 Sep 2015", @"7 Sep 2015", @"8 Sep 2015", @"9 Sep 2015", @"10 Sep 2015", @"11 Sep 2015", nil];
+    paymentIcon = [[NSArray alloc] initWithObjects:@"icon-hp.png", @"icon-listrik.png", @"icon-pam.png", @"icon-hp.png", @"icon-listrik.png", @"icon-pam.png", @"icon-hp.png", @"icon-listrik.png", @"icon-pam.png", @"icon-hp.png", nil];
     
     [self.tableView reloadData];
     
@@ -49,6 +50,7 @@
     cell.paymentIDLabel.text = paymentID[indexPath.row];
     cell.paymentStatusLabel.text = paymentStatus[indexPath.row];
     cell.paymentDateLabel.text = paymentDate[indexPath.row];
+    cell.iconImg.image = [UIImage imageNamed:paymentIcon[indexPath.row]];
     
     return cell;
 }

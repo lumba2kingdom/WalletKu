@@ -39,7 +39,7 @@
                                       preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okBtn = [UIAlertAction
-                                actionWithTitle:@"Ok"
+                                actionWithTitle:@"Ya"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action)
                                 {
@@ -53,7 +53,7 @@
         [alert addAction:okBtn];
         
         UIAlertAction* cancelBtn = [UIAlertAction
-                                actionWithTitle:@"Cancel"
+                                actionWithTitle:@"Batal"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action)
                                 {

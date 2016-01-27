@@ -47,7 +47,7 @@
         
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@""
-                                      message:@"Invalid Username/Password"
+                                      message:@"Username/Password salah"
                                       preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okBtn = [UIAlertAction
@@ -75,8 +75,8 @@
 - (IBAction)forgotPasswordBtn:(UIButton *)sender {
     
     UIAlertController* alert =
-    [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Forgot Password", @"Forgot Password")
-                                        message:NSLocalizedString(@"Type in your email address and we'll send you a forgot password link", @"Type in your email address and we'll send you a forgot password link")
+    [UIAlertController alertControllerWithTitle:@"Lupa Password"
+                                        message:@"Ketik alamat email Anda, dan kami akan kirimkan link lupa password ke alamat email Anda"
                                  preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
@@ -85,7 +85,7 @@
         self.emailAddressTextField = textField;
     }];
     
-    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedString(@"Done", @"Done")
+    [alert addAction: [UIAlertAction actionWithTitle:@"Selesai"
                                                style:UIAlertActionStyleDefault
                                              handler:^(UIAlertAction *action) {
                                                  
@@ -93,7 +93,7 @@
                                              
                                              }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
+    [alert addAction:[UIAlertAction actionWithTitle:@"Batal"
                                               style:UIAlertActionStyleCancel
                                             handler:^(UIAlertAction *action) {
                                                 

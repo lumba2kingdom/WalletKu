@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *paymentStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentDescLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImg;
 
 @end
