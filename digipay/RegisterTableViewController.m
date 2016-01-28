@@ -208,7 +208,7 @@
             
             UIAlertAction* cancelBtn = [UIAlertAction
                                     actionWithTitle:@"Batal"
-                                    style:UIAlertActionStyleDefault
+                                    style:UIAlertActionStyleCancel
                                     handler:^(UIAlertAction * action)
                                     {
                                         

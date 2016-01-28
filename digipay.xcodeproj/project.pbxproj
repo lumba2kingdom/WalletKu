@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D354B39EB569F07D5ACA3B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D47D1B81F15147EB132C5E /* libPods.a */; };
+		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
 		9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9B1C55D1E800DD7F24 /* main.m */; };
 		9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */; };
 		9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCA11C55D1E800DD7F24 /* ViewController.m */; };
@@ -42,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57E7D9D2EFF8C19502DB37AD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		79D47D1B81F15147EB132C5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B24FC381C59F7160095917D /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
+		9B24FC391C59F7160095917D /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		9B9FDC971C55D1E800DD7F24 /* digipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9FDC9B1C55D1E800DD7F24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B9FDC9D1C55D1E800DD7F24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 		9BB1B64F1C577E78007587E0 /* TopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpViewController.m; sourceTree = "<group>"; };
 		9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		D2DA9FC69C931A454D1A422B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D354B39EB569F07D5ACA3B3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CB2E235AE852670447C28C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79D47D1B81F15147EB132C5E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F839BD87B26D04590E63B71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2DA9FC69C931A454D1A422B /* Pods.debug.xcconfig */,
+				57E7D9D2EFF8C19502DB37AD /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9B9FDC8E1C55D1E800DD7F24 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +130,8 @@
 				9B9FDCB61C55D1E800DD7F24 /* digipayTests */,
 				9B9FDCC11C55D1E800DD7F24 /* digipayUITests */,
 				9B9FDC981C55D1E800DD7F24 /* Products */,
+				8F839BD87B26D04590E63B71 /* Pods */,
+				7CB2E235AE852670447C28C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +197,8 @@
 				9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */,
 				9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */,
 				9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */,
+				9B24FC381C59F7160095917D /* EditProfileTableViewController.h */,
+				9B24FC391C59F7160095917D /* EditProfileTableViewController.m */,
 				9B9FDCD41C56215B00DD7F24 /* PayHistoryTableViewController.h */,
 				9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */,
 				9BB1B64E1C577E78007587E0 /* TopUpViewController.h */,
@@ -196,9 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B9FDCC71C55D1E800DD7F24 /* Build configuration list for PBXNativeTarget "digipay" */;
 			buildPhases = (
+				DFFDD7B7667B083E74892C65 /* Check Pods Manifest.lock */,
 				9B9FDC931C55D1E800DD7F24 /* Sources */,
 				9B9FDC941C55D1E800DD7F24 /* Frameworks */,
 				9B9FDC951C55D1E800DD7F24 /* Resources */,
+				5516E5F2CD2C3944E21E6136 /* Embed Pods Frameworks */,
+				CF83813A3C6D7BED44F42EBE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -314,11 +346,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5516E5F2CD2C3944E21E6136 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF83813A3C6D7BED44F42EBE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFFDD7B7667B083E74892C65 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9B9FDC931C55D1E800DD7F24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */,
 				9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
@@ -467,6 +548,7 @@
 		};
 		9B9FDCC81C55D1E800DD7F24 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2DA9FC69C931A454D1A422B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Lutfi Azhar (6YVGUCK9C4)";
@@ -480,6 +562,7 @@
 		};
 		9B9FDCC91C55D1E800DD7F24 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57E7D9D2EFF8C19502DB37AD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = digipay/Info.plist;

@@ -105,4 +105,10 @@
     
 }
 
+#pragma mark - iOS-Slide-Menu Methods
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
 @end
