@@ -17,4 +17,8 @@
    withSuccessBlock:(void (^)(BOOL))success
     andFailureBlock:(void (^)(NSString *))failureBlock;
 
++(void)loginUser:(User *)user
+withSuccessBlock:(void (^)(BOOL))success
+ andFailureBlock:(void (^)(NSString *))failureBlock;
+
 @end
