@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AFNetworking.h"
 #import "SlideNavigationController.h"
 #import "MenuTableViewController.h"
 
@@ -19,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+    }];
     
     MenuTableViewController *leftMenu = [[MenuTableViewController alloc] init];
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;

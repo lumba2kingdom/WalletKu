@@ -9,7 +9,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="loginController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -824,10 +824,10 @@
             </objects>
             <point key="canvasLocation" x="1358" y="2532"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Top Up Pulsa Table View Controller-->
         <scene sceneID="cKg-Qr-lJE">
             <objects>
-                <tableViewController id="JwG-bt-Hru" sceneMemberID="viewController">
+                <tableViewController id="JwG-bt-Hru" customClass="TopUpPulsaTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ndU-QG-NCc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -896,19 +896,52 @@
                                                     <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pTf-9P-7B9">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Indosat" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pTf-9P-7B9">
                                                     <rect key="frame" x="8" y="37" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhW-fn-4SV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                    <connections>
+                                                        <action selector="selectProviderBtn:" destination="JwG-bt-Hru" eventType="touchUpInside" id="nam-ln-sRQ"/>
+                                                    </connections>
+                                                </button>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62k-oW-mEy" userLabel="Picker">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                    <subviews>
+                                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KL7-7A-47e">
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                            <connections>
+                                                                <outlet property="dataSource" destination="JwG-bt-Hru" id="R0i-Jm-khh"/>
+                                                                <outlet property="delegate" destination="JwG-bt-Hru" id="LNQ-T2-Iz8"/>
+                                                            </connections>
+                                                        </pickerView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="KL7-7A-47e" secondAttribute="trailing" id="FMF-U7-5ts"/>
+                                                        <constraint firstItem="KL7-7A-47e" firstAttribute="leading" secondItem="62k-oW-mEy" secondAttribute="leading" id="ppC-2I-zrV"/>
+                                                        <constraint firstItem="KL7-7A-47e" firstAttribute="top" secondItem="62k-oW-mEy" secondAttribute="top" id="v0e-2H-8OX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="KL7-7A-47e" secondAttribute="bottom" id="y7g-lO-VzX"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="62k-oW-mEy" secondAttribute="bottom" constant="-8" id="5Ke-BK-YTU"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="62k-oW-mEy" secondAttribute="trailing" constant="-8" id="6So-y2-SfF"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="pTf-9P-7B9" secondAttribute="trailing" id="E2Z-LN-da9"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="8qW-8q-HAa" secondAttribute="leading" id="F7T-pw-ygI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hhW-fn-4SV" secondAttribute="bottom" constant="-8" id="V61-WK-GxU"/>
                                                 <constraint firstItem="pTf-9P-7B9" firstAttribute="top" secondItem="8qW-8q-HAa" secondAttribute="bottom" constant="8" id="WJz-dF-tNL"/>
                                                 <constraint firstAttribute="topMargin" secondItem="8qW-8q-HAa" secondAttribute="top" id="Wiz-QU-BK0"/>
+                                                <constraint firstItem="62k-oW-mEy" firstAttribute="leading" secondItem="K0z-VU-bBS" secondAttribute="leadingMargin" constant="-8" id="aG7-YS-528"/>
+                                                <constraint firstItem="62k-oW-mEy" firstAttribute="top" secondItem="K0z-VU-bBS" secondAttribute="topMargin" constant="-8" id="ac0-eV-96f"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hhW-fn-4SV" secondAttribute="trailing" constant="-8" id="cFk-04-VCn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="8qW-8q-HAa" secondAttribute="trailing" id="fvg-5t-hyV"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="pTf-9P-7B9" secondAttribute="leading" id="jqE-KC-Qdt"/>
+                                                <constraint firstItem="hhW-fn-4SV" firstAttribute="top" secondItem="K0z-VU-bBS" secondAttribute="topMargin" constant="-8" id="uhz-1I-2rj"/>
+                                                <constraint firstItem="hhW-fn-4SV" firstAttribute="leading" secondItem="K0z-VU-bBS" secondAttribute="leadingMargin" constant="-8" id="vmG-pD-OLP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -993,6 +1026,9 @@
                                                     <state key="normal" title="Beli">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beliBtn:" destination="JwG-bt-Hru" eventType="touchUpInside" id="USb-7z-IRb"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1009,6 +1045,13 @@
                             <outlet property="delegate" destination="JwG-bt-Hru" id="Uft-fb-B4S"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="nomerHPTF" destination="u1S-yC-njF" id="EzR-fJ-NmS"/>
+                        <outlet property="nominalTF" destination="0vl-FY-QFn" id="XTF-T5-roy"/>
+                        <outlet property="pickerView" destination="62k-oW-mEy" id="8FD-6t-PAC"/>
+                        <outlet property="selectProviderPicker" destination="KL7-7A-47e" id="zA3-Z2-USn"/>
+                        <outlet property="selectProviderTF" destination="pTf-9P-7B9" id="Tcd-hn-Gt5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haR-qa-c4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1372,7 +1415,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No Referral" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xr-aR-9Fu">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="No Referral" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xr-aR-9Fu">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1469,7 +1512,7 @@
         <!--Navigation Controller-->
         <scene sceneID="HEU-Eb-vpU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IHX-Cy-m9N" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginController" automaticallyAdjustsScrollViewInsets="NO" id="IHX-Cy-m9N" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ojY-jp-seR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

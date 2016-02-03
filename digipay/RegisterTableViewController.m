@@ -97,40 +97,15 @@
 
 - (IBAction)daftarBtn:(UIButton *)sender {
     
-    if ([self.namaTF.text  isEqual: @""] || [self.emailTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.passwordTF.text  isEqual: @""] || [self.ulangPasswordTF.text isEqual: @""])
-    {
-        
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@""
-                                      message:@"Mohon isi kolom yang kosong"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* okBtn = [UIAlertAction
-                                actionWithTitle:@"Ok"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    
-                                    
-                                }];
-        
-        [alert addAction:okBtn];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    else
-    {
-        NSString *emailid = self.emailTF.text;
-        NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-        NSPredicate *emailPredicate =[NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-        BOOL myStringMatchesRegEx=[emailPredicate evaluateWithObject:emailid];
-        
-        if (! myStringMatchesRegEx)
+    
+    if (!self.isSignUpAlreadyClicked) {
+    
+        if ([self.namaTF.text  isEqual: @""] || [self.emailTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.passwordTF.text  isEqual: @""] || [self.ulangPasswordTF.text isEqual: @""])
         {
             
             UIAlertController * alert=   [UIAlertController
                                           alertControllerWithTitle:@""
-                                          message:@"Alamat email tidak sesuai"
+                                          message:@"Mohon isi kolom yang kosong"
                                           preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* okBtn = [UIAlertAction
@@ -145,79 +120,179 @@
             [alert addAction:okBtn];
             
             [self presentViewController:alert animated:YES completion:nil];
-        }else if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
             
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@""
-                                          message:@"Password tidak sesuai"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okBtn = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                        
-                                    }];
-            
-            [alert addAction:okBtn];
-            
-            [self presentViewController:alert animated:YES completion:nil];
-        }else if (!self.pernyataanSwitch.isOn){
-            
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@""
-                                          message:@"Anda belum menyutujui pernyataan yang tertulis."
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okBtn = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                        
-                                    }];
-            
-            [alert addAction:okBtn];
-            
-            [self presentViewController:alert animated:YES completion:nil];
+            self.isSignUpAlreadyClicked = NO;
         }
         else
         {
+            NSString *emailid = self.emailTF.text;
+            NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+            NSPredicate *emailPredicate =[NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+            BOOL myStringMatchesRegEx=[emailPredicate evaluateWithObject:emailid];
             
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@"Cek Data"
-                                          message:@"Apakah yakin data sudah benar?"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okBtn = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-                                        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
-                                        [self presentViewController:vc animated:YES completion:nil];
-                                        
-                                    }];
-            
-            [alert addAction:okBtn];
-            
-            UIAlertAction* cancelBtn = [UIAlertAction
-                                    actionWithTitle:@"Batal"
-                                    style:UIAlertActionStyleCancel
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                    }];
-            
-            [alert addAction:cancelBtn];
-            
-            [self presentViewController:alert animated:YES completion:nil];
+            if (! myStringMatchesRegEx)
+            {
+                
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:@""
+                                              message:@"Alamat email tidak sesuai"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okBtn = [UIAlertAction
+                                        actionWithTitle:@"Ok"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                            
+                                            
+                                        }];
+                
+                [alert addAction:okBtn];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+                self.isSignUpAlreadyClicked = NO;
+            }else if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
+                
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:@""
+                                              message:@"Password tidak sesuai"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okBtn = [UIAlertAction
+                                        actionWithTitle:@"Ok"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                            
+                                            
+                                        }];
+                
+                [alert addAction:okBtn];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+                self.isSignUpAlreadyClicked = NO;
+            }else if (!self.pernyataanSwitch.isOn){
+                
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:@""
+                                              message:@"Anda belum menyutujui pernyataan yang tertulis."
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okBtn = [UIAlertAction
+                                        actionWithTitle:@"Ok"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                            
+                                            
+                                        }];
+                
+                [alert addAction:okBtn];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+                self.isSignUpAlreadyClicked = NO;
+            }
+            else
+            {
+                
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:@"Cek Data"
+                                              message:@"Apakah yakin data sudah benar?"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okBtn = [UIAlertAction
+                                        actionWithTitle:@"Ok"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                            self.isSignUpAlreadyClicked = YES;
+                                            
+                                            User *user = [[User alloc] init];
+                                            user.email = self.emailTF.text;
+                                            user.name = self.namaTF.text;
+                                            user.address = self.alamatTF.text;
+                                            user.phone = @"";
+                                            user.password = self.passwordTF.text;
+                                            user.password_confirmation = self.ulangPasswordTF.text;
+                                            
+                                            NSString *refId = @"";
+                                            if ([self.noReferralTF.text isEqualToString:@""]) {
+                                                refId = @"";
+                                            }else{
+                                                refId = self.noReferralTF.text;
+                                            }
+                                            
+                                            user.referral_id = refId;
+                                            
+                                            NSString *terms = @"";
+                                            if (self.pernyataanSwitch.isOn) {
+                                                terms = @"true";
+                                            }else{
+                                                terms = @"false";
+                                            }
+                                            
+                                            user.terms = terms;
+                                            
+                                            [APIClient registerUser:user withSuccessBlock:^(BOOL success) {
+                                                
+                                                if (success) {
+                                                    NSLog(@"Success");
+                                                    
+                                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                                                    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+                                                    [self presentViewController:vc animated:YES completion:nil];
+                                                    
+                                                }else {
+                                                    
+                                                }
+                                                
+                                                self.isSignUpAlreadyClicked = NO;
+                                                
+                                            } andFailureBlock:^(NSString *message) {
+                                                UIAlertController * alert =   [UIAlertController
+                                                                              alertControllerWithTitle:@"Error"
+                                                                              message:message
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+                                                
+                                                UIAlertAction* okBtn = [UIAlertAction
+                                                                        actionWithTitle:@"Ok"
+                                                                        style:UIAlertActionStyleDefault
+                                                                        handler:^(UIAlertAction * action)
+                                                                        {
+                                                                        }];
+                                                
+                                                [alert addAction:okBtn];
+                                                
+                                                [self presentViewController:alert animated:YES completion:nil];
+                                                
+                                                self.isSignUpAlreadyClicked = NO;
+                                            }];
+                                            
+                                            
+                                        }];
+                
+                [alert addAction:okBtn];
+                
+                UIAlertAction* cancelBtn = [UIAlertAction
+                                            actionWithTitle:@"Batal"
+                                            style:UIAlertActionStyleCancel
+                                            handler:^(UIAlertAction * action)
+                                            {
+                                                self.isSignUpAlreadyClicked = NO;
+                                                
+                                            }];
+                
+                [alert addAction:cancelBtn];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            }
         }
+        
     }
+    
+    
 }
 @end

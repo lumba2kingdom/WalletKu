@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D354B39EB569F07D5ACA3B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D47D1B81F15147EB132C5E /* libPods.a */; };
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
+		9B5572461C61CF2600D4D938 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572451C61CF2600D4D938 /* APIClient.m */; };
+		9B55724A1C61D55B00D4D938 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572491C61D55B00D4D938 /* User.m */; };
 		9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9B1C55D1E800DD7F24 /* main.m */; };
 		9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */; };
 		9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCA11C55D1E800DD7F24 /* ViewController.m */; };
@@ -24,6 +26,7 @@
 		9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */; };
 		9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64F1C577E78007587E0 /* TopUpViewController.m */; };
 		9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */; };
+		9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		79D47D1B81F15147EB132C5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B24FC381C59F7160095917D /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
 		9B24FC391C59F7160095917D /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
+		9B5572431C61CCBF00D4D938 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		9B5572441C61CF2600D4D938 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		9B5572451C61CF2600D4D938 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		9B5572481C61D55B00D4D938 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9B5572491C61D55B00D4D938 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		9B9FDC971C55D1E800DD7F24 /* digipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9FDC9B1C55D1E800DD7F24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B9FDC9D1C55D1E800DD7F24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -77,6 +85,8 @@
 		9BB1B64F1C577E78007587E0 /* TopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpViewController.m; sourceTree = "<group>"; };
 		9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		9BE6B6A01C5B0CC000D783B9 /* TopUpPulsaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUpPulsaTableViewController.h; sourceTree = "<group>"; };
+		9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpPulsaTableViewController.m; sourceTree = "<group>"; };
 		D2DA9FC69C931A454D1A422B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +133,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9B5572421C61CC9C00D4D938 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9B5572431C61CCBF00D4D938 /* Constants.h */,
+				9B5572441C61CF2600D4D938 /* APIClient.h */,
+				9B5572451C61CF2600D4D938 /* APIClient.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		9B5572471C61D54500D4D938 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9B5572481C61D55B00D4D938 /* User.h */,
+				9B5572491C61D55B00D4D938 /* User.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		9B9FDC8E1C55D1E800DD7F24 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +179,8 @@
 			children = (
 				9B9FDCD71C5621C000DD7F24 /* Cells */,
 				9B9FDCD01C55D41D00DD7F24 /* Controllers */,
+				9B5572421C61CC9C00D4D938 /* Utils */,
+				9B5572471C61D54500D4D938 /* Models */,
 				9B9FDC9D1C55D1E800DD7F24 /* AppDelegate.h */,
 				9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */,
 				9B9FDCA01C55D1E800DD7F24 /* ViewController.h */,
@@ -205,6 +236,8 @@
 				9BB1B64F1C577E78007587E0 /* TopUpViewController.m */,
 				9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */,
 				9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */,
+				9BE6B6A01C5B0CC000D783B9 /* TopUpPulsaTableViewController.h */,
+				9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -401,13 +434,16 @@
 			files = (
 				9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */,
 				9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */,
+				9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
 				9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */,
 				9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */,
+				9B55724A1C61D55B00D4D938 /* User.m in Sources */,
 				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
+				9B5572461C61CF2600D4D938 /* APIClient.m in Sources */,
 				9B9FDCA81C55D1E800DD7F24 /* digipay.xcdatamodeld in Sources */,
 				9B9FDCD31C55D43700DD7F24 /* LoginViewController.m in Sources */,
 			);

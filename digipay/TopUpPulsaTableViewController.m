@@ -12,10 +12,15 @@
 
 @end
 
-@implementation TopUpPulsaTableViewController
+@implementation TopUpPulsaTableViewController {
+    NSArray *provider;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.pickerView.hidden = YES;
+    provider = [[NSArray alloc] initWithObjects:@"Indosat", @"Three", @"Telkomsel", @"XL", @"Smartfren", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -29,8 +34,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Picker View data source
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    
+    return 1;
+    
+}
 
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    
+    return provider.count;
+    
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    return provider[row];
+    
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    self.pickerView.hidden = YES;
+    self.selectProviderTF.text = provider[row];
+    
+}
+#pragma mark - Table view data source
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
     return 0;
@@ -41,7 +71,6 @@
     return 0;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
@@ -95,4 +124,47 @@
 }
 */
 
+- (IBAction)selectProviderBtn:(UIButton *)sender {
+    self.pickerView.hidden = NO;
+}
+
+- (IBAction)beliBtn:(UIButton *)sender {
+    if ([self.nominalTF.text  isEqual: @""])
+    {
+        
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@""
+                                      message:@"Kolom nominal kosong"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okBtn = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                }];
+        
+        [alert addAction:okBtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else if ([self.nomerHPTF.text  isEqual: @""])
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@""
+                                      message:@"Kolom No. HP kosong"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okBtn = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action)
+                                {
+                                }];
+        
+        [alert addAction:okBtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
 @end

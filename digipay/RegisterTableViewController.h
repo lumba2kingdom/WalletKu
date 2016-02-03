@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIClient.h"
 
 @interface RegisterTableViewController : UITableViewController
 
@@ -17,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *ulangPasswordTF;
 @property (weak, nonatomic) IBOutlet UITextField *noReferralTF;
 @property (weak, nonatomic) IBOutlet UISwitch *pernyataanSwitch;
+
+@property BOOL isSignUpAlreadyClicked;
+
 - (IBAction)daftarBtn:(UIButton *)sender;
 
 @end

@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopUpPulsaTableViewController : UITableViewController
+@interface TopUpPulsaTableViewController : UITableViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITextField *selectProviderTF;
+@property (weak, nonatomic) IBOutlet UITextField *nominalTF;
+@property (weak, nonatomic) IBOutlet UITextField *nomerHPTF;
+@property (weak, nonatomic) IBOutlet UIView *pickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *selectProviderPicker;
+
+- (IBAction)selectProviderBtn:(UIButton *)sender;
+- (IBAction)beliBtn:(UIButton *)sender;
 @end
