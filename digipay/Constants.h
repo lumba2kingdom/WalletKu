@@ -12,7 +12,7 @@
 #define kIsProduction       NO
 //#define kIsProduction       YES
 
-#define kBaseURL                        kIsProduction ? @"http://digipay.com" : @"http://digipay.herokuapp.com"
+#define kBaseURL                        kIsProduction ? @"https://digipay.com" : @"https://digipay.herokuapp.com"
 #define kPostAuthentication             @"/api/v1/sessions"
 #define kPostAuthorization              @"/api/v1/resource"
 #define kPostUsers                      @"/api/v1/users"

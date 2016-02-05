@@ -214,7 +214,6 @@
                                             user.email = self.emailTF.text;
                                             user.name = self.namaTF.text;
                                             user.address = self.alamatTF.text;
-                                            user.phone = @"";
                                             user.password = self.passwordTF.text;
                                             user.password_confirmation = self.ulangPasswordTF.text;
                                             

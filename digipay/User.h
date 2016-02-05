@@ -13,7 +13,6 @@
 @property (nonatomic, strong) NSString* email;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* address;
-@property (nonatomic, strong) NSString* phone;
 @property (nonatomic, strong) NSString* password;
 @property (nonatomic, strong) NSString* password_confirmation;
 @property (nonatomic, strong) NSString* referral_id;

@@ -22,7 +22,6 @@
                                 @"email":user.email,
                                 @"name":user.name,
                                 @"address":user.address,
-                                @"phone":user.phone,
                                 @"email":user.email,
                                 @"password":user.password,
                                 @"password_confirmation":user.password_confirmation,
