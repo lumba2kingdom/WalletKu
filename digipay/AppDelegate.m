@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AFNetworking.h"
+#import "AFNetworkActivityIndicatorManager.h"
 #import "SlideNavigationController.h"
 #import "MenuTableViewController.h"
 
@@ -20,6 +21,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    /*** AFNetwork Loading Indicator ***/
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));

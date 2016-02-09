@@ -74,4 +74,32 @@ withSuccessBlock:(void (^)(BOOL))success
     
 }
 
++(void)forgotPassword:(NSString *)email
+     withSuccessBlock:(void (^)(BOOL))success
+      andFailureBlock:(void (^)(NSString *))failureBlock {
+    
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    NSDictionary* emailDict = @{
+                               @"email":email
+                               };
+    
+    NSDictionary* parameters = @{@"password_reset": emailDict };
+    
+    NSString* url = [kBaseURL stringByAppendingPathComponent:kPostForgotPassword];
+    
+    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Success with response: %@", responseObject);
+        success(YES);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Fail with error: %@", error.localizedDescription);
+        failureBlock(error.localizedDescription);
+        
+    }];
+    
+}
+
 @end

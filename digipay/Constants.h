@@ -16,5 +16,6 @@
 #define kPostAuthentication             @"/api/v1/sessions"
 #define kPostAuthorization              @"/api/v1/resource"
 #define kPostUsers                      @"/api/v1/users"
+#define kPostForgotPassword             @"/api/v1/password_resets"
 
 #endif /* Constants_h */

@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "APIClient.h"
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -43,33 +45,69 @@
 
 - (IBAction)loginBtn:(UIButton *)sender {
     
-    if (![self.usernameTF.text isEqualToString:@"digipay"] || ![self.passwordTF.text isEqualToString:@"123456"]) {
-        
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@""
-                                      message:@"Username/Password salah"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* okBtn = [UIAlertAction
-                                actionWithTitle:@"Ok"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    
-                                    
-                                }];
-        
-        [alert addAction:okBtn];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-        
-    }else{
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
-        [self presentViewController:vc animated:YES completion:nil];
-
+    if (!self.isLoginAlreadyClicked) {
+        if ([self.usernameTF.text isEqualToString:@""] || [self.passwordTF.text isEqualToString:@""]) {
+            
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@""
+                                          message:@"Username/Password kosong"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okBtn = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        
+                                        
+                                    }];
+            
+            [alert addAction:okBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }else{
+            
+            User *user = [[User alloc] init];
+            user.email = self.usernameTF.text;
+            user.password = self.passwordTF.text;
+            
+            [APIClient loginUser:user withSuccessBlock:^(BOOL success) {
+                
+                if (success) {
+                    
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+                    [self presentViewController:vc animated:YES completion:nil];
+                    
+                }else {
+                    
+                }
+                
+                self.isLoginAlreadyClicked = NO;
+                
+            } andFailureBlock:^(NSString *message) {
+                UIAlertController * alert =   [UIAlertController
+                                               alertControllerWithTitle:@"Error"
+                                               message:message
+                                               preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okBtn = [UIAlertAction
+                                        actionWithTitle:@"Ok"
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                        }];
+                
+                [alert addAction:okBtn];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+                self.isLoginAlreadyClicked = NO;
+            }];
+        }
     }
+    
 }
 
 - (IBAction)forgotPasswordBtn:(UIButton *)sender {
@@ -89,7 +127,74 @@
                                                style:UIAlertActionStyleDefault
                                              handler:^(UIAlertAction *action) {
                                                  
-                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                 if ([self.emailAddressTextField.text isEqualToString:@""]) {
+                                                     UIAlertController * alert=   [UIAlertController
+                                                                                   alertControllerWithTitle:@""
+                                                                                   message:@"Email kosong"
+                                                                                   preferredStyle:UIAlertControllerStyleAlert];
+                                                     
+                                                     UIAlertAction* okBtn = [UIAlertAction
+                                                                             actionWithTitle:@"Ok"
+                                                                             style:UIAlertActionStyleDefault
+                                                                             handler:^(UIAlertAction * action)
+                                                                             {
+                                                                                 
+                                                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                 
+                                                                             }];
+                                                     
+                                                     [alert addAction:okBtn];
+                                                     
+                                                     [self presentViewController:alert animated:YES completion:nil];
+                                                 }else{
+                                                     
+                                                     [APIClient forgotPassword:self.emailAddressTextField.text withSuccessBlock:^(BOOL success) {
+                                                         if (success) {
+                                                             
+                                                             UIAlertController * alert=   [UIAlertController
+                                                                                           alertControllerWithTitle:@""
+                                                                                           message:@"Link berhasil dikirim ke email"
+                                                                                           preferredStyle:UIAlertControllerStyleAlert];
+                                                             
+                                                             UIAlertAction* okBtn = [UIAlertAction
+                                                                                     actionWithTitle:@"Ok"
+                                                                                     style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * action)
+                                                                                     {
+                                                                                         
+                                                                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                         
+                                                                                     }];
+                                                             
+                                                             [alert addAction:okBtn];
+                                                             
+                                                             [self presentViewController:alert animated:YES completion:nil];
+                                                             
+                                                         }
+                                                         
+                                                     } andFailureBlock:^(NSString *message) {
+                                                         
+                                                         UIAlertController * alert =   [UIAlertController
+                                                                                        alertControllerWithTitle:@"Error"
+                                                                                        message:message
+                                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                                                         
+                                                         UIAlertAction* okBtn = [UIAlertAction
+                                                                                 actionWithTitle:@"Ok"
+                                                                                 style:UIAlertActionStyleDefault
+                                                                                 handler:^(UIAlertAction * action)
+                                                                                 {
+                                                                                 }];
+                                                         
+                                                         [alert addAction:okBtn];
+                                                         
+                                                         [self presentViewController:alert animated:YES completion:nil];
+                                                     }];
+                                                     
+                                                     [alert dismissViewControllerAnimated:YES completion:nil];
+                                                     
+                                                 }
+                                                 
                                              
                                              }]];
     

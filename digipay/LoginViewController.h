@@ -18,4 +18,7 @@
 - (IBAction)forgotPasswordBtn:(UIButton *)sender;
 @property (nonatomic, weak) UITextField* emailAddressTextField;
 
+
+@property BOOL isLoginAlreadyClicked;
+
 @end

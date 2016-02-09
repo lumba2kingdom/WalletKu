@@ -21,4 +21,8 @@
 withSuccessBlock:(void (^)(BOOL))success
  andFailureBlock:(void (^)(NSString *))failureBlock;
 
++(void)forgotPassword:(NSString *)email
+     withSuccessBlock:(void (^)(BOOL))success
+      andFailureBlock:(void (^)(NSString *))failureBlock;
+
 @end
