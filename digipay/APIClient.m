@@ -63,7 +63,58 @@
         }
         
     }];
+}
 
++(void)updateUser:(User *)user
+   withSuccessBlock:(void (^)(BOOL))success
+    andFailureBlock:(void (^)(NSString *))failureBlock {
+    
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    NSDictionary* userDict = @{
+                               @"name":user.name,
+                               @"no_ktp":user.noKTP,
+                               @"phone":user.noHP,
+                               @"address":user.address
+                               };
+    
+    NSDictionary* parameters = @{@"user": userDict};
+    
+    NSString* url = [NSString stringWithFormat:@"%@%@/%@", kBaseURL, kPostUsers, user.userId];
+    NSLog(@"UPDATE URL: %@", url);
+    
+    [manager PUT:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Success with response: %@", responseObject);
+        success(YES);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        NSString* ErrorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+        
+        NSError *jsonError;
+        
+        NSData *objectData = [ErrorResponse dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *jsonFailObject = [NSJSONSerialization JSONObjectWithData:objectData
+                                                                       options:NSJSONReadingMutableContainers
+                                                                         error:&jsonError];
+        NSString *messageError;
+        if ([jsonFailObject objectForKey:@"email"]) {
+            messageError = [NSString stringWithFormat:@"%@ %@",
+                            [[[jsonFailObject objectForKey:@"email"] firstObject] valueForKey:@"attribute"],
+                            [[[jsonFailObject objectForKey:@"email"] firstObject] valueForKey:@"message"]] ;
+        }
+        
+        NSLog(@"Fail with error: %@", jsonFailObject);
+        
+        if (![messageError isEqualToString:@""]) {
+            failureBlock(messageError);
+        }else{
+            failureBlock(error.localizedDescription);
+        }
+        
+    }];
 }
 
 +(void)loginUser:(User *)user

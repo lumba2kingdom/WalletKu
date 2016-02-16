@@ -9,23 +9,26 @@
 #import "EditProfileTableViewController.h"
 #import "User.h"
 #import "Utils.h"
+#import "APIClient.h"
 
 @interface EditProfileTableViewController ()
 
 @end
 
-@implementation EditProfileTableViewController
+@implementation EditProfileTableViewController{
+    User *currentUser;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     if ([Utils getUserUserDefault]) {
-        User *user = [Utils getUserUserDefault];
+        currentUser = [Utils getUserUserDefault];
         
-        NSString *nama = user.name;
-        NSString *noKTP = user.noKTP;
-        NSString *alamat = user.address;
-        NSString *nomerHP = user.noHP;
+        NSString *nama = currentUser.name;
+        NSString *noKTP = currentUser.noKTP;
+        NSString *alamat = currentUser.address;
+        NSString *nomerHP = currentUser.noHP;
         
         if (nama) {
             self.namaTF.text = nama;
@@ -193,72 +196,118 @@
 }
 
 - (IBAction)saveBtn:(UIButton *)sender {
-    if ([self.namaTF.text  isEqual: @""] || [self.noKTPTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.nomerHPTF.text  isEqual: @""])
-    {
+    
+    if (!self.isSaveAlreadyClicked) {
         
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@""
-                                      message:@"Mohon isi kolom yang kosong"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* okBtn = [UIAlertAction
-                                actionWithTitle:@"Ok"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    
-                                    
-                                }];
-        
-        [alert addAction:okBtn];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    else
-    {
-        UIAlertController * alert=   [UIAlertController
-                                      alertControllerWithTitle:@"Cek Data"
-                                      message:@"Apakah yakin data sudah benar?"
-                                      preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction* okBtn = [UIAlertAction
-                                actionWithTitle:@"Ok"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                {
-                                    
-                                    UIAlertController * alert=   [UIAlertController
-                                                                  alertControllerWithTitle:@"Sukses"
-                                                                  message:@"Data tersimpan"
-                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                                    
-                                    UIAlertAction* okBtn = [UIAlertAction
-                                                            actionWithTitle:@"Ok"
-                                                            style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction * action)
-                                                            {
-                                                            }];
-                                    
-                                    [alert addAction:okBtn]; 
-                                    
-                                    [self presentViewController:alert animated:YES completion:nil];
-                                    
-                                }];
-        
-        [alert addAction:okBtn];
-        
-        UIAlertAction* cancelBtn = [UIAlertAction
-                                    actionWithTitle:@"Batal"
-                                    style:UIAlertActionStyleCancel
+        if ([self.namaTF.text  isEqual: @""] || [self.noKTPTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.nomerHPTF.text  isEqual: @""])
+        {
+            
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@""
+                                          message:@"Mohon isi kolom yang kosong"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okBtn = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action)
                                     {
                                         
+                                        
                                     }];
-        
-        [alert addAction:cancelBtn];
-        
-        [self presentViewController:alert animated:YES completion:nil];
+            
+            [alert addAction:okBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else
+        {
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:@"Cek Data"
+                                          message:@"Apakah yakin data sudah benar?"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okBtn = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        
+                                        if (currentUser.userId) {
+                                            
+                                            self.isSaveAlreadyClicked = YES;
+                                            
+                                            currentUser.address = self.alamatTF.text;
+                                            currentUser.name = self.namaTF.text;
+                                            currentUser.noKTP = self.noKTPTF.text;
+                                            currentUser.noHP = self.nomerHPTF.text;
+                                            
+                                            [APIClient updateUser:currentUser withSuccessBlock:^(BOOL success) {
+                                                if (success) {
+                                                    NSLog(@"Success");
+                                                    
+                                                    
+                                                    UIAlertController * alert=   [UIAlertController
+                                                                                  alertControllerWithTitle:@"Sukses"
+                                                                                  message:@"Data tersimpan"
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                                                    
+                                                    UIAlertAction* okBtn = [UIAlertAction
+                                                                            actionWithTitle:@"Ok"
+                                                                            style:UIAlertActionStyleDefault
+                                                                            handler:^(UIAlertAction * action)
+                                                                            {
+                                                                            }];
+                                                    
+                                                    [alert addAction:okBtn];
+                                                    
+                                                    [self presentViewController:alert animated:YES completion:nil];
+                                                    
+                                                }else {
+                                                    
+                                                }
+                                                
+                                                self.isSaveAlreadyClicked = NO;
+                                            } andFailureBlock:^(NSString *message) {
+                                                UIAlertController * alert =   [UIAlertController
+                                                                               alertControllerWithTitle:@"Error"
+                                                                               message:message
+                                                                               preferredStyle:UIAlertControllerStyleAlert];
+                                                
+                                                UIAlertAction* okBtn = [UIAlertAction
+                                                                        actionWithTitle:@"Ok"
+                                                                        style:UIAlertActionStyleDefault
+                                                                        handler:^(UIAlertAction * action)
+                                                                        {
+                                                                        }];
+                                                
+                                                [alert addAction:okBtn];
+                                                
+                                                [self presentViewController:alert animated:YES completion:nil];
+                                                
+                                                self.isSaveAlreadyClicked = NO;
+                                            }];
+                                        }
+                                        
+                                        
+                                    }];
+            
+            [alert addAction:okBtn];
+            
+            UIAlertAction* cancelBtn = [UIAlertAction
+                                        actionWithTitle:@"Batal"
+                                        style:UIAlertActionStyleCancel
+                                        handler:^(UIAlertAction * action)
+                                        {
+                                            
+                                        }];
+            
+            [alert addAction:cancelBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
     }
+    
 }
 
 #pragma mark - UIImagePicker Delegate

@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeProfileBtn;
 @property (weak, nonatomic) IBOutlet UITextField *alamatTF;
 @property (weak, nonatomic) IBOutlet UITextField *nomerHPTF;
+
+@property BOOL isSaveAlreadyClicked;
+
 - (IBAction)changeProfileBtnAction:(UIButton *)sender;
 - (IBAction)saveBtn:(UIButton *)sender;
 @end
