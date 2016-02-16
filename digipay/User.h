@@ -19,5 +19,7 @@
 @property (nonatomic, strong) NSString* password_confirmation;
 @property (nonatomic, strong) NSString* referral_id;
 @property (nonatomic, strong) NSString* terms;
+@property (nonatomic, strong) NSString* noKTP;
+@property (nonatomic, strong) NSString* noHP;
 
 @end

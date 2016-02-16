@@ -18,7 +18,8 @@
                                @"email": user.email,
                                @"id": user.userId,
                                @"name": user.name,
-                               @"token": user.userToken
+                               @"token": user.userToken,
+                               @"phone": user.noHP
                                };
     [[NSUserDefaults standardUserDefaults] setObject:userDict forKey:kUserDefaultsUserKey];
     
@@ -33,6 +34,7 @@
     user.userId = [users valueForKey:@"id"];
     user.name = [users valueForKey:@"name"];
     user.userToken = [users valueForKey:@"token"];
+    user.noHP = [users valueForKey:@"phone"];
     
     return user;
 }

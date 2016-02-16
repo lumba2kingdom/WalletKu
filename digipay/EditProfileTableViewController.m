@@ -8,6 +8,7 @@
 
 #import "EditProfileTableViewController.h"
 #import "User.h"
+#import "Utils.h"
 
 @interface EditProfileTableViewController ()
 
@@ -17,6 +18,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([Utils getUserUserDefault]) {
+        User *user = [Utils getUserUserDefault];
+        
+        NSString *nama = user.name;
+        NSString *noKTP = user.noKTP;
+        NSString *alamat = user.address;
+        NSString *nomerHP = user.noHP;
+        
+        if (nama) {
+            self.namaTF.text = nama;
+        }
+        if (noKTP) {
+            self.noKTPTF.text = noKTP;
+        }
+        if (alamat) {
+            self.alamatTF.text = alamat;
+        }
+        if (nomerHP) {
+            self.nomerHPTF.text = nomerHP;
+        }
+    }
     
     
     

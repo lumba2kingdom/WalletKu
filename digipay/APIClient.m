@@ -94,6 +94,7 @@ withSuccessBlock:(void (^)(BOOL))success
         newUser.userId = [userDict valueForKey:@"id"];
         newUser.name = [userDict valueForKey:@"name"];
         newUser.userToken = [userDict valueForKey:@"token"];
+        newUser.noHP = [userDict valueForKey:@"phone"];
         
         [Utils addUserToUserDefault:newUser];
         
