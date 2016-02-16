@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "APIClient.h"
 #import "User.h"
+#import "Utils.h"
 
 @interface LoginViewController ()
 
@@ -24,6 +25,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([Utils getUserUserDefault].userToken) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+    
 }
 
 /*

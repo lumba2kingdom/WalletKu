@@ -7,6 +7,7 @@
 //
 
 #import "MenuTableViewController.h"
+#import "Constants.h"
 
 @interface MenuTableViewController ()
 
@@ -32,6 +33,7 @@
 #pragma mark - Table view data source
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //LOGOUT ACTION
     if (indexPath.row == 6) {
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@""
@@ -43,6 +45,8 @@
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action)
                                 {
+                                    //remove session user defaults
+                                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserKey];
                                     
                                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];

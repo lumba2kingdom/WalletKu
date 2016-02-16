@@ -11,6 +11,7 @@
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
 		9B5572461C61CF2600D4D938 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572451C61CF2600D4D938 /* APIClient.m */; };
 		9B55724A1C61D55B00D4D938 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572491C61D55B00D4D938 /* User.m */; };
+		9B88C0EB1C720F1F00216A22 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B88C0EA1C720F1F00216A22 /* Utils.m */; };
 		9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9B1C55D1E800DD7F24 /* main.m */; };
 		9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */; };
 		9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCA11C55D1E800DD7F24 /* ViewController.m */; };
@@ -56,6 +57,8 @@
 		9B5572451C61CF2600D4D938 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		9B5572481C61D55B00D4D938 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9B5572491C61D55B00D4D938 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9B88C0E91C720F1F00216A22 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		9B88C0EA1C720F1F00216A22 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		9B9FDC971C55D1E800DD7F24 /* digipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9FDC9B1C55D1E800DD7F24 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B9FDC9D1C55D1E800DD7F24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				9B5572431C61CCBF00D4D938 /* Constants.h */,
 				9B5572441C61CF2600D4D938 /* APIClient.h */,
 				9B5572451C61CF2600D4D938 /* APIClient.m */,
+				9B88C0E91C720F1F00216A22 /* Utils.h */,
+				9B88C0EA1C720F1F00216A22 /* Utils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */,
 				9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */,
 				9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */,
+				9B88C0EB1C720F1F00216A22 /* Utils.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
