@@ -39,4 +39,14 @@
     return user;
 }
 
++(NSString *)getUserToken{
+    NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
+    return [users valueForKey:@"token"];
+}
+
++(NSString *)getUserEmail{
+    NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
+    return [users valueForKey:@"email"];
+}
+
 @end

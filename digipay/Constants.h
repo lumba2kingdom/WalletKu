@@ -14,11 +14,13 @@
 
 //#define kBaseTopUpPulsaURL              @"https://203.77.251.46:6789/"
 
-#define kBaseURL                        kIsProduction ? @"https://digipay.com" : @"https://digipay.herokuapp.com"
-#define kPostAuthentication             @"/api/v1/sessions"
-#define kPostAuthorization              @"/api/v1/resource"
-#define kPostUsers                      @"/api/v1/users"
-#define kPostForgotPassword             @"/api/v1/password_resets"
+#define kBaseURL                        kIsProduction ? @"https://digipay.com/api/v1/" : @"http://103.206.247.116/api/v1/"
+#define kPostAuthentication             @"sessions"
+#define kPostAuthorization              @"resource"
+#define kPostUsers                      @"users"
+#define kPostForgotPassword             @"password_resets"
+#define kPostTopUpPulsa                 @"top_ups"
+#define kGetProvider                    @"providers"
 
 #define kUserDefaultsUserKey            @"userDefaultsUser"
 

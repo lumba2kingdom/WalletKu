@@ -13,5 +13,7 @@
 
 +(void)addUserToUserDefault:(User *)user;
 +(User *)getUserUserDefault;
-    
++(NSString *)getUserToken;
++(NSString *)getUserEmail;
+
 @end
