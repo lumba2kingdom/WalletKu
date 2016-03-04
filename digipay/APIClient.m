@@ -51,12 +51,12 @@ withSuccessBlock:(void (^)(BOOL))success
         
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         
-        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        NSString *errorMessage = [NSString stringWithFormat:@"%@", [self getErrorMessageObjectWithString:errorResponse]];
         
-        if (![errorMessage isEqualToString:@""]) {
-            failureBlock(errorMessage);
-        }else{
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
         }
         
     }];
@@ -95,7 +95,6 @@ withSuccessBlock:(void (^)(BOOL))success
         newUser.email = [userDict valueForKey:@"email"];
         newUser.userId = [userDict valueForKey:@"id"];
         newUser.name = [userDict valueForKey:@"name"];
-        newUser.userToken = [userDict valueForKey:@"token"];
         newUser.noHP = [userDict valueForKey:@"phone"];
         
         [Utils addUserToUserDefault:newUser];
@@ -105,12 +104,12 @@ withSuccessBlock:(void (^)(BOOL))success
 
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         
-        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        NSString *errorMessage = [NSString stringWithFormat:@"%@", [self getErrorMessageObjectWithString:errorResponse]];
         
-        if (![errorMessage isEqualToString:@""]) {
-            failureBlock(errorMessage);
-        }else{
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
         }
         
     }];
@@ -123,6 +122,10 @@ withSuccessBlock:(void (^)(BOOL))success
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+    [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    
     
     NSDictionary* userDict = @{
                                @"name":user.name,
@@ -137,6 +140,7 @@ withSuccessBlock:(void (^)(BOOL))success
     NSLog(@"UPDATE URL: %@", url);
     
     [manager PUT:url parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         NSLog(@"Success with response: %@", responseObject);
         success(YES);
         
@@ -144,12 +148,12 @@ withSuccessBlock:(void (^)(BOOL))success
         
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         
-        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        NSString *errorMessage = [NSString stringWithFormat:@"%@", [self getErrorMessageObjectWithString:errorResponse]];
         
-        if (![errorMessage isEqualToString:@""]) {
-            failureBlock(errorMessage);
-        }else{
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
         }
         
     }];
@@ -179,12 +183,12 @@ withSuccessBlock:(void (^)(BOOL))success
         
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         
-        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        NSString *errorMessage = [NSString stringWithFormat:@"%@", [self getErrorMessageObjectWithString:errorResponse]];
         
-        if (![errorMessage isEqualToString:@""]) {
-            failureBlock(errorMessage);
-        }else{
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
         }
         
     }];
@@ -199,17 +203,18 @@ withSuccessBlock:(void (^)(BOOL))success
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserToken]];
+    NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
     [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
     
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
     NSDictionary* parameters = @{
                                 @"top_up":@{
                                             @"provider_id":@(providerId),
                                             @"nominal_id":@(nominalId),
-                                            @"phone_number":phoneNumber
+                                            @"phone_number":phoneNumber,
+                                            @"pin":PINforTopUpPulsa
                                         }
                                 };
     
@@ -221,14 +226,19 @@ withSuccessBlock:(void (^)(BOOL))success
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        
+//        NSString* log = [NSString stringWithFormat:@"REQUEST:\n%@\n\nRESPONSE:\n%@\n",
+//                         [[NSString alloc] initWithData:operation.request.HTTPBody encoding:NSUTF8StringEncoding],
+//                         [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding]];
+        
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         
-        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
-        
-        if (![errorMessage isEqualToString:@""]) {
-            failureBlock(errorMessage);
-        }else{
+        NSString *errorMessage = [NSString stringWithFormat:@"%@", [self getErrorMessageObjectWithString:errorResponse]];
+
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
         }
         
     }];
@@ -236,17 +246,17 @@ withSuccessBlock:(void (^)(BOOL))success
 }
 
 +(void)getProvidersAndNominalsWithSuccessBlock:(void (^)(id responseObject))success
-                                         andFailureBlock:(void (^)(NSString *))failureBlock {
+                               andFailureBlock:(void (^)(NSString *))failureBlock {
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserToken]];
-    [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
-    
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    NSString* url = [kBaseURL stringByAppendingPathComponent:kPostTopUpPulsa];
+    NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+    [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    
+    
+    NSString* url = [kBaseURL stringByAppendingPathComponent:kGetProvider];
     
     [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -255,14 +265,16 @@ withSuccessBlock:(void (^)(BOOL))success
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        NSLog(@"fail: %@", error.localizedDescription);
+        
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         
-        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        NSString *errorMessage = [NSString stringWithFormat:@"%@", [self getErrorMessageObjectWithString:errorResponse]];
         
-        if (![errorMessage isEqualToString:@""]) {
-            failureBlock(errorMessage);
-        }else{
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
         }
         
     }];
@@ -277,10 +289,11 @@ withSuccessBlock:(void (^)(BOOL))success
     NSDictionary *jsonFailObject = [NSJSONSerialization JSONObjectWithData:objectData
                                                                    options:NSJSONReadingMutableContainers
                                                                      error:&jsonError];
+    
     NSString *messageError;
+    
     if ([jsonFailObject objectForKey:@"error"]) {
-        messageError = [NSString stringWithFormat:@"%@",
-                        [[[jsonFailObject objectForKey:@"error"] firstObject] firstObject]];
+        messageError = [NSString stringWithFormat:@"%@", [jsonFailObject objectForKey:@"error"]];
     }
     
     NSLog(@"Fail with error: %@", jsonFailObject);

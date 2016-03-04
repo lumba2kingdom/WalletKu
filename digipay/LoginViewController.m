@@ -92,8 +92,6 @@
                     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
                     [self presentViewController:vc animated:YES completion:nil];
                     
-                }else {
-                    
                 }
                 
                 self.isLoginAlreadyClicked = NO;

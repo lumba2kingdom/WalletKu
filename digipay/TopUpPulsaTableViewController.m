@@ -7,20 +7,25 @@
 //
 
 #import "TopUpPulsaTableViewController.h"
+#import "TopUpPulsaListTableViewController.h"
+#import "APIClient.h"
 
 @interface TopUpPulsaTableViewController ()
 
 @end
 
 @implementation TopUpPulsaTableViewController {
-    NSArray *provider;
+    NSMutableArray *providerSelected, *nominalSelected;
+    int providerId, nominalId;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pickerView.hidden = YES;
-    provider = [[NSArray alloc] initWithObjects:@"Indosat", @"Three", @"Telkomsel", @"XL", @"Smartfren", nil];
+    [self getProviderAPI];
+    
+//    provider = [[NSArray alloc] initWithObjects:@"Indosat", @"Three", @"Telkomsel", @"XL", @"Smartfren", nil];
+//    nominal = [[NSArray alloc] initWithObjects:@"5000", @"10000", @"25000", @"50000", @"100000", nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -29,103 +34,88 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    if (providerSelected) {
+        self.selectProviderTF.text = [providerSelected valueForKey:@"name"];
+        providerId = [[providerSelected valueForKey:@"id"] intValue];
+    }else{
+        self.selectProviderTF.text = @"";
+        providerId = 0;
+    }
+    
+    if (nominalSelected) {
+        self.nominalTF.text = [NSString stringWithFormat:@"%@", [nominalSelected valueForKey:@"amount"]];
+        nominalId = [[nominalSelected valueForKey:@"id"] intValue];
+    }else{
+        self.nominalTF.text = @"";
+        nominalId = 0;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Picker View data source
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
-    
-    return 1;
-    
-}
-
-- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    return provider.count;
-    
-}
-
-- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-    return provider[row];
-    
-}
-
-- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-    self.pickerView.hidden = YES;
-    self.selectProviderTF.text = provider[row];
-    
-}
-#pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([[segue identifier] isEqualToString:@"topUpList"]) {
+        
+        TopUpPulsaListTableViewController *topUpList = [segue destinationViewController];
+        if ([sender isEqualToString:@"provider"]) {
+            
+            topUpList.providerList = self.providerList;
+            topUpList.isForNominal = NO;
+            
+        }else if ([sender isEqualToString:@"nominal"]) {
+            
+            topUpList.providerList = providerSelected;
+            topUpList.isForNominal = YES;
+            
+        }
+        
+        topUpList.delegate = self;
+    }
 }
-*/
 
+#pragma mark - Action Methods
 - (IBAction)selectProviderBtn:(UIButton *)sender {
-    self.pickerView.hidden = NO;
+    if (self.providerList) {
+        [self performSegueWithIdentifier:@"topUpList" sender:@"provider"];
+    }
+}
+
+- (IBAction)selectNominalBtn:(UIButton *)sender {
+    if (providerSelected) {
+        [self performSegueWithIdentifier:@"topUpList" sender:@"nominal"];
+    }else{
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@""
+                                      message:@"Kolom provider kosong"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okBtn = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:nil];
+        
+        [alert addAction:okBtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (void)setProvider:(NSMutableArray *)provider {
+    providerSelected = provider;
+}
+
+- (void)setNominal:(NSMutableArray *)nominal {
+    nominalSelected = nominal;
 }
 
 - (IBAction)beliBtn:(UIButton *)sender {
@@ -165,6 +155,74 @@
         [alert addAction:okBtn];
         
         [self presentViewController:alert animated:YES completion:nil];
+    }else{
+        
+        [self topUpPulsaAPI];
+        
     }
 }
+
+#pragma mark - API methods
+- (void)topUpPulsaAPI{
+
+    [APIClient topUpPulsaWithProvider:providerId nominal:nominalId andPhoneNumber:self.nomerHPTF.text withSuccessBlock:^(BOOL success) {
+        if (success) {
+            
+            UIAlertController * alert =   [UIAlertController
+                                           alertControllerWithTitle:@"Berhasil"
+                                           message:@"Top Up Pulsa berhasil dilakukan"
+                                           preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okBtn = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:nil];
+            
+            [alert addAction:okBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }
+    } andFailureBlock:^(NSString *message) {
+        
+        UIAlertController * alert =   [UIAlertController
+                                       alertControllerWithTitle:@"Error"
+                                       message:message
+                                       preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okBtn = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:nil];
+        
+        [alert addAction:okBtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }];
+}
+
+- (void)getProviderAPI{
+    [APIClient getProvidersAndNominalsWithSuccessBlock:^(id responseObject) {
+        
+        self.providerList = (NSMutableArray *)[responseObject objectForKey:@"providers"];
+        
+    } andFailureBlock:^(NSString *message) {
+        
+        UIAlertController * alert =   [UIAlertController
+                                       alertControllerWithTitle:@"Error"
+                                       message:message
+                                       preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okBtn = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:nil];
+        
+        [alert addAction:okBtn];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+}
+
 @end

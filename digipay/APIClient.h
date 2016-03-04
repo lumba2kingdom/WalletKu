@@ -29,4 +29,13 @@ withSuccessBlock:(void (^)(BOOL))success
      withSuccessBlock:(void (^)(BOOL))success
       andFailureBlock:(void (^)(NSString *))failureBlock;
 
++(void)topUpPulsaWithProvider:(int)providerId
+                      nominal:(int)nominalId
+               andPhoneNumber:(NSString *)phoneNumber
+             withSuccessBlock:(void (^)(BOOL))success
+              andFailureBlock:(void (^)(NSString *))failureBlock;
+
++(void)getProvidersAndNominalsWithSuccessBlock:(void (^)(id responseObject))success
+                               andFailureBlock:(void (^)(NSString *))failureBlock;
+
 @end
