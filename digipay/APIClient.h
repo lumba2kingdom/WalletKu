@@ -32,7 +32,7 @@ withSuccessBlock:(void (^)(BOOL))success
 +(void)topUpPulsaWithProvider:(int)providerId
                       nominal:(int)nominalId
                andPhoneNumber:(NSString *)phoneNumber
-             withSuccessBlock:(void (^)(BOOL))success
+             withSuccessBlock:(void (^)(NSString *status, NSString *message))success
               andFailureBlock:(void (^)(NSString *))failureBlock;
 
 +(void)getProvidersAndNominalsWithSuccessBlock:(void (^)(id responseObject))success

@@ -198,7 +198,7 @@ withSuccessBlock:(void (^)(BOOL))success
 +(void)topUpPulsaWithProvider:(int)providerId
                       nominal:(int)nominalId
                andPhoneNumber:(NSString *)phoneNumber
-             withSuccessBlock:(void (^)(BOOL))success
+             withSuccessBlock:(void (^)(NSString *status, NSString *message))success
               andFailureBlock:(void (^)(NSString *))failureBlock {
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
@@ -222,7 +222,13 @@ withSuccessBlock:(void (^)(BOOL))success
     
     [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"Success with response: %@", responseObject);
-        success(YES);
+        
+        NSString *status = [responseObject valueForKeyPath:@"payment.status"];
+        NSString *message = [responseObject valueForKeyPath:@"payment.message"];
+        if (status) {
+            success(status, message);
+        }
+        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

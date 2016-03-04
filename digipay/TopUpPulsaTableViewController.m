@@ -165,12 +165,29 @@
 #pragma mark - API methods
 - (void)topUpPulsaAPI{
 
-    [APIClient topUpPulsaWithProvider:providerId nominal:nominalId andPhoneNumber:self.nomerHPTF.text withSuccessBlock:^(BOOL success) {
-        if (success) {
+    [APIClient topUpPulsaWithProvider:providerId nominal:nominalId andPhoneNumber:self.nomerHPTF.text withSuccessBlock:^(NSString *status, NSString *message) {
+        
+        if (status) {
             
             UIAlertController * alert =   [UIAlertController
-                                           alertControllerWithTitle:@"Berhasil"
-                                           message:@"Top Up Pulsa berhasil dilakukan"
+                                           alertControllerWithTitle:status
+                                           message:message
+                                           preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okBtn = [UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleDefault
+                                    handler:nil];
+            
+            [alert addAction:okBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }else{
+            
+            UIAlertController * alert =   [UIAlertController
+                                           alertControllerWithTitle:@"Sorry"
+                                           message:@"Unknown Error"
                                            preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* okBtn = [UIAlertAction
