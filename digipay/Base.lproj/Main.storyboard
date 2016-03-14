@@ -1083,7 +1083,7 @@
         <!--Top Up Pulsa List Table View Controller-->
         <scene sceneID="Jnb-w9-LQz">
             <objects>
-                <tableViewController id="iNy-cH-mVR" customClass="TopUpPulsaListTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="iNy-cH-mVR" customClass="TopUpPulsaListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hiQ-vh-qzN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

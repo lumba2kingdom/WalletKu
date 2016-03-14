@@ -31,6 +31,7 @@ withSuccessBlock:(void (^)(BOOL))success
 
 +(void)topUpPulsaWithProvider:(int)providerId
                       nominal:(int)nominalId
+                          pin:(NSString *)pin
                andPhoneNumber:(NSString *)phoneNumber
              withSuccessBlock:(void (^)(NSString *status, NSString *message))success
               andFailureBlock:(void (^)(NSString *))failureBlock;

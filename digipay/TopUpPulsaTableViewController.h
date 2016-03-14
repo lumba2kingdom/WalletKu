@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *selectProviderTF;
 @property (weak, nonatomic) IBOutlet UITextField *nominalTF;
 @property (weak, nonatomic) IBOutlet UITextField *nomerHPTF;
+@property (nonatomic, weak) UITextField* pinTF;
 
 - (IBAction)selectProviderBtn:(UIButton *)sender;
 - (IBAction)beliBtn:(UIButton *)sender;

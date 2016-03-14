@@ -157,15 +157,71 @@
         [self presentViewController:alert animated:YES completion:nil];
     }else{
         
-        [self topUpPulsaAPI];
+        UIAlertController* alert =
+        [UIAlertController alertControllerWithTitle:@"Masukkan PIN Anda"
+                                            message:nil
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            
+            textField.keyboardType = UIKeyboardTypeNumberPad;
+            self.pinTF = textField;
+            
+        }];
+        
+        [alert addAction: [UIAlertAction actionWithTitle:@"Selesai"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction *action) {
+                                                     
+                                                     if ([self.pinTF.text isEqualToString:@""]) {
+                                                         UIAlertController * alert=   [UIAlertController
+                                                                                       alertControllerWithTitle:@""
+                                                                                       message:@"PIN Kosong"
+                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                                         
+                                                         UIAlertAction* okBtn = [UIAlertAction
+                                                                                 actionWithTitle:@"Ok"
+                                                                                 style:UIAlertActionStyleDefault
+                                                                                 handler:^(UIAlertAction * action)
+                                                                                 {
+                                                                                     
+                                                                                     [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                     
+                                                                                 }];
+                                                         
+                                                         [alert addAction:okBtn];
+                                                         
+                                                         [self presentViewController:alert animated:YES completion:nil];
+                                                     }else{
+                                                         
+                                                         [self topUpPulsaAPIWithPIN:self.pinTF.text];
+                                                         
+                                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                                         
+                                                     }
+                                                     
+                                                     
+                                                 }]];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Batal"
+                                                  style:UIAlertActionStyleCancel
+                                                handler:^(UIAlertAction *action) {
+                                                    
+                                                    [alert dismissViewControllerAnimated:YES completion:nil];
+                                                    
+                                                }]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+//        [self topUpPulsaAPI];
         
     }
 }
 
 #pragma mark - API methods
-- (void)topUpPulsaAPI{
+- (void)topUpPulsaAPIWithPIN:(NSString *)pin{
 
-    [APIClient topUpPulsaWithProvider:providerId nominal:nominalId andPhoneNumber:self.nomerHPTF.text withSuccessBlock:^(NSString *status, NSString *message) {
+    [APIClient topUpPulsaWithProvider:providerId nominal:nominalId pin:pin andPhoneNumber:self.nomerHPTF.text withSuccessBlock:^(NSString *status, NSString *message) {
         
         if (status) {
             

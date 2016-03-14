@@ -197,6 +197,7 @@ withSuccessBlock:(void (^)(BOOL))success
 
 +(void)topUpPulsaWithProvider:(int)providerId
                       nominal:(int)nominalId
+                          pin:(NSString *)pin
                andPhoneNumber:(NSString *)phoneNumber
              withSuccessBlock:(void (^)(NSString *status, NSString *message))success
               andFailureBlock:(void (^)(NSString *))failureBlock {
@@ -214,7 +215,7 @@ withSuccessBlock:(void (^)(BOOL))success
                                             @"provider_id":@(providerId),
                                             @"nominal_id":@(nominalId),
                                             @"phone_number":phoneNumber,
-                                            @"pin":PINforTopUpPulsa
+                                            @"pin":pin
                                         }
                                 };
     
