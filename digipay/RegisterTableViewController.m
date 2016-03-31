@@ -7,6 +7,7 @@
 //
 
 #import "RegisterTableViewController.h"
+#import "Utils.h"
 
 @interface RegisterTableViewController ()
 
@@ -103,25 +104,9 @@
         if ([self.namaTF.text  isEqual: @""] || [self.emailTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.passwordTF.text  isEqual: @""] || [self.ulangPasswordTF.text isEqual: @""])
         {
             
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@""
-                                          message:@"Mohon isi kolom yang kosong"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okBtn = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                        
-                                    }];
-            
-            [alert addAction:okBtn];
-            
-            [self presentViewController:alert animated:YES completion:nil];
-            
             self.isSignUpAlreadyClicked = NO;
+            
+            [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
         }
         else
         {
@@ -133,65 +118,17 @@
             if (! myStringMatchesRegEx)
             {
                 
-                UIAlertController * alert=   [UIAlertController
-                                              alertControllerWithTitle:@""
-                                              message:@"Alamat email tidak sesuai"
-                                              preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* okBtn = [UIAlertAction
-                                        actionWithTitle:@"Ok"
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action)
-                                        {
-                                            
-                                            
-                                        }];
-                
-                [alert addAction:okBtn];
-                
-                [self presentViewController:alert animated:YES completion:nil];
+                [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Alamat email tidak sesuai"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }else if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
                 
-                UIAlertController * alert=   [UIAlertController
-                                              alertControllerWithTitle:@""
-                                              message:@"Password tidak sesuai"
-                                              preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* okBtn = [UIAlertAction
-                                        actionWithTitle:@"Ok"
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action)
-                                        {
-                                            
-                                            
-                                        }];
-                
-                [alert addAction:okBtn];
-                
-                [self presentViewController:alert animated:YES completion:nil];
+                [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Password tidak sesuai"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }else if (!self.pernyataanSwitch.isOn){
                 
-                UIAlertController * alert=   [UIAlertController
-                                              alertControllerWithTitle:@""
-                                              message:@"Anda belum menyutujui pernyataan yang tertulis."
-                                              preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* okBtn = [UIAlertAction
-                                        actionWithTitle:@"Ok"
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action)
-                                        {
-                                            
-                                            
-                                        }];
-                
-                [alert addAction:okBtn];
-                
-                [self presentViewController:alert animated:YES completion:nil];
+                [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Anda belum menyutujui pernyataan yang tertulis"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }
@@ -210,21 +147,12 @@
                                         {
                                             self.isSignUpAlreadyClicked = YES;
                                             
-                                            User *user = [[User alloc] init];
-                                            user.email = self.emailTF.text;
-                                            user.name = self.namaTF.text;
-                                            user.address = self.alamatTF.text;
-                                            user.password = self.passwordTF.text;
-                                            user.password_confirmation = self.ulangPasswordTF.text;
-                                            
                                             NSString *refId = @"";
                                             if ([self.noReferralTF.text isEqualToString:@""]) {
                                                 refId = @"";
                                             }else{
                                                 refId = self.noReferralTF.text;
                                             }
-                                            
-                                            user.referral_id = refId;
                                             
                                             NSString *terms = @"";
                                             if (self.pernyataanSwitch.isOn) {
@@ -233,42 +161,53 @@
                                                 terms = @"false";
                                             }
                                             
-                                            user.terms = terms;
-                                            
-                                            [APIClient registerUser:user withSuccessBlock:^(BOOL success) {
-                                                
-                                                if (success) {
-                                                    NSLog(@"Success");
-                                                    
-                                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-                                                    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
-                                                    [self presentViewController:vc animated:YES completion:nil];
-                                                    
-                                                }else {
-                                                    
-                                                }
-                                                
-                                                self.isSignUpAlreadyClicked = NO;
-                                                
-                                            } andFailureBlock:^(NSString *message) {
-                                                UIAlertController * alert =   [UIAlertController
-                                                                              alertControllerWithTitle:@"Error"
-                                                                              message:message
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-                                                
-                                                UIAlertAction* okBtn = [UIAlertAction
-                                                                        actionWithTitle:@"Ok"
-                                                                        style:UIAlertActionStyleDefault
-                                                                        handler:^(UIAlertAction * action)
-                                                                        {
-                                                                        }];
-                                                
-                                                [alert addAction:okBtn];
-                                                
-                                                [self presentViewController:alert animated:YES completion:nil];
-                                                
-                                                self.isSignUpAlreadyClicked = NO;
-                                            }];
+                                            [APIClient postAPIWithParam:@{
+                                                                          @"user": @{
+                                                                                  @"email":self.emailTF.text,
+                                                                                  @"name":self.namaTF.text,
+                                                                                  @"address":self.alamatTF.text,
+                                                                                  @"password":self.passwordTF.text,
+                                                                                  @"password_confirmation":self.ulangPasswordTF.text,
+                                                                                  @"referral_id":refId,
+                                                                                  @"terms":terms
+                                                                                  }
+                                                                          }andEndPoint:kPostUsers withAuthorization:NO successBlock:^(NSDictionary *response) {
+                                                                              
+                                                                              
+                                                                              NSDictionary *userDict = (NSDictionary*)[response objectForKey:@"user"];
+                                                                              
+                                                                              User *newUser = [[User alloc] init];
+                                                                              newUser.address = [userDict valueForKey:@"address"];
+                                                                              newUser.email = [userDict valueForKey:@"email"];
+                                                                              newUser.userId = [userDict valueForKey:@"id"];
+                                                                              newUser.name = [userDict valueForKey:@"name"];
+                                                                              newUser.noHP = [userDict valueForKey:@"phone"];
+                                                                              
+                                                                              [Utils addUserToUserDefault:newUser];
+                                                                              
+                                                                              
+                                                                              UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                                                                              UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+                                                                              
+                                                                              [self presentViewController:vc animated:YES completion:nil];
+                                                                              
+                                                                          } andFailureBlock:^(NSString *errorMessage) {
+                                                                              UIAlertController * alert =   [UIAlertController
+                                                                                                             alertControllerWithTitle:@"Error"
+                                                                                                             message:errorMessage
+                                                                                                             preferredStyle:UIAlertControllerStyleAlert];
+                                                                              
+                                                                              UIAlertAction* okBtn = [UIAlertAction
+                                                                                                      actionWithTitle:@"Ok"
+                                                                                                      style:UIAlertActionStyleDefault
+                                                                                                      handler:nil];
+                                                                              
+                                                                              [alert addAction:okBtn];
+                                                                              
+                                                                              [self presentViewController:alert animated:YES completion:nil];
+                                                                              
+                                                                              self.isSignUpAlreadyClicked = NO;
+                                                                          }];
                                             
                                             
                                         }];

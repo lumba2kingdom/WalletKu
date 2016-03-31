@@ -30,7 +30,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([Utils getUserUserDefault].userToken) {
+    if ([Utils getUserToken]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self presentViewController:vc animated:YES completion:nil];
@@ -60,61 +60,13 @@
     if (!self.isLoginAlreadyClicked) {
         if ([self.usernameTF.text isEqualToString:@""] || [self.passwordTF.text isEqualToString:@""]) {
             
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@""
-                                          message:@"Username/Password kosong"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okBtn = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                        
-                                    }];
-            
-            [alert addAction:okBtn];
-            
-            [self presentViewController:alert animated:YES completion:nil];
+            [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Username/Password kosong"];
             
         }else{
             
-            User *user = [[User alloc] init];
-            user.email = self.usernameTF.text;
-            user.password = self.passwordTF.text;
+            self.isLoginAlreadyClicked = YES;
+            [self loginAPI];
             
-            [APIClient loginUser:user withSuccessBlock:^(BOOL success) {
-                
-                if (success) {
-                    
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-                    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
-                    [self presentViewController:vc animated:YES completion:nil];
-                    
-                }
-                
-                self.isLoginAlreadyClicked = NO;
-                
-            } andFailureBlock:^(NSString *message) {
-                UIAlertController * alert =   [UIAlertController
-                                               alertControllerWithTitle:@"Error"
-                                               message:message
-                                               preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* okBtn = [UIAlertAction
-                                        actionWithTitle:@"Ok"
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction * action)
-                                        {
-                                        }];
-                
-                [alert addAction:okBtn];
-                
-                [self presentViewController:alert animated:YES completion:nil];
-                
-                self.isLoginAlreadyClicked = NO;
-            }];
         }
     }
     
@@ -158,48 +110,7 @@
                                                      [self presentViewController:alert animated:YES completion:nil];
                                                  }else{
                                                      
-                                                     [APIClient forgotPassword:self.emailAddressTextField.text withSuccessBlock:^(BOOL success) {
-                                                         if (success) {
-                                                             
-                                                             UIAlertController * alert=   [UIAlertController
-                                                                                           alertControllerWithTitle:@""
-                                                                                           message:@"Link berhasil dikirim ke email"
-                                                                                           preferredStyle:UIAlertControllerStyleAlert];
-                                                             
-                                                             UIAlertAction* okBtn = [UIAlertAction
-                                                                                     actionWithTitle:@"Ok"
-                                                                                     style:UIAlertActionStyleDefault
-                                                                                     handler:^(UIAlertAction * action)
-                                                                                     {
-                                                                                         
-                                                                                         [alert dismissViewControllerAnimated:YES completion:nil];
-                                                                                         
-                                                                                     }];
-                                                             
-                                                             [alert addAction:okBtn];
-                                                             
-                                                             [self presentViewController:alert animated:YES completion:nil];
-                                                             
-                                                         }
-                                                         
-                                                     } andFailureBlock:^(NSString *message) {
-                                                         
-                                                         UIAlertController * alert =   [UIAlertController
-                                                                                        alertControllerWithTitle:@"Error"
-                                                                                        message:message
-                                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                                         
-                                                         UIAlertAction* okBtn = [UIAlertAction
-                                                                                 actionWithTitle:@"Ok"
-                                                                                 style:UIAlertActionStyleDefault
-                                                                                 handler:^(UIAlertAction * action)
-                                                                                 {
-                                                                                 }];
-                                                         
-                                                         [alert addAction:okBtn];
-                                                         
-                                                         [self presentViewController:alert animated:YES completion:nil];
-                                                     }];
+                                                     [self forgotPasswordAPI];
                                                      
                                                      [alert dismissViewControllerAnimated:YES completion:nil];
                                                      
@@ -220,10 +131,80 @@
     
 }
 
-#pragma mark - iOS-Slide-Menu Methods
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-    return YES;
+#pragma mark - API Call Methods
+- (void)loginAPI{
+    [APIClient postAPIWithParam:@{
+                                  @"user": @{
+                                          @"email":self.usernameTF.text,
+                                          @"password":self.passwordTF.text
+                                          }
+                                  }
+                    andEndPoint:kPostAuthentication withAuthorization:NO successBlock:^(NSDictionary *response) {
+                        NSDictionary *userDict = (NSDictionary*)response;
+                        
+                        User *newUser = [[User alloc] init];
+                        
+//                        newUser.address = [userDict valueForKey:@"address"];
+                        newUser.email = [userDict valueForKey:@"email"];
+                        newUser.userId = [userDict valueForKey:@"id"];
+                        newUser.name = [userDict valueForKey:@"name"];
+//                        newUser.noHP = [userDict valueForKey:@"phone"];
+//                        newUser.avatarUrl = [userDict valueForKey:@"avatar_url"];
+//                        newUser.noKTP = [userDict valueForKey:@"no_ktp"];
+                        newUser.isPremium = [userDict valueForKey:@"premium"];
+                        newUser.referral_id = [userDict valueForKey:@"referral_id"];
+                        newUser.totalBalance = [userDict valueForKey:@"total_balance"];
+                        newUser.totalBonus = [userDict valueForKey:@"total_bonus"];
+                        newUser.totalPoint = [userDict valueForKey:@"total_point"];
+                        newUser.uid = [userDict valueForKey:@"uid"];
+                        
+                        [Utils addUserToUserDefault:newUser];
+                        [Utils addUserTokenToUserDefault:[userDict valueForKey:@"token"]];
+                        
+                        
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+                        [self presentViewController:vc animated:YES completion:nil];
+                        
+                    } andFailureBlock:^(NSString *errorMessage) {
+                        self.isLoginAlreadyClicked = NO;
+                        
+                        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                        
+                    }];
+}
+
+- (void)forgotPasswordAPI {
+    [APIClient postAPIWithParam:@{
+                                  @"password_reset": @{
+                                          @"email": self.emailAddressTextField.text
+                                          }
+                                  }
+                    andEndPoint:kPostForgotPassword
+              withAuthorization:NO successBlock:^(NSDictionary *response) {
+                  UIAlertController * alert=   [UIAlertController
+                                                alertControllerWithTitle:@""
+                                                message:@"Link berhasil dikirim ke email"
+                                                preferredStyle:UIAlertControllerStyleAlert];
+                  
+                  UIAlertAction* okBtn = [UIAlertAction
+                                          actionWithTitle:@"Ok"
+                                          style:UIAlertActionStyleDefault
+                                          handler:^(UIAlertAction * action)
+                                          {
+                                              
+                                              [alert dismissViewControllerAnimated:YES completion:nil];
+                                              
+                                          }];
+                  
+                  [alert addAction:okBtn];
+                  
+                  [self presentViewController:alert animated:YES completion:nil];
+              } andFailureBlock:^(NSString *errorMessage) {
+                  
+                  [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                  
+              }];
 }
 
 @end

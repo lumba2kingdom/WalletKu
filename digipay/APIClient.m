@@ -12,6 +12,143 @@
 @implementation APIClient
 
 #pragma mark - APIs Method
++(void)postAPIWithParam:(NSDictionary *)parameter
+            andEndPoint:(NSString *)endPoint
+      withAuthorization:(BOOL)authorization
+           successBlock:(void (^)(NSDictionary *response))successBlock
+        andFailureBlock:(void (^)(NSString *errorMessage))failureBlock {
+    
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    if (authorization) {
+        NSString *token = [Utils getUserToken];
+        NSString *userEmail = [Utils getUserEmail];
+        if (![token isEqualToString:@""] && ![userEmail isEqualToString:@""]) {
+            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+            [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
+        }else{
+            NSLog(@"ERROR: FAILED TO SET AUTHORIZATION HEADER");
+        }
+    }else{
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    
+    NSString* url = [kBaseURL stringByAppendingPathComponent:endPoint];
+    
+    [manager POST:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Success with response: %@", responseObject);
+        
+        successBlock(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Fail with response: %@", error.localizedDescription);
+        NSLog(@"Fail with request: %@", [[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
+        
+        NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
+            failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
+        }
+        
+    }];
+    
+}
+
++(void)putAPIWithParam:(NSDictionary *)parameter
+           andEndPoint:(NSString *)endPoint
+     withAuthorization:(BOOL)authorization
+          successBlock:(void (^)(NSDictionary *response))successBlock
+       andFailureBlock:(void (^)(NSString *errorMessage))failureBlock {
+    
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    if (authorization) {
+        NSString *token = [Utils getUserToken];
+        NSString *userEmail = [Utils getUserEmail];
+        if (![token isEqualToString:@""] && ![userEmail isEqualToString:@""]) {
+            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+            [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
+        }else{
+            NSLog(@"ERROR: FAILED TO SET AUTHORIZATION HEADER");
+        }
+    }else{
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    
+    NSString* url = [kBaseURL stringByAppendingPathComponent:endPoint];
+    
+    [manager PUT:url parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Success with response: %@", responseObject);
+        
+        successBlock(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Fail with response: %@", error.localizedDescription);
+        NSLog(@"Fail with request: %@", [[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
+        
+        NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
+            failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
+        }
+        
+    }];
+    
+}
+
++(void)getAPIWithParam:(NSDictionary *)parameter
+           andEndPoint:(NSString *)endPoint
+     withAuthorization:(BOOL)authorization
+          successBlock:(void (^)(NSDictionary *response))successBlock
+       andFailureBlock:(void (^)(NSString *errorMessage))failureBlock {
+    
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    if (authorization) {
+        NSString *token = [Utils getUserToken];
+        NSString *userEmail = [Utils getUserEmail];
+        if (![token isEqualToString:@""] && ![userEmail isEqualToString:@""]) {
+            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+            [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
+        }else{
+            NSLog(@"ERROR: FAILED TO SET AUTHORIZATION HEADER");
+        }
+    }else{
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    
+    NSString* url = [kBaseURL stringByAppendingPathComponent:endPoint];
+    
+    [manager GET:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"Success with response: %@", responseObject);
+        
+        successBlock(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Fail with response: %@", error.localizedDescription);
+        NSLog(@"Fail with request: %@", [[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
+        
+        NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
+        NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
+        
+        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
+            failureBlock(error.localizedDescription);
+        }else{
+            failureBlock(errorMessage);
+        }
+        
+    }];
+    
+}
 
 +(void)loginUser:(User *)user
 withSuccessBlock:(void (^)(BOOL))success
@@ -40,7 +177,6 @@ withSuccessBlock:(void (^)(BOOL))success
         newUser.email = [userDict valueForKey:@"email"];
         newUser.userId = [userDict valueForKey:@"id"];
         newUser.name = [userDict valueForKey:@"name"];
-        newUser.userToken = [userDict valueForKey:@"token"];
         newUser.noHP = [userDict valueForKey:@"phone"];
         
         [Utils addUserToUserDefault:newUser];

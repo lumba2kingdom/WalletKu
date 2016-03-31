@@ -12,18 +12,17 @@
 #define kIsProduction       NO
 //#define kIsProduction       YES
 
-//#define kBaseTopUpPulsaURL              @"https://203.77.251.46:6789/"
-
-#define PINforTopUpPulsa                @"1234"
-
 #define kBaseURL                        kIsProduction ? @"https://digipay.com/api/v1/" : @"http://188.166.236.85/api/v1/"
 #define kPostAuthentication             @"sessions"
 #define kPostAuthorization              @"resource"
 #define kPostUsers                      @"users"
 #define kPostForgotPassword             @"password_resets"
-#define kPostTopUpPulsa                 @"top_ups"
+#define kPostTopUpPulsa                 @"payments"
+
 #define kGetProvider                    @"providers"
+#define kGetPayment                     @"payments"
 
 #define kUserDefaultsUserKey            @"userDefaultsUser"
+#define kUserDefaultsTokenKey           @"userDefaultsToken"
 
 #endif /* Constants_h */

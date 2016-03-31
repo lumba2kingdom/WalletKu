@@ -11,6 +11,9 @@
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
 		9B5572461C61CF2600D4D938 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572451C61CF2600D4D938 /* APIClient.m */; };
 		9B55724A1C61D55B00D4D938 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572491C61D55B00D4D938 /* User.m */; };
+		9B6FD9091CAD467E0037BC81 /* TopupListrikTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */; };
+		9B6FD90C1CAD4BDF0037BC81 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */; };
+		9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */; };
 		9B88C0EB1C720F1F00216A22 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B88C0EA1C720F1F00216A22 /* Utils.m */; };
 		9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9B1C55D1E800DD7F24 /* main.m */; };
 		9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */; };
@@ -58,6 +61,12 @@
 		9B5572451C61CF2600D4D938 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		9B5572481C61D55B00D4D938 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9B5572491C61D55B00D4D938 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9B6FD9071CAD467E0037BC81 /* TopupListrikTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopupListrikTableViewController.h; sourceTree = "<group>"; };
+		9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopupListrikTableViewController.m; sourceTree = "<group>"; };
+		9B6FD90A1CAD4BDF0037BC81 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		9B6FD90D1CAD60130037BC81 /* MyWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletViewController.h; sourceTree = "<group>"; };
+		9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletViewController.m; sourceTree = "<group>"; };
 		9B88C0E91C720F1F00216A22 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		9B88C0EA1C720F1F00216A22 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		9B9FDC971C55D1E800DD7F24 /* digipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +257,12 @@
 				9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */,
 				9BD4283A1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.h */,
 				9BD4283B1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m */,
+				9B6FD9071CAD467E0037BC81 /* TopupListrikTableViewController.h */,
+				9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */,
+				9B6FD90A1CAD4BDF0037BC81 /* PayViewController.h */,
+				9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */,
+				9B6FD90D1CAD60130037BC81 /* MyWalletViewController.h */,
+				9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -443,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */,
+				9B6FD90C1CAD4BDF0037BC81 /* PayViewController.m in Sources */,
 				9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */,
 				9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */,
 				9B88C0EB1C720F1F00216A22 /* Utils.m in Sources */,
@@ -451,7 +467,9 @@
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
 				9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */,
 				9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */,
+				9B6FD9091CAD467E0037BC81 /* TopupListrikTableViewController.m in Sources */,
 				9B55724A1C61D55B00D4D938 /* User.m in Sources */,
+				9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */,
 				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
 				9B5572461C61CF2600D4D938 /* APIClient.m in Sources */,

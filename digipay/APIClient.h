@@ -13,30 +13,22 @@
 
 @interface APIClient : NSObject
 
-+(void)registerUser:(User *)user
-   withSuccessBlock:(void (^)(BOOL))success
-    andFailureBlock:(void (^)(NSString *))failureBlock;
++(void)postAPIWithParam:(NSDictionary *)parameter
+            andEndPoint:(NSString *)endPoint
+      withAuthorization:(BOOL)authorization
+           successBlock:(void (^)(NSDictionary *response))successBlock
+        andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
-+(void)updateUser:(User *)user
- withSuccessBlock:(void (^)(BOOL))success
-  andFailureBlock:(void (^)(NSString *))failureBlock;
++(void)putAPIWithParam:(NSDictionary *)parameter
+           andEndPoint:(NSString *)endPoint
+     withAuthorization:(BOOL)authorization
+          successBlock:(void (^)(NSDictionary *response))successBlock
+       andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
-+(void)loginUser:(User *)user
-withSuccessBlock:(void (^)(BOOL))success
- andFailureBlock:(void (^)(NSString *))failureBlock;
-
-+(void)forgotPassword:(NSString *)email
-     withSuccessBlock:(void (^)(BOOL))success
-      andFailureBlock:(void (^)(NSString *))failureBlock;
-
-+(void)topUpPulsaWithProvider:(int)providerId
-                      nominal:(int)nominalId
-                          pin:(NSString *)pin
-               andPhoneNumber:(NSString *)phoneNumber
-             withSuccessBlock:(void (^)(NSString *status, NSString *message))success
-              andFailureBlock:(void (^)(NSString *))failureBlock;
-
-+(void)getProvidersAndNominalsWithSuccessBlock:(void (^)(id responseObject))success
-                               andFailureBlock:(void (^)(NSString *))failureBlock;
++(void)getAPIWithParam:(NSDictionary *)parameter
+           andEndPoint:(NSString *)endPoint
+     withAuthorization:(BOOL)authorization
+          successBlock:(void (^)(NSDictionary *response))successBlock
+       andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
 @end

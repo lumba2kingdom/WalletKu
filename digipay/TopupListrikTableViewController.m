@@ -1,21 +1,21 @@
 //
-//  TopUpPulsaTableViewController.m
+//  TopupListrikTableViewController.m
 //  digipay
 //
-//  Created by Lutfi Azhar on 1/29/16.
+//  Created by Lutfi Azhar on 3/31/16.
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import "TopUpPulsaTableViewController.h"
+#import "TopupListrikTableViewController.h"
 #import "TopUpPulsaListTableViewController.h"
 #import "APIClient.h"
 #import "Utils.h"
 
-@interface TopUpPulsaTableViewController ()
+@interface TopupListrikTableViewController ()
 
 @end
 
-@implementation TopUpPulsaTableViewController {
+@implementation TopupListrikTableViewController {
     NSMutableArray *providerSelected, *nominalSelected;
     int providerId, nominalId;
 }
@@ -24,14 +24,13 @@
     [super viewDidLoad];
     
     [self getProviderAPI];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.balanceText.text = [NSString stringWithFormat:@"Sisa Saldo Anda : Rp. %@,-", [Utils getUserBalance]];
-
+    
     if (providerSelected) {
         self.selectProviderTF.text = [providerSelected valueForKey:@"name"];
         providerId = [[providerSelected valueForKey:@"id"] intValue];
@@ -118,9 +117,9 @@
     {
         [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom nominal kosong"];
     }
-    else if ([self.nomerHPTF.text  isEqual: @""])
+    else if ([self.nomerMeterTF.text  isEqual: @""])
     {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom No. HP Kosong" ];
+        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom Nomer Meter Kosong" ];
     }
     else{
         
@@ -180,8 +179,6 @@
         
         [self presentViewController:alert animated:YES completion:nil];
         
-//        [self topUpPulsaAPI];
-        
     }
 }
 
@@ -189,11 +186,11 @@
 - (void)topUpPulsaAPIWithPIN:(NSString *)pin{
     
     [APIClient postAPIWithParam:@{
-                                  @"payment":@{
+                                  @"top_up":@{
                                           @"provider_id":@(providerId),
                                           @"nominal_id":@(nominalId),
-                                          @"msisdn":self.nomerHPTF.text,
-                                          @"payment_type":@"topup",
+                                          @"msisdn":self.nomerMeterTF.text,
+                                          @"payment_type":@"pln",
                                           @"pin":pin
                                           }
                                   }andEndPoint:kPostTopUpPulsa withAuthorization:YES successBlock:^(NSDictionary *response) {
@@ -211,17 +208,17 @@
 - (void)getProviderAPI{
     
     [APIClient getAPIWithParam:@{
-                                 @"payment_type":@"topup"
+                                 @"payment_type":@"pln"
                                  }
                    andEndPoint:kGetProvider withAuthorization:YES successBlock:^(NSDictionary *response) {
-        
-        self.providerList = (NSMutableArray *)[response objectForKey:@"providers"];
-        
-    } andFailureBlock:^(NSString *errorMessage) {
-        
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
-        
-    }];
+                       
+                       self.providerList = (NSMutableArray *)[response objectForKey:@"providers"];
+                       
+                   } andFailureBlock:^(NSString *errorMessage) {
+                       
+                       [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                       
+                   }];
     
 }
 

@@ -11,7 +11,6 @@
 @interface User : NSObject
 
 @property (nonatomic, strong) NSString* userId;
-@property (nonatomic, strong) NSString* userToken;
 @property (nonatomic, strong) NSString* email;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* address;
@@ -21,5 +20,11 @@
 @property (nonatomic, strong) NSString* terms;
 @property (nonatomic, strong) NSString* noKTP;
 @property (nonatomic, strong) NSString* noHP;
+@property (nonatomic, strong) NSString* avatarUrl;
+@property (nonatomic, strong) NSString* isPremium;
+@property (nonatomic, strong) NSString* totalBalance;
+@property (nonatomic, strong) NSString* totalBonus;
+@property (nonatomic, strong) NSString* totalPoint;
+@property (nonatomic, strong) NSString* uid;
 
 @end

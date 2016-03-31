@@ -17,6 +17,7 @@
 
 @implementation EditProfileTableViewController{
     User *currentUser;
+    NSString *avatarBase64;
 }
 
 - (void)viewDidLoad {
@@ -133,22 +134,7 @@
                                   {
                                       if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                                           
-                                          UIAlertController * alert=   [UIAlertController
-                                                                        alertControllerWithTitle:@""
-                                                                        message:@"Device tidak memiliki kamera"
-                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                                          
-                                          UIAlertAction* okBtn = [UIAlertAction
-                                                                  actionWithTitle:@"Ok"
-                                                                  style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action)
-                                                                  {
-                                                                      
-                                                                  }];
-                                          
-                                          [alert addAction:okBtn];
-                                          
-                                          [self presentViewController:alert animated:YES completion:nil];
+                                          [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Device tidak memiliki kamera"];
                                           
                                       }else{
                                           //take photo
@@ -202,23 +188,7 @@
         if ([self.namaTF.text  isEqual: @""] || [self.noKTPTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.nomerHPTF.text  isEqual: @""])
         {
             
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:@""
-                                          message:@"Mohon isi kolom yang kosong"
-                                          preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okBtn = [UIAlertAction
-                                    actionWithTitle:@"Ok"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                    {
-                                        
-                                        
-                                    }];
-            
-            [alert addAction:okBtn];
-            
-            [self presentViewController:alert animated:YES completion:nil];
+            [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
         }
         else
         {
@@ -241,52 +211,27 @@
                                             currentUser.name = self.namaTF.text;
                                             currentUser.noKTP = self.noKTPTF.text;
                                             currentUser.noHP = self.nomerHPTF.text;
+
+                                            NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [Utils getUserId]];
                                             
-                                            [APIClient updateUser:currentUser withSuccessBlock:^(BOOL success) {
-                                                if (success) {
-                                                    NSLog(@"Success");
-                                                    
-                                                    
-                                                    UIAlertController * alert=   [UIAlertController
-                                                                                  alertControllerWithTitle:@"Sukses"
-                                                                                  message:@"Data tersimpan"
-                                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                                                    
-                                                    UIAlertAction* okBtn = [UIAlertAction
-                                                                            actionWithTitle:@"Ok"
-                                                                            style:UIAlertActionStyleDefault
-                                                                            handler:^(UIAlertAction * action)
-                                                                            {
-                                                                            }];
-                                                    
-                                                    [alert addAction:okBtn];
-                                                    
-                                                    [self presentViewController:alert animated:YES completion:nil];
-                                                    
-                                                }else {
-                                                    
-                                                }
-                                                
-                                                self.isSaveAlreadyClicked = NO;
-                                            } andFailureBlock:^(NSString *message) {
-                                                UIAlertController * alert =   [UIAlertController
-                                                                               alertControllerWithTitle:@"Error"
-                                                                               message:message
-                                                                               preferredStyle:UIAlertControllerStyleAlert];
-                                                
-                                                UIAlertAction* okBtn = [UIAlertAction
-                                                                        actionWithTitle:@"Ok"
-                                                                        style:UIAlertActionStyleDefault
-                                                                        handler:^(UIAlertAction * action)
-                                                                        {
-                                                                        }];
-                                                
-                                                [alert addAction:okBtn];
-                                                
-                                                [self presentViewController:alert animated:YES completion:nil];
-                                                
-                                                self.isSaveAlreadyClicked = NO;
-                                            }];
+                                            [APIClient putAPIWithParam:@{
+                                                                         @"user":@{
+                                                                                 @"name":self.namaTF.text,
+                                                                                 @"address":self.alamatTF.text,
+                                                                                 @"phone":self.nomerHPTF.text,
+                                                                                 @"avatar":avatarBase64 ? avatarBase64 : @"",
+                                                                                 @"no_ktp":self.noKTPTF.text
+                                                                                 }
+                                                                         }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
+                                                                             
+                                                                             [Utils showDefaultAlertWithViewController:self withTitle:@"Sukses" andMessage:@"Data tersimpan"];
+                                                                             
+                                                                         } andFailureBlock:^(NSString *errorMessage) {
+                                                                             
+                                                                             [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                                                             
+                                                                             self.isSaveAlreadyClicked = NO;
+                                                                         }];
                                         }
                                         
                                         
@@ -314,6 +259,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    avatarBase64 = [NSString stringWithFormat:@"data:image/jpg;base64,%@", [UIImageJPEGRepresentation(chosenImage, 0.7) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
     
     [self.changeProfileBtn setBackgroundImage:chosenImage forState:UIControlStateNormal];
     
