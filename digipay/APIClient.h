@@ -31,4 +31,7 @@
           successBlock:(void (^)(NSDictionary *response))successBlock
        andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
++(void)requestImageWithUrl:(NSString *)url
+        withOnSuccessBlock:(void (^)(UIImage * image, BOOL reloadView))successBlock
+        withOnFailureBlock:(void (^)(void))failureBlock;
 @end

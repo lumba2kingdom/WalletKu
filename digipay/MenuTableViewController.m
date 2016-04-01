@@ -8,6 +8,8 @@
 
 #import "MenuTableViewController.h"
 #import "Constants.h"
+#import "APIClient.h"
+#import "Utils.h"
 
 @interface MenuTableViewController ()
 
@@ -18,11 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self profileAPI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,69 +75,36 @@
         
     }
 }
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+#pragma mark - API Call Methods
+- (void)profileAPI {
+    NSString* getUserDataEndPoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [Utils getUserId]];
+    [APIClient getAPIWithParam:nil andEndPoint:getUserDataEndPoint withAuthorization:YES successBlock:^(NSDictionary *response) {
+        if (response) {
+            
+            NSDictionary *userDict = (NSDictionary*)[response objectForKey:@"user"];
+            
+            User *newUser = [[User alloc] init];
+            
+            newUser.address = [userDict valueForKey:@"address"];
+            newUser.email = [userDict valueForKey:@"email"];
+            newUser.userId = [userDict valueForKey:@"id"];
+            newUser.name = [userDict valueForKey:@"name"];
+            newUser.noHP = [userDict valueForKey:@"phone"];
+            newUser.avatarUrl = [userDict valueForKey:@"avatar_url"];
+            newUser.noKTP = [userDict valueForKey:@"no_ktp"];
+            newUser.isPremium = [userDict valueForKey:@"premium"];
+            newUser.referral_id = [userDict valueForKey:@"referral_id"];
+            newUser.totalBalance = [userDict valueForKey:@"total_balance"];
+            newUser.totalBonus = [userDict valueForKey:@"total_bonus"];
+            newUser.totalPoint = [userDict valueForKey:@"total_point"];
+            newUser.uid = [userDict valueForKey:@"uid"];
+            
+            [Utils addUserToUserDefault:newUser];
+        }
+    } andFailureBlock:^(NSString *errorMessage) {
+        [Utils showDefaultAlertWithViewController:self withTitle:@"Profile" andMessage:@"Error getting data from server"];
+    }];
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

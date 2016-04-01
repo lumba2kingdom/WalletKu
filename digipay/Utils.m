@@ -15,13 +15,13 @@
 +(void)addUserToUserDefault:(User *)user{
     
     NSDictionary *userDict = @{
-//                               @"address": user.address,
+                               @"address": user.address,
                                @"email": user.email,
                                @"id": user.userId,
                                @"name": user.name,
-//                               @"phone": user.noHP,
-//                               @"avatarUrl": user.avatarUrl,
-//                               @"noKtp": user.noKTP,
+                               @"phone": user.noHP,
+                               @"avatarUrl": user.avatarUrl,
+                               @"noKtp": user.noKTP,
                                @"premium": user.isPremium,
                                @"referralId": user.referral_id,
                                @"totalBalance": user.totalBalance,

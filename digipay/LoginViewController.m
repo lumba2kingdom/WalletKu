@@ -144,13 +144,13 @@
                         
                         User *newUser = [[User alloc] init];
                         
-//                        newUser.address = [userDict valueForKey:@"address"];
+                        newUser.address = [userDict valueForKey:@"address"];
                         newUser.email = [userDict valueForKey:@"email"];
                         newUser.userId = [userDict valueForKey:@"id"];
                         newUser.name = [userDict valueForKey:@"name"];
-//                        newUser.noHP = [userDict valueForKey:@"phone"];
-//                        newUser.avatarUrl = [userDict valueForKey:@"avatar_url"];
-//                        newUser.noKTP = [userDict valueForKey:@"no_ktp"];
+                        newUser.noHP = [userDict valueForKey:@"phone"];
+                        newUser.avatarUrl = [userDict valueForKey:@"avatar_url"];
+                        newUser.noKTP = [userDict valueForKey:@"no_ktp"];
                         newUser.isPremium = [userDict valueForKey:@"premium"];
                         newUser.referral_id = [userDict valueForKey:@"referral_id"];
                         newUser.totalBalance = [userDict valueForKey:@"total_balance"];

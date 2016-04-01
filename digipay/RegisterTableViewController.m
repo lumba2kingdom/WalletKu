@@ -192,19 +192,8 @@
                                                                               [self presentViewController:vc animated:YES completion:nil];
                                                                               
                                                                           } andFailureBlock:^(NSString *errorMessage) {
-                                                                              UIAlertController * alert =   [UIAlertController
-                                                                                                             alertControllerWithTitle:@"Error"
-                                                                                                             message:errorMessage
-                                                                                                             preferredStyle:UIAlertControllerStyleAlert];
                                                                               
-                                                                              UIAlertAction* okBtn = [UIAlertAction
-                                                                                                      actionWithTitle:@"Ok"
-                                                                                                      style:UIAlertActionStyleDefault
-                                                                                                      handler:nil];
-                                                                              
-                                                                              [alert addAction:okBtn];
-                                                                              
-                                                                              [self presentViewController:alert animated:YES completion:nil];
+                                                                              [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                                                                               
                                                                               self.isSignUpAlreadyClicked = NO;
                                                                           }];

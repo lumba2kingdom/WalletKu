@@ -26,11 +26,23 @@
     if ([Utils getUserUserDefault]) {
         currentUser = [Utils getUserUserDefault];
         
+        NSString *avatarURL = currentUser.avatarUrl;
         NSString *nama = currentUser.name;
         NSString *noKTP = currentUser.noKTP;
         NSString *alamat = currentUser.address;
         NSString *nomerHP = currentUser.noHP;
         
+        if (avatarURL) {
+            [APIClient requestImageWithUrl:avatarURL withOnSuccessBlock:^(UIImage *image, BOOL reloadView) {
+                
+                [self.changeProfileBtn setBackgroundImage:image forState:UIControlStateNormal];
+                
+            } withOnFailureBlock:^{
+                
+                [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error when getting the image profile from server"];
+                
+            }];
+        }
         if (nama) {
             self.namaTF.text = nama;
         }
@@ -43,6 +55,7 @@
         if (nomerHP) {
             self.nomerHPTF.text = nomerHP;
         }
+        
     }
     
     

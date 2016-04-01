@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D354B39EB569F07D5ACA3B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D47D1B81F15147EB132C5E /* libPods.a */; };
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
+		9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */; };
 		9B5572461C61CF2600D4D938 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572451C61CF2600D4D938 /* APIClient.m */; };
 		9B55724A1C61D55B00D4D938 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572491C61D55B00D4D938 /* User.m */; };
 		9B6FD9091CAD467E0037BC81 /* TopupListrikTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */; };
@@ -56,6 +57,8 @@
 		79D47D1B81F15147EB132C5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B24FC381C59F7160095917D /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
 		9B24FC391C59F7160095917D /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
+		9B2639931CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordAndPinTableViewController.h; sourceTree = "<group>"; };
+		9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordAndPinTableViewController.m; sourceTree = "<group>"; };
 		9B5572431C61CCBF00D4D938 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		9B5572441C61CF2600D4D938 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
 		9B5572451C61CF2600D4D938 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */,
 				9B6FD90D1CAD60130037BC81 /* MyWalletViewController.h */,
 				9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */,
+				9B2639931CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.h */,
+				9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				9B55724A1C61D55B00D4D938 /* User.m in Sources */,
 				9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */,
 				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
+				9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
 				9B5572461C61CF2600D4D938 /* APIClient.m in Sources */,
 				9B9FDCA81C55D1E800DD7F24 /* digipay.xcdatamodeld in Sources */,

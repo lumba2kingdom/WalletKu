@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IHX-Cy-m9N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IHX-Cy-m9N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -7,7 +7,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
@@ -1635,10 +1634,10 @@
             </objects>
             <point key="canvasLocation" x="546" y="1821"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Change Password And Pin Table View Controller-->
         <scene sceneID="kDD-J0-nRc">
             <objects>
-                <tableViewController id="9aK-Kq-4UU" sceneMemberID="viewController">
+                <tableViewController id="9aK-Kq-4UU" customClass="ChangePasswordAndPinTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tEt-fn-VBF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1679,46 +1678,37 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="CfN-pg-2Kp">
-                                        <rect key="frame" x="0.0" y="214" width="600" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="55" id="CfN-pg-2Kp">
+                                        <rect key="frame" x="0.0" y="214" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CfN-pg-2Kp" id="haf-Qa-jeY">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGh-MU-R3z">
-                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="P5H-3L-O5J"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4h-Gz-O80">
-                                                    <rect key="frame" x="8" y="37" width="584" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="e1H-NM-aiK">
+                                                    <rect key="frame" x="8" y="14" width="584" height="29"/>
+                                                    <segments>
+                                                        <segment title="Ganti Password"/>
+                                                        <segment title="Ganti PIN"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.67450980390000004" green="0.64313725489999995" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="oGh-MU-R3z" secondAttribute="trailing" id="1SW-aw-I17"/>
-                                                <constraint firstAttribute="topMargin" secondItem="oGh-MU-R3z" secondAttribute="top" id="Px3-xm-MUw"/>
-                                                <constraint firstItem="Y4h-Gz-O80" firstAttribute="top" secondItem="oGh-MU-R3z" secondAttribute="bottom" constant="8" id="Yr0-C3-a6M"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Y4h-Gz-O80" secondAttribute="leading" id="vQ7-2a-GkD"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="oGh-MU-R3z" secondAttribute="leading" id="z6H-MD-5cd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Y4h-Gz-O80" secondAttribute="trailing" id="zff-RW-hVg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="e1H-NM-aiK" secondAttribute="trailing" id="a8D-68-HPh"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="e1H-NM-aiK" secondAttribute="leading" id="nPP-5t-bMT"/>
+                                                <constraint firstItem="e1H-NM-aiK" firstAttribute="centerY" secondItem="haf-Qa-jeY" secondAttribute="centerY" id="rby-q4-mLi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Zg1-12-tfX">
-                                        <rect key="frame" x="0.0" y="294" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="269" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zg1-12-tfX" id="wcT-P9-yeN">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Lagi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCV-ig-g2Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Lama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCV-ig-g2Q">
                                                     <rect key="frame" x="8" y="8" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="2FO-Fg-iFt"/>
@@ -1730,7 +1720,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ylP-Bu-df1">
                                                     <rect key="frame" x="8" y="37" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1744,13 +1734,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Phu-Zg-rWq">
-                                        <rect key="frame" x="0.0" y="374" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="349" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Phu-Zg-rWq" id="jmw-e0-Qbd">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t8-EY-8ys">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Baru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t8-EY-8ys">
                                                     <rect key="frame" x="8" y="8" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Ldu-jn-9wy"/>
@@ -1762,7 +1752,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kv2-jv-dXz">
                                                     <rect key="frame" x="8" y="37" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1776,13 +1766,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="GnL-L0-5Sd">
-                                        <rect key="frame" x="0.0" y="454" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="429" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GnL-L0-5Sd" id="JZs-IV-kh4">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN Lagi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I44-gQ-MUq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ulangi Password Baru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I44-gQ-MUq">
                                                     <rect key="frame" x="8" y="8" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Ig4-q4-FoX"/>
@@ -1794,7 +1784,7 @@
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqx-YD-gGA">
                                                     <rect key="frame" x="8" y="37" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1808,7 +1798,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="YZA-jP-YHa">
-                                        <rect key="frame" x="0.0" y="534" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="509" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YZA-jP-YHa" id="kkh-4Z-dtk">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
@@ -1824,6 +1814,9 @@
                                                     <state key="normal" title="Simpan">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="simpanBtn:" destination="9aK-Kq-4UU" eventType="touchUpInside" id="5RC-x0-ZcV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1840,6 +1833,15 @@
                             <outlet property="delegate" destination="9aK-Kq-4UU" id="YHE-nn-zlN"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="passwordBaruLabel" destination="1t8-EY-8ys" id="pg2-j6-b6W"/>
+                        <outlet property="passwordBaruTF" destination="kv2-jv-dXz" id="xep-ad-aAO"/>
+                        <outlet property="passwordLamaLabel" destination="cCV-ig-g2Q" id="wcT-aB-4l3"/>
+                        <outlet property="passwordLamaTF" destination="ylP-Bu-df1" id="p7E-xc-vRz"/>
+                        <outlet property="segmentedControl" destination="e1H-NM-aiK" id="vli-fQ-z3P"/>
+                        <outlet property="ulangiPasswordLabel" destination="I44-gQ-MUq" id="M5V-C9-ecm"/>
+                        <outlet property="ulangiPasswordTF" destination="vqx-YD-gGA" id="Ji1-AQ-UiU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxp-kB-Q8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
