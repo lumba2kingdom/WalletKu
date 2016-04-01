@@ -37,7 +37,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //LOGOUT ACTION
-    if (indexPath.row == 6) {
+    if (indexPath.row == 5) {
         UIAlertController * alert=   [UIAlertController
                                       alertControllerWithTitle:@""
                                       message:@"Apakah Anda yakin?"

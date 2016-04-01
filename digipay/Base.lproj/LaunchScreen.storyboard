@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digipay-logo" translatesAutoresizingMaskIntoConstraints="NO" id="KaK-Qe-hHv">
-                                <rect key="frame" x="180" y="213" width="240" height="128"/>
+                                <rect key="frame" x="225" y="225" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="uUS-FU-SYp"/>
-                                    <constraint firstAttribute="width" constant="240" id="xX4-EK-5mq"/>
+                                    <constraint firstAttribute="height" constant="150" id="uUS-FU-SYp"/>
+                                    <constraint firstAttribute="width" constant="150" id="xX4-EK-5mq"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KaK-Qe-hHv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-23" id="CmA-64-QPT"/>
+                            <constraint firstItem="KaK-Qe-hHv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="CmA-64-QPT"/>
                             <constraint firstItem="KaK-Qe-hHv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="M12-t6-RFv"/>
                         </constraints>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="digipay-logo" width="579" height="339"/>
+        <image name="digipay-logo" width="57" height="57"/>
     </resources>
 </document>

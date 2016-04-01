@@ -36,10 +36,10 @@
 
 #pragma mark - Actions
 - (IBAction)transferBankBtn:(UIButton *)sender {
-    self.descLabel.text = @"HALAMAN TRANSFER BANK";
+
 }
 
 - (IBAction)creditCardBtn:(UIButton *)sender {
-    self.descLabel.text = @"HALAMAN CREDIT CARD";
+
 }
 @end

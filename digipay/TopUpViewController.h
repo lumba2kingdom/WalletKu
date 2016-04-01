@@ -10,7 +10,9 @@
 
 @interface TopUpViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;
 - (IBAction)transferBankBtn:(UIButton *)sender;
 - (IBAction)creditCardBtn:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UIView *pilihView;
+
 @end

@@ -18,6 +18,7 @@
 #define kPostUsers                      @"users"
 #define kPostForgotPassword             @"password_resets"
 #define kPostTopUpPulsa                 @"payments"
+#define kPostCallUs                     @"contacts"
 
 #define kGetProvider                    @"providers"
 #define kGetPayment                     @"payments"
