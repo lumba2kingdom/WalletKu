@@ -8,11 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopUpViewController : UIViewController
+@interface TopUpViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UIView *pilihView;
+@property (weak, nonatomic) IBOutlet UIView *dataPembayaranView;
+@property (weak, nonatomic) IBOutlet UIView *konfirmasiView;
+
+@property (weak, nonatomic) IBOutlet UIButton *bcaBtn;
+@property (weak, nonatomic) IBOutlet UIButton *mandiriBtn;
+@property (weak, nonatomic) IBOutlet UILabel *creditCardLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *dataPembayaranLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)dataPembayaranBtn:(UIButton *)sender;
+
+- (IBAction)bcaBtn:(UIButton *)sender;
+- (IBAction)mandiriBtn:(UIButton *)sender;
+
 
 - (IBAction)transferBankBtn:(UIButton *)sender;
 - (IBAction)creditCardBtn:(UIButton *)sender;
 
-@property (weak, nonatomic) IBOutlet UIView *pilihView;
 
 @end

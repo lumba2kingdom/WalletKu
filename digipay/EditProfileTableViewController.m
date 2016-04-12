@@ -26,11 +26,13 @@
     if ([Utils getUserUserDefault]) {
         currentUser = [Utils getUserUserDefault];
         
-        NSString *avatarURL = currentUser.avatarUrl;
+        NSString *imageURL = currentUser.avatarUrl;
         NSString *nama = currentUser.name;
         NSString *noKTP = currentUser.noKTP;
         NSString *alamat = currentUser.address;
         NSString *nomerHP = currentUser.noHP;
+        
+        NSString *avatarURL = [NSString stringWithFormat:@"%@%@", kBaseURL, imageURL];
         
         if (avatarURL) {
             [APIClient requestImageWithUrl:avatarURL withOnSuccessBlock:^(UIImage *image, BOOL reloadView) {

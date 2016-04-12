@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D354B39EB569F07D5ACA3B3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79D47D1B81F15147EB132C5E /* libPods.a */; };
+		9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */; };
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
 		9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */; };
 		9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639981CAE866A008C59D0 /* CallUsViewController.m */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		57E7D9D2EFF8C19502DB37AD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		79D47D1B81F15147EB132C5E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B1789A41CBD339600E48844 /* TopupWalletFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopupWalletFieldTableViewCell.h; sourceTree = "<group>"; };
+		9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopupWalletFieldTableViewCell.m; sourceTree = "<group>"; };
 		9B24FC381C59F7160095917D /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
 		9B24FC391C59F7160095917D /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		9B2639931CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordAndPinTableViewController.h; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 			children = (
 				9B9FDCD81C5621D100DD7F24 /* PayHistoryTableViewCell.h */,
 				9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */,
+				9B1789A41CBD339600E48844 /* TopupWalletFieldTableViewCell.h */,
+				9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				9B6FD90C1CAD4BDF0037BC81 /* PayViewController.m in Sources */,
 				9B9FDCA21C55D1E800DD7F24 /* ViewController.m in Sources */,
 				9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */,
+				9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */,
 				9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */,
 				9B88C0EB1C720F1F00216A22 /* Utils.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,

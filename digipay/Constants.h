@@ -12,16 +12,17 @@
 #define kIsProduction       NO
 //#define kIsProduction       YES
 
-#define kBaseURL                        kIsProduction ? @"https://digipay.com/api/v1/" : @"http://188.166.236.85/api/v1/"
-#define kPostAuthentication             @"sessions"
-#define kPostAuthorization              @"resource"
-#define kPostUsers                      @"users"
-#define kPostForgotPassword             @"password_resets"
-#define kPostTopUpPulsa                 @"payments"
-#define kPostCallUs                     @"contacts"
+#define kBaseURL                        kIsProduction ? @"https://digipay.com/" : @"http://188.166.236.85/"
+#define kPostAuthentication             @"api/v1/sessions"
+#define kPostAuthorization              @"api/v1/resource"
+#define kPostUsers                      @"api/v1/users"
+#define kPostForgotPassword             @"api/v1/password_resets"
+#define kPostTopUpPulsa                 @"api/v1/payments"
+#define kPostCallUs                     @"api/v1/contacts"
+#define kPostTransferConfirmation       @"api/v1/transfer_confirmations"
 
-#define kGetProvider                    @"providers"
-#define kGetPayment                     @"payments"
+#define kGetProvider                    @"api/v1/providers"
+#define kGetPayment                     @"api/v1/payments"
 
 #define kUserDefaultsUserKey            @"userDefaultsUser"
 #define kUserDefaultsTokenKey           @"userDefaultsToken"
