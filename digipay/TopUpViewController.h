@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopUpViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TopUpViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *pilihView;
 @property (weak, nonatomic) IBOutlet UIView *dataPembayaranView;
@@ -19,7 +19,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *creditCardLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *dataPembayaranLabel;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+
+@property (weak, nonatomic) IBOutlet UIScrollView *confirmScrollView;
+@property (weak, nonatomic) IBOutlet UITextField *fromAccountName;
+@property (weak, nonatomic) IBOutlet UITextField *fromAccountNumber;
+@property (weak, nonatomic) IBOutlet UITextField *fromSourceName;
+@property (weak, nonatomic) IBOutlet UITextField *amount;
+@property (weak, nonatomic) IBOutlet UITextField *toSourceName;
+@property (weak, nonatomic) IBOutlet UITextField *toAccountName;
+@property (weak, nonatomic) IBOutlet UITextField *toAccountNumber;
+
+- (IBAction)confirmBtn:(UIButton *)sender;
+
 
 - (IBAction)dataPembayaranBtn:(UIButton *)sender;
 

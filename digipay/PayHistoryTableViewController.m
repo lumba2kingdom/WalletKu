@@ -49,19 +49,19 @@
     PayHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"payHistoryCell" forIndexPath:indexPath];
     
     cell.paymentIDLabel.text = [NSString stringWithFormat:@"%@", paymentID[indexPath.row]];
-//    cell.paymentStatusLabel.text = paymentStatus[indexPath.row];
-//    cell.paymentDateLabel.text = paymentDate[indexPath.row];
-//    cell.iconImg.image = [UIImage imageNamed:paymentIcon[indexPath.row]];
-//    
-//    if ([paymentIcon[indexPath.row] isEqualToString:@"topup"]) {
-//        cell.iconImg.image = [UIImage imageNamed:@"icon-hp.png"];
-//    }else if ([paymentIcon[indexPath.row] isEqualToString:@"pln"]){
-//        cell.iconImg.image = [UIImage imageNamed:@"icon-listrik.png"];
-//    }else{
-//        cell.iconImg.image = nil;
-//    }
-//    
-//    cell.paymentDescLabel.text = paymentMessage[indexPath.row];
+    cell.paymentStatusLabel.text = paymentStatus[indexPath.row];
+    cell.paymentDateLabel.text = paymentDate[indexPath.row];
+    cell.iconImg.image = [UIImage imageNamed:paymentIcon[indexPath.row]];
+    
+    if ([paymentIcon[indexPath.row] isEqualToString:@"topup"]) {
+        cell.iconImg.image = [UIImage imageNamed:@"icon-hp.png"];
+    }else if ([paymentIcon[indexPath.row] isEqualToString:@"pln"]){
+        cell.iconImg.image = [UIImage imageNamed:@"icon-listrik.png"];
+    }else{
+        cell.iconImg.image = nil;
+    }
+    
+    cell.paymentDescLabel.text = paymentMessage[indexPath.row];
     
     return cell;
 }
@@ -73,9 +73,9 @@
         
         NSArray *payments = [NSArray arrayWithArray:[response objectForKey:@"payments"]];
         paymentID = [NSArray arrayWithArray:[payments valueForKey:@"id"]];
-//        paymentStatus = [NSArray arrayWithArray:[payments valueForKey:@"status"]];
-//        paymentIcon = [NSArray arrayWithArray:[payments valueForKey:@"payment_type"]];
-//        paymentMessage = [NSArray arrayWithArray:[payments valueForKey:@"message"]];
+        paymentStatus = [NSArray arrayWithArray:[payments valueForKey:@"status"]];
+        paymentIcon = [NSArray arrayWithArray:[payments valueForKey:@"payment_type"]];
+        paymentMessage = [NSArray arrayWithArray:[payments valueForKey:@"message"]];
         
         [self.tableView reloadData];
         
