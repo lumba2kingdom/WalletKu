@@ -245,6 +245,8 @@
 		9B9FDCD01C55D41D00DD7F24 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */,
+				9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */,
 				9B9FDCD11C55D43700DD7F24 /* LoginViewController.h */,
 				9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */,
 				9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */,
@@ -255,8 +257,6 @@
 				9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */,
 				9BB1B64E1C577E78007587E0 /* TopUpViewController.h */,
 				9BB1B64F1C577E78007587E0 /* TopUpViewController.m */,
-				9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */,
-				9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */,
 				9BE6B6A01C5B0CC000D783B9 /* TopUpPulsaTableViewController.h */,
 				9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */,
 				9BD4283A1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.h */,
@@ -356,6 +356,7 @@
 				TargetAttributes = {
 					9B9FDC961C55D1E800DD7F24 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = FY2XL668XT;
 					};
 					9B9FDCB21C55D1E800DD7F24 = {
 						CreatedOnToolsVersion = 7.2;
@@ -629,12 +630,12 @@
 			baseConfigurationReference = D2DA9FC69C931A454D1A422B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lutfi Azhar (3U5SXG63JC)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dian hariani (FY2XL668XT)";
 				INFOPLIST_FILE = digipay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walletkuios.walletku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletku.walletku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "65ffa57f-7a1f-4aa8-be78-601074ba598c";
+				PROVISIONING_PROFILE = "79ab960f-fa1b-43dd-9f70-2348bc95db99";
 			};
 			name = Debug;
 		};
@@ -643,11 +644,12 @@
 			baseConfigurationReference = 57E7D9D2EFF8C19502DB37AD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: dian hariani (FY2XL668XT)";
 				INFOPLIST_FILE = digipay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.walletkuios.walletku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletku.walletku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "65ffa57f-7a1f-4aa8-be78-601074ba598c";
+				PROVISIONING_PROFILE = "79ab960f-fa1b-43dd-9f70-2348bc95db99";
 			};
 			name = Release;
 		};

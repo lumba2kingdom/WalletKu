@@ -50,7 +50,8 @@
                                 {
                                     //remove session user defaults
                                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserKey];
-                                    
+                                    //remove session token
+                                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsTokenKey];
                                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];
                                     [self presentViewController:vc animated:YES completion:nil];

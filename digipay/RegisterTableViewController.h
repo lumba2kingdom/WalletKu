@@ -18,8 +18,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *ulangPasswordTF;
 @property (weak, nonatomic) IBOutlet UITextField *noReferralTF;
 @property (weak, nonatomic) IBOutlet UISwitch *pernyataanSwitch;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *premiumSegmented;
 
 @property BOOL isSignUpAlreadyClicked;
+- (IBAction)premieumSegmented:(UISegmentedControl *)sender;
 
 - (IBAction)daftarBtn:(UIButton *)sender;
 

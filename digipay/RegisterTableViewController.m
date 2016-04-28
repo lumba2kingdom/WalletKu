@@ -96,6 +96,25 @@
 }
 */
 
+- (IBAction)premieumSegmented:(UISegmentedControl *)sender {
+    switch (self.premiumSegmented.selectedSegmentIndex) {
+        case 0:
+        {
+            [Utils showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Tidak ada deposit minimal\n 3. Saldo dapat digunakan keseluruh fitur di walletku."];
+        }
+            break;
+            
+        case 1:
+        {
+            [Utils showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Deposit minimum Rp 1000.000\n 3. Mendapatkan spanduk toko\n 4. Harga lebih murah daripada normal user\n 5. Berkesempatan mendapatkan point reward\n 6. Dapat merekrut premium user dibawah anda."];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (IBAction)daftarBtn:(UIButton *)sender {
     
     

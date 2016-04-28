@@ -48,7 +48,7 @@
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
 
-        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
+        if (!errorMessage || [errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
         }else{
             failureBlock(errorMessage);
@@ -94,7 +94,7 @@
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
         
-        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
+        if (!errorMessage || [errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
         }else{
             failureBlock(errorMessage);
@@ -140,7 +140,7 @@
         NSString *errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         NSString *errorMessage = [self getErrorMessageObjectWithString:errorResponse];
         
-        if ([errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
+        if (!errorMessage || [errorMessage isEqualToString:@""] || [errorMessage isEqualToString:@"(null)"] || [errorMessage isEqual:[NSNull null]]) {
             failureBlock(error.localizedDescription);
         }else{
             failureBlock(errorMessage);

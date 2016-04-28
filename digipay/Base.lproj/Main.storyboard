@@ -1043,7 +1043,7 @@
                                     <constraint firstAttribute="height" constant="100" id="uK7-Cb-rSD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" backgroundImage="icon-bayar-k-kredit"/>
+                                <state key="normal" backgroundImage="icon-bayar-hotel"/>
                                 <connections>
                                     <segue destination="XTE-9P-k6b" kind="show" id="hVd-Pw-5vp"/>
                                 </connections>
@@ -1069,7 +1069,7 @@
                                     <constraint firstAttribute="width" constant="100" id="E5B-sM-yVo"/>
                                     <constraint firstAttribute="height" constant="100" id="X9w-IR-sAq"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="icon-bayar-pam"/>
+                                <state key="normal" backgroundImage="icon-bayar-tiket-pesawat"/>
                                 <connections>
                                     <segue destination="AVw-nl-4ba" kind="show" id="KZ4-nj-VpI"/>
                                 </connections>
@@ -1084,21 +1084,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAYAR KARTU KREDIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVk-m2-ske">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAYAR HOTEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVk-m2-ske">
                                 <rect key="frame" x="17" y="508" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="7mg-Rd-J6Q"/>
                                     <constraint firstAttribute="height" constant="21" id="jvl-Xc-AKE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAYAR PAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zow-OX-Cd5">
-                                <rect key="frame" x="433" y="508" width="150" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="FOS-8y-Iu6"/>
-                                    <constraint firstAttribute="width" constant="150" id="XFm-kn-Cg0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1121,6 +1111,16 @@
                                     <constraint firstAttribute="height" constant="75" id="eOW-Lz-x1J"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAYAR TIKET PESAWAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zow-OX-Cd5">
+                                <rect key="frame" x="427" y="508" width="163" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FOS-8y-Iu6"/>
+                                    <constraint firstAttribute="width" constant="163" id="XFm-kn-Cg0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1140,7 +1140,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="BAT-dr-RSg" secondAttribute="leading" constant="-22" id="Tba-XK-BDX"/>
                             <constraint firstItem="dVk-m2-ske" firstAttribute="top" secondItem="Zh5-UJ-Ta4" secondAttribute="bottom" constant="8" id="UXp-nW-8IB"/>
                             <constraint firstItem="dVk-m2-ske" firstAttribute="leading" secondItem="xG3-Uv-rdI" secondAttribute="leadingMargin" constant="-3" id="VEU-hR-x9W"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zow-OX-Cd5" secondAttribute="trailing" constant="-3" id="Yeq-ud-mkl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zow-OX-Cd5" secondAttribute="trailing" constant="-10" id="Yeq-ud-mkl"/>
                             <constraint firstItem="XfS-Al-mf6" firstAttribute="top" secondItem="Flw-Zo-yFJ" secondAttribute="bottom" constant="28" id="ZmO-ya-WUe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XfS-Al-mf6" secondAttribute="trailing" constant="22" id="agR-Vq-egp"/>
                             <constraint firstItem="EoZ-iS-DCc" firstAttribute="centerY" secondItem="xG3-Uv-rdI" secondAttribute="centerY" constant="-12" id="fFA-d9-6rM"/>
@@ -1654,6 +1654,9 @@
                                                         <segment title="Premium"/>
                                                     </segments>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="premieumSegmented:" destination="6IP-ks-Xai" eventType="valueChanged" id="rI3-la-aqT"/>
+                                                    </connections>
                                                 </segmentedControl>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digipay-logo" translatesAutoresizingMaskIntoConstraints="NO" id="uHQ-fA-6nH">
                                                     <rect key="frame" x="263" y="8" width="75" height="75"/>
@@ -1865,6 +1868,7 @@
                         <outlet property="noReferralTF" destination="2xr-aR-9Fu" id="Npz-9Q-XC5"/>
                         <outlet property="passwordTF" destination="8UM-h4-iYO" id="sz5-yT-EKB"/>
                         <outlet property="pernyataanSwitch" destination="3pP-Ya-cOK" id="U2U-7i-n78"/>
+                        <outlet property="premiumSegmented" destination="9bK-B6-1Z0" id="ZkA-jF-KwS"/>
                         <outlet property="ulangPasswordTF" destination="rh1-Cl-LyO" id="hU7-5R-uXz"/>
                     </connections>
                 </tableViewController>
@@ -2295,7 +2299,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih Provider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6B-dB-AxM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6B-dB-AxM">
                                                     <rect key="frame" x="8" y="8" width="584" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="gc5-7Y-zuo"/>
@@ -2456,9 +2460,9 @@
     <resources>
         <image name="bca-logo" width="3414" height="1116"/>
         <image name="digipay-logo" width="57" height="57"/>
-        <image name="icon-bayar-k-kredit" width="360" height="360"/>
+        <image name="icon-bayar-hotel" width="359" height="378"/>
         <image name="icon-bayar-listrik" width="360" height="360"/>
-        <image name="icon-bayar-pam" width="360" height="360"/>
+        <image name="icon-bayar-tiket-pesawat" width="360" height="375"/>
         <image name="icon-top-up-pulsa" width="360" height="360"/>
         <image name="mandiri-logo" width="1533" height="447"/>
     </resources>
