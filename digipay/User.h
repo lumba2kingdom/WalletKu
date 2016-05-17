@@ -26,5 +26,8 @@
 @property (nonatomic, strong) NSString* totalBonus;
 @property (nonatomic, strong) NSString* totalPoint;
 @property (nonatomic, strong) NSString* uid;
+@property (nonatomic, strong) NSString* token;
+
++ (id)userWithData:(NSDictionary*)data;
 
 @end

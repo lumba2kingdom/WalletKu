@@ -26,5 +26,6 @@
 
 #define kUserDefaultsUserKey            @"userDefaultsUser"
 #define kUserDefaultsTokenKey           @"userDefaultsToken"
+#define kUserDefaultsEmailKey           @"userDefaultsEmail"
 
 #endif /* Constants_h */

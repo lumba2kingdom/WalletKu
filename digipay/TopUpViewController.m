@@ -21,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.bcaBtn setHidden:YES];
+    [self.mandiriBtn setHidden:YES];
     // Do any additional setup after loading the view.
 }
 
@@ -42,21 +44,30 @@
     [self.dataPembayaranView setHidden:YES];
     [self.konfirmasiView setHidden:NO];
     
-    self.fromSourceName.text = sourceType;
+    self.toSourceName.text = sourceType;
+}
+
+- (IBAction)dataPembayaranBackBtn:(UIButton *)sender {
+    [self.pilihView setHidden:NO];
+    [self.dataPembayaranView setHidden:YES];
 }
 
 - (IBAction)bcaBtn:(UIButton *)sender {
     [self.pilihView setHidden:YES];
     [self.dataPembayaranView setHidden:NO];
-    [self.dataPembayaranLabel setText:@"BCA 1122334456789 \nAtas nama PT Dian Kencana \nKCP Semanggi"];
+    [self.dataPembayaranLabel setText:@"BCA 4910050180 \nAtas nama Dian Hariani \nKCP Semanggi"];
     sourceType = @"BCA";
+    self.toAccountName.text = @"Dian Hariani";
+    self.toAccountNumber.text = @"4910050180";
 }
 
 - (IBAction)mandiriBtn:(UIButton *)sender {
     [self.pilihView setHidden:YES];
     [self.dataPembayaranView setHidden:NO];
-    [self.dataPembayaranLabel setText:@"MANDIRI 1122334456789 \nAtas nama PT Dian Kencana \nKCP Matraman"];
+    [self.dataPembayaranLabel setText:@"MANDIRI 1250003238888 \nAtas nama Dian Hariani \nKCP Matraman"];
     sourceType = @"MANDIRI";
+    self.toAccountName.text = @"Dian Hariani";
+    self.toAccountNumber.text = @"1250003238888";
 }
 
 - (IBAction)transferBankBtn:(UIButton *)sender {

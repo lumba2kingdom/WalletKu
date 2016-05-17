@@ -16,50 +16,42 @@
     
     NSDictionary *userDict = @{
                                @"address": user.address,
+                               @"avatar_url": user.avatarUrl,
                                @"email": user.email,
                                @"id": user.userId,
                                @"name": user.name,
+                               @"no_ktp": user.noKTP,
                                @"phone": user.noHP,
-                               @"avatarUrl": user.avatarUrl,
-                               @"noKtp": user.noKTP,
                                @"premium": user.isPremium,
-                               @"referralId": user.referral_id,
-                               @"totalBalance": user.totalBalance,
-                               @"totalBonus": user.totalBonus,
-                               @"totalPoint": user.totalPoint,
+                               @"referral_id": user.referral_id,
+                               @"token": user.token,
+                               @"total_balance": user.totalBalance,
+                               @"total_bonus": user.totalBonus,
+                               @"total_point": user.totalPoint,
                                @"uid": user.uid
                                };
     [[NSUserDefaults standardUserDefaults] setObject:userDict forKey:kUserDefaultsUserKey];
     
 }
 
-+(void)addUserTokenToUserDefault:(NSString *)token {
-    [[NSUserDefaults standardUserDefaults] setObject:token forKey:kUserDefaultsTokenKey];
++(void)addRememberMeEmailToUserDefault:(NSString *)email {
+    [[NSUserDefaults standardUserDefaults] setObject:email forKey:kUserDefaultsEmailKey];
+}
+
++(NSString *)getUserRememberMeEmail{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsEmailKey];
 }
 
 +(User *)getUserUserDefault{
     NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
-    User *user = [[User alloc] init];
-    
-    user.address = [users valueForKey:@"address"];
-    user.email = [users valueForKey:@"email"];
-    user.userId = [users valueForKey:@"id"];
-    user.name = [users valueForKey:@"name"];
-    user.noHP = [users valueForKey:@"phone"];
-    user.avatarUrl = [users valueForKey:@"avatarUrl"];
-    user.noKTP = [users valueForKey:@"noKtp"];
-    user.isPremium = [users valueForKey:@"premium"];
-    user.referral_id = [users valueForKey:@"referralId"];
-    user.totalBalance = [users valueForKey:@"totalBalance"];
-    user.totalBonus = [users valueForKey:@"totalBonus"];
-    user.totalPoint = [users valueForKey:@"totalPoint"];
-    user.uid = [users valueForKey:@"uid"];
+    User *user = [User userWithData:users];
     
     return user;
 }
 
 +(NSString *)getUserToken{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsTokenKey];
+    NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
+    return [users valueForKey:@"token"];
 }
 
 +(NSString *)getUserEmail{
@@ -79,14 +71,21 @@
 
 +(NSString *)getUserBalance{
     NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
-    return [users valueForKey:@"totalBalance"];
+    return [users valueForKey:@"total_balance"];
 }
 
 +(NSString *)getUserPoin{
     NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
-    return [users valueForKey:@"totalPoint"];
+    return [users valueForKey:@"total_point"];
 }
 
++(void)setPINStatus:(NSString *)status{
+    [[NSUserDefaults standardUserDefaults] setObject:status forKey:@"pinstatus"];
+}
+
++(NSString *)getPINStatus{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"pinstatus"];
+}
 
 #pragma mark - UIAlertController
 +(void)showDefaultAlertWithViewController:(UIViewController *)viewController withTitle:(NSString *)title andMessage:(NSString *)message {

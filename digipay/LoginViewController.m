@@ -8,8 +8,8 @@
 
 #import "LoginViewController.h"
 #import "APIClient.h"
-#import "User.h"
 #import "Utils.h"
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -34,6 +34,12 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self presentViewController:vc animated:YES completion:nil];
+    }
+    
+    if ([Utils getUserRememberMeEmail]) {
+        self.usernameTF.text = [Utils getUserRememberMeEmail];
+    }else{
+        self.usernameTF.text = @"";
     }
     
 }
@@ -106,7 +112,6 @@
                                                                              }];
                                                      
                                                      [alert addAction:okBtn];
-                                                     
                                                      [self presentViewController:alert animated:YES completion:nil];
                                                  }else{
                                                      
@@ -131,6 +136,27 @@
     
 }
 
+- (void)logoutTask
+{
+    [NSTimer scheduledTimerWithTimeInterval:900.0 target:self selector:@selector(performBackgroundTask) userInfo:nil repeats:YES];
+}
+
+- (void)performBackgroundTask
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //remove session user defaults
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserKey];
+        //remove session token
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsTokenKey];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];
+            [self presentViewController:vc animated:YES completion:nil];
+        });
+    });
+}
+
 #pragma mark - API Call Methods
 - (void)loginAPI{
     [APIClient postAPIWithParam:@{
@@ -140,31 +166,22 @@
                                           }
                                   }
                     andEndPoint:kPostAuthentication withAuthorization:NO successBlock:^(NSDictionary *response) {
-                        NSDictionary *userDict = (NSDictionary*)response;
                         
-                        User *newUser = [[User alloc] init];
-                        
-                        newUser.address = [userDict valueForKey:@"address"];
-                        newUser.email = [userDict valueForKey:@"email"];
-                        newUser.userId = [userDict valueForKey:@"id"];
-                        newUser.name = [userDict valueForKey:@"name"];
-                        newUser.noHP = [userDict valueForKey:@"phone"];
-                        newUser.avatarUrl = [userDict valueForKey:@"avatar_url"];
-                        newUser.noKTP = [userDict valueForKey:@"no_ktp"];
-                        newUser.isPremium = [userDict valueForKey:@"premium"];
-                        newUser.referral_id = [userDict valueForKey:@"referral_id"];
-                        newUser.totalBalance = [userDict valueForKey:@"total_balance"];
-                        newUser.totalBonus = [userDict valueForKey:@"total_bonus"];
-                        newUser.totalPoint = [userDict valueForKey:@"total_point"];
-                        newUser.uid = [userDict valueForKey:@"uid"];
-                        
-                        [Utils addUserToUserDefault:newUser];
-                        [Utils addUserTokenToUserDefault:[userDict valueForKey:@"token"]];
-                        
+                        User *userData = [User userWithData:response];
+                        [Utils addUserToUserDefault:userData];
                         
                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                         UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
                         [self presentViewController:vc animated:YES completion:nil];
+                        
+                        [self logoutTask];
+                        [Utils setPINStatus:@"no"];
+                        
+                        if (self.rememberMeSwitch.on) {
+                            [Utils addRememberMeEmailToUserDefault:self.usernameTF.text];
+                        }else{
+                            [Utils addRememberMeEmailToUserDefault:@""];
+                        }
                         
                     } andFailureBlock:^(NSString *errorMessage) {
                         self.isLoginAlreadyClicked = NO;

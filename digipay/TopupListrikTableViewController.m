@@ -18,6 +18,7 @@
 @implementation TopupListrikTableViewController {
     NSMutableArray *providerSelected, *nominalSelected;
     int providerId, nominalId;
+    NSString *emailForNotifikasi;
 }
 
 - (void)viewDidLoad {
@@ -40,7 +41,8 @@
     }
     
     if (nominalSelected) {
-        self.nominalTF.text = [NSString stringWithFormat:@"%@", [nominalSelected valueForKey:@"amount"]];
+//        self.nominalTF.text = [NSString stringWithFormat:@"%@", [nominalSelected valueForKey:@"amount"]];
+        self.nominalTF.text = [NSString stringWithFormat:@"%@   price:%@", [nominalSelected valueForKey:@"name"], [nominalSelected valueForKey:@"price"]];
         nominalId = [[nominalSelected valueForKey:@"id"] intValue];
     }else{
         self.nominalTF.text = @"";
@@ -101,6 +103,77 @@
         [alert addAction:okBtn];
         
         [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+- (IBAction)segmentedNotifikasi:(UISegmentedControl *)sender {
+    switch (self.segmentedNotifikasi.selectedSegmentIndex) {
+        case 0:
+        {
+            [Utils showDefaultAlertWithViewController:self withTitle:@"Maaf" andMessage:@"Untuk sementara ini fitur belum tersedia, harap pilih email"];
+        }
+            break;
+            
+        case 1:
+        {
+            UIAlertController* alert =
+            [UIAlertController alertControllerWithTitle:@"Masukkan Email"
+                                                message:@"Silakan isi email pengguna."
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                
+                textField.keyboardType = UIKeyboardTypeEmailAddress;
+                self.emailAddressTextField = textField;
+            }];
+            
+            [alert addAction: [UIAlertAction actionWithTitle:@"Selesai"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         
+                                                         if ([self.emailAddressTextField.text isEqualToString:@""]) {
+                                                             UIAlertController * alert=   [UIAlertController
+                                                                                           alertControllerWithTitle:@""
+                                                                                           message:@"Email kosong"
+                                                                                           preferredStyle:UIAlertControllerStyleAlert];
+                                                             
+                                                             UIAlertAction* okBtn = [UIAlertAction
+                                                                                     actionWithTitle:@"Ok"
+                                                                                     style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * action)
+                                                                                     {
+                                                                                         
+                                                                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                         
+                                                                                     }];
+                                                             
+                                                             [alert addAction:okBtn];
+                                                             [self presentViewController:alert animated:YES completion:nil];
+                                                         }else{
+                                                             
+                                                             emailForNotifikasi = self.emailAddressTextField.text;
+                                                             
+                                                             [alert dismissViewControllerAnimated:YES completion:nil];
+                                                             
+                                                         }
+                                                         
+                                                         
+                                                     }]];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:@"Batal"
+                                                      style:UIAlertActionStyleCancel
+                                                    handler:^(UIAlertAction *action) {
+                                                        
+                                                        [alert dismissViewControllerAnimated:YES completion:nil];
+                                                        
+                                                    }]];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
@@ -165,8 +238,6 @@
                                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                                          
                                                      }
-                                                     
-                                                     
                                                  }]];
         
         [alert addAction:[UIAlertAction actionWithTitle:@"Batal"
@@ -185,6 +256,8 @@
 #pragma mark - API methods
 - (void)topUpPulsaAPIWithPIN:(NSString *)pin{
     
+    NSString *endpoint = [NSString stringWithFormat:@"%@/email=%@", kPostTopUpPulsa, emailForNotifikasi ? emailForNotifikasi:@""];
+    
     [APIClient postAPIWithParam:@{
                                   @"top_up":@{
                                           @"provider_id":@(providerId),
@@ -193,7 +266,7 @@
                                           @"payment_type":@"pln",
                                           @"pin":pin
                                           }
-                                  }andEndPoint:kPostTopUpPulsa withAuthorization:YES successBlock:^(NSDictionary *response) {
+                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
                                       
                                       NSString *status = [response valueForKeyPath:@"payment.status"];
                                       NSString *message = [response valueForKeyPath:@"payment.message"];

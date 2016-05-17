@@ -33,6 +33,7 @@
 		9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64F1C577E78007587E0 /* TopUpViewController.m */; };
 		9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */; };
 		9BD4283C1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD4283B1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m */; };
+		9BDC2F301CEB177200385A08 /* PaymentHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC2F2F1CEB177200385A08 /* PaymentHistory.m */; };
 		9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,8 @@
 		9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		9BD4283A1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUpPulsaListTableViewController.h; sourceTree = "<group>"; };
 		9BD4283B1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpPulsaListTableViewController.m; sourceTree = "<group>"; };
+		9BDC2F2E1CEB177200385A08 /* PaymentHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentHistory.h; sourceTree = "<group>"; };
+		9BDC2F2F1CEB177200385A08 /* PaymentHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentHistory.m; sourceTree = "<group>"; };
 		9BE6B6A01C5B0CC000D783B9 /* TopUpPulsaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUpPulsaTableViewController.h; sourceTree = "<group>"; };
 		9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpPulsaTableViewController.m; sourceTree = "<group>"; };
 		D2DA9FC69C931A454D1A422B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 			children = (
 				9B5572481C61D55B00D4D938 /* User.h */,
 				9B5572491C61D55B00D4D938 /* User.m */,
+				9BDC2F2E1CEB177200385A08 /* PaymentHistory.h */,
+				9BDC2F2F1CEB177200385A08 /* PaymentHistory.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				9B9FDC951C55D1E800DD7F24 /* Resources */,
 				5516E5F2CD2C3944E21E6136 /* Embed Pods Frameworks */,
 				CF83813A3C6D7BED44F42EBE /* Copy Pods Resources */,
+				9BDC2F311CEB35B400385A08 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -431,6 +437,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9BDC2F311CEB35B400385A08 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ce61721ac9a7626f5aa478d3eca82839f86a0e9a 55a236024163ddcc60bd473b9dd20dd5af1802e4f1831df855f6d270906b1ff0";
+		};
 		CF83813A3C6D7BED44F42EBE /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,6 +508,7 @@
 				9B9FDCA81C55D1E800DD7F24 /* digipay.xcdatamodeld in Sources */,
 				9BD4283C1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m in Sources */,
 				9B9FDCD31C55D43700DD7F24 /* LoginViewController.m in Sources */,
+				9BDC2F301CEB177200385A08 /* PaymentHistory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,7 +655,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletku.walletku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79ab960f-fa1b-43dd-9f70-2348bc95db99";
+				PROVISIONING_PROFILE = "c7289478-7ba4-424a-8749-75b41475f113";
 			};
 			name = Debug;
 		};
@@ -649,7 +669,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.walletku.walletku;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79ab960f-fa1b-43dd-9f70-2348bc95db99";
+				PROVISIONING_PROFILE = "c7289478-7ba4-424a-8749-75b41475f113";
 			};
 			name = Release;
 		};

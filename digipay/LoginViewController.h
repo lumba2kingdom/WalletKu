@@ -17,6 +17,7 @@
 - (IBAction)tapGestureView:(UITapGestureRecognizer *)sender;
 - (IBAction)forgotPasswordBtn:(UIButton *)sender;
 @property (nonatomic, weak) UITextField* emailAddressTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *rememberMeSwitch;
 
 
 @property BOOL isLoginAlreadyClicked;

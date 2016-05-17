@@ -34,6 +34,7 @@
 
 
 - (IBAction)dataPembayaranBtn:(UIButton *)sender;
+- (IBAction)dataPembayaranBackBtn:(UIButton *)sender;
 
 - (IBAction)bcaBtn:(UIButton *)sender;
 - (IBAction)mandiriBtn:(UIButton *)sender;

@@ -25,7 +25,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self profileAPI];
+    if ([[Utils getPINStatus] isEqualToString:@"no"]) {
+        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Harap ganti PIN Anda terlebih dahulu. PIN lama Anda adalah 1234."];
+    }
+    
+//    [self profileAPI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +59,7 @@
                                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];
                                     [self presentViewController:vc animated:YES completion:nil];
-                                    
+                                    [Utils setPINStatus:@"no"];
                                 }];
         
         [alert addAction:okBtn];
@@ -84,22 +88,7 @@
         if (response) {
             
             NSDictionary *userDict = (NSDictionary*)[response objectForKey:@"user"];
-            
-            User *newUser = [[User alloc] init];
-            
-            newUser.address = [userDict valueForKey:@"address"];
-            newUser.email = [userDict valueForKey:@"email"];
-            newUser.userId = [userDict valueForKey:@"id"];
-            newUser.name = [userDict valueForKey:@"name"];
-            newUser.noHP = [userDict valueForKey:@"phone"];
-            newUser.avatarUrl = [userDict valueForKey:@"avatar_url"];
-            newUser.noKTP = [userDict valueForKey:@"no_ktp"];
-            newUser.isPremium = [userDict valueForKey:@"premium"];
-            newUser.referral_id = [userDict valueForKey:@"referral_id"];
-            newUser.totalBalance = [userDict valueForKey:@"total_balance"];
-            newUser.totalBonus = [userDict valueForKey:@"total_bonus"];
-            newUser.totalPoint = [userDict valueForKey:@"total_point"];
-            newUser.uid = [userDict valueForKey:@"uid"];
+            User *newUser = [User userWithData:userDict];
             
             [Utils addUserToUserDefault:newUser];
         }

@@ -10,23 +10,20 @@
 #import "PayHistoryTableViewCell.h"
 #import "APIClient.h"
 #import "Utils.h"
+#import "PaymentHistory.h"
 
 @interface PayHistoryTableViewController ()
 
 @end
 
 @implementation PayHistoryTableViewController{
-    NSArray *paymentID, *paymentStatus, *paymentDate, *paymentIcon, *paymentMessage;
+    NSArray *payments;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self paymentHistoryAPI];
-    
-    paymentDate = [[NSArray alloc] initWithObjects:@"2 Sep 2015", @"3 Sep 2015", @"4 Sep 2015", @"5 Sep 2015", @"6 Sep 2015", @"7 Sep 2015", @"8 Sep 2015", @"9 Sep 2015", @"10 Sep 2015", @"11 Sep 2015", nil];
-    
-    [self.tableView reloadData];
     
 }
 
@@ -42,28 +39,34 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return paymentID.count;
+    return payments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PayHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"payHistoryCell" forIndexPath:indexPath];
     
-    cell.paymentIDLabel.text = [NSString stringWithFormat:@"%@", paymentID[indexPath.row]];
-    cell.paymentStatusLabel.text = paymentStatus[indexPath.row];
-    cell.paymentDateLabel.text = paymentDate[indexPath.row];
-    cell.iconImg.image = [UIImage imageNamed:paymentIcon[indexPath.row]];
+    PaymentHistory *payment = [PaymentHistory paymentWithData:[payments objectAtIndex:indexPath.row]];
     
-    if ([paymentIcon[indexPath.row] isEqualToString:@"topup"]) {
+    cell.providerPlusNominalLabel.text = [NSString stringWithFormat:@"%@ %@", payment.provider, payment.nominal];
+    cell.paymentStatusLabel.text = payment.status;
+    cell.nomorTujuanLabel.text = [NSString stringWithFormat:@"Nomor Tujuan: %@", payment.msisdn];
+    cell.serialNumberLabel.text = payment.serial_number;
+    cell.paymentDateLabel.text = payment.date;
+    cell.hargaLabel.text = [NSString stringWithFormat:@"Harga Rp.%@,-", payment.amount];
+    
+    if ([payment.payment_type isEqualToString:@"topup"]) {
         cell.iconImg.image = [UIImage imageNamed:@"icon-hp.png"];
-    }else if ([paymentIcon[indexPath.row] isEqualToString:@"pln"]){
+    }else if ([payment.payment_type isEqualToString:@"pln"]){
         cell.iconImg.image = [UIImage imageNamed:@"icon-listrik.png"];
     }else{
         cell.iconImg.image = nil;
     }
     
-    cell.paymentDescLabel.text = paymentMessage[indexPath.row];
-    
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 150;
 }
 
 #pragma mark - API Call Methods
@@ -71,11 +74,12 @@
     [APIClient getAPIWithParam:nil andEndPoint:kGetPayment withAuthorization:YES successBlock:^(NSDictionary *response) {
         NSLog(@"PAYMENT : %@", response);
         
-        NSArray *payments = [NSArray arrayWithArray:[response objectForKey:@"payments"]];
-        paymentID = [NSArray arrayWithArray:[payments valueForKey:@"id"]];
-        paymentStatus = [NSArray arrayWithArray:[payments valueForKey:@"status"]];
-        paymentIcon = [NSArray arrayWithArray:[payments valueForKey:@"payment_type"]];
-        paymentMessage = [NSArray arrayWithArray:[payments valueForKey:@"message"]];
+        payments = [NSArray arrayWithArray:[response objectForKey:@"payments"]];
+        
+//        paymentID = [NSArray arrayWithArray:[payments valueForKey:@"id"]];
+//        paymentStatus = [NSArray arrayWithArray:[payments valueForKey:@"status"]];
+//        paymentIcon = [NSArray arrayWithArray:[payments valueForKey:@"payment_type"]];
+//        paymentMessage = [NSArray arrayWithArray:[payments valueForKey:@"message"]];
         
         [self.tableView reloadData];
         

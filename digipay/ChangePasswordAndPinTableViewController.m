@@ -112,6 +112,7 @@
                                          }
                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"PIN changed successfuly"];
+                                     [Utils setPINStatus:@"yes"];
                                  } andFailureBlock:^(NSString *errorMessage) {
                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error changing PIN from server"];
                                  }];

@@ -5,4 +5,5 @@
 
 pod 'AFNetworking'
 pod 'iOS-Slide-Menu'
-
+pod 'Fabric'
+pod 'Crashlytics'

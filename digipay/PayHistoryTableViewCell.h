@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface PayHistoryTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *paymentIDLabel;
+@property (weak, nonatomic) IBOutlet UILabel *providerPlusNominalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *paymentDescLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nomorTujuanLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hargaLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImg;
 
 @end

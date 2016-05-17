@@ -13,7 +13,6 @@
 @interface Utils : NSObject
 
 +(void)addUserToUserDefault:(User *)user;
-+(void)addUserTokenToUserDefault:(NSString *)token;
 +(User *)getUserUserDefault;
 +(NSString *)getUserToken;
 +(NSString *)getUserEmail;
@@ -22,5 +21,9 @@
 +(NSString *)getUserBalance;
 +(NSString *)getUserPoin;
 +(void)showDefaultAlertWithViewController:(UIViewController *)viewController withTitle:(NSString *)title andMessage:(NSString *)message;
-    
++(void)addRememberMeEmailToUserDefault:(NSString *)email;
++(NSString *)getUserRememberMeEmail;
++(void)setPINStatus:(NSString *)status;
++(NSString *)getPINStatus;
+
 @end

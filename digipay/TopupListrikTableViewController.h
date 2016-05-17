@@ -22,10 +22,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *nominalTF;
 @property (weak, nonatomic) IBOutlet UITextField *nomerMeterTF;
 @property (nonatomic, weak) UITextField* pinTF;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedNotifikasi;
+@property (nonatomic, weak) UITextField* emailAddressTextField;
 
 - (IBAction)selectProviderBtn:(UIButton *)sender;
 - (IBAction)beliBtn:(UIButton *)sender;
 - (IBAction)selectNominalBtn:(UIButton *)sender;
+- (IBAction)segmentedNotifikasi:(UISegmentedControl *)sender;
 
 @property (nonatomic) NSMutableArray *providerList;
 

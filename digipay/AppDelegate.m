@@ -11,6 +11,9 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "SlideNavigationController.h"
 #import "MenuTableViewController.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -32,6 +35,8 @@
     
     MenuTableViewController *leftMenu = [[MenuTableViewController alloc] init];
     [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    
+    [Fabric with:@[[Crashlytics class]]];
     
     return YES;
 }

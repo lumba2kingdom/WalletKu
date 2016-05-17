@@ -41,7 +41,7 @@
     }
     
     if (nominalSelected) {
-        self.nominalTF.text = [NSString stringWithFormat:@"%@", [nominalSelected valueForKey:@"amount"]];
+        self.nominalTF.text = [NSString stringWithFormat:@"%@   price:%@", [nominalSelected valueForKey:@"name"], [nominalSelected valueForKey:@"price"]];
         nominalId = [[nominalSelected valueForKey:@"id"] intValue];
     }else{
         self.nominalTF.text = @"";

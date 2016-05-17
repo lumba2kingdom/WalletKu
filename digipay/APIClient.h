@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 #import "Constants.h"
-#import "User.h"
 
 @interface APIClient : NSObject
 

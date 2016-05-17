@@ -30,83 +30,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)premieumSegmented:(UISegmentedControl *)sender {
     switch (self.premiumSegmented.selectedSegmentIndex) {
         case 0:
         {
             [Utils showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Tidak ada deposit minimal\n 3. Saldo dapat digunakan keseluruh fitur di walletku."];
+            [self.noReferralTF setHidden:YES];
         }
             break;
             
         case 1:
         {
             [Utils showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Deposit minimum Rp 1000.000\n 3. Mendapatkan spanduk toko\n 4. Harga lebih murah daripada normal user\n 5. Berkesempatan mendapatkan point reward\n 6. Dapat merekrut premium user dibawah anda."];
+            [self.noReferralTF setHidden:NO];
         }
             break;
             
@@ -193,17 +130,10 @@
                                                                           }andEndPoint:kPostUsers withAuthorization:NO successBlock:^(NSDictionary *response) {
                                                                               
                                                                               
-                                                                              NSDictionary *userDict = (NSDictionary*)[response objectForKey:@"user"];
+                                                                              User *userData = [User userWithData:response];
+                                                                              [Utils addUserToUserDefault:userData];
                                                                               
-                                                                              User *newUser = [[User alloc] init];
-                                                                              newUser.address = [userDict valueForKey:@"address"];
-                                                                              newUser.email = [userDict valueForKey:@"email"];
-                                                                              newUser.userId = [userDict valueForKey:@"id"];
-                                                                              newUser.name = [userDict valueForKey:@"name"];
-                                                                              newUser.noHP = [userDict valueForKey:@"phone"];
-                                                                              
-                                                                              [Utils addUserToUserDefault:newUser];
-                                                                              
+                                                                              [Utils setPINStatus:@"no"];
                                                                               
                                                                               UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                                                               UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
