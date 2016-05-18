@@ -12,6 +12,8 @@
 //#define kIsProduction       NO
 #define kIsProduction       YES
 
+#define autoLogoutTimerInSeconds        900.0
+
 #define kBaseURL                        kIsProduction ? @"http://walletku.com/" : @"http://188.166.236.85/"
 #define kPostAuthentication             @"api/v1/sessions"
 #define kPostAuthorization              @"api/v1/resource"

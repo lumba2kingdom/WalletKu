@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "Utils.h"
 #import "SlideNavigationController.h"
 #import "MenuTableViewController.h"
 #import <Fabric/Fabric.h>
@@ -57,6 +58,21 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    
+    
+    /*** CUSTOM METHOD ***/
+    
+    // LOGOUT IF ITS REACHED 15 MINUTES
+    if ([[Utils getAutoLogoutStatus] isEqualToString:@"yes"] || ![Utils getUserToken]) {
+        UINavigationController* navigation = (UINavigationController*) self.window.rootViewController;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];
+        
+        [navigation.visibleViewController presentViewController:vc animated:YES completion:nil];
+
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

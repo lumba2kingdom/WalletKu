@@ -87,6 +87,14 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"pinstatus"];
 }
 
++(void)setAutoLogoutStatus:(NSString *)status {
+    [[NSUserDefaults standardUserDefaults] setObject:status forKey:@"logoutstatus"];
+}
+
++(NSString *)getAutoLogoutStatus {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"logoutstatus"];
+}
+
 #pragma mark - UIAlertController
 +(void)showDefaultAlertWithViewController:(UIViewController *)viewController withTitle:(NSString *)title andMessage:(NSString *)message {
     

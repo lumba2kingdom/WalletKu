@@ -25,5 +25,7 @@
 +(NSString *)getUserRememberMeEmail;
 +(void)setPINStatus:(NSString *)status;
 +(NSString *)getPINStatus;
++(void)setAutoLogoutStatus:(NSString *)status;
++(NSString *)getAutoLogoutStatus;
 
 @end

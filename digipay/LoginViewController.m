@@ -15,7 +15,9 @@
 
 @end
 
-@implementation LoginViewController
+@implementation LoginViewController {
+    NSTimer *autoLogoutTimer;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -138,21 +140,25 @@
 
 - (void)logoutTask
 {
-    [NSTimer scheduledTimerWithTimeInterval:900.0 target:self selector:@selector(performBackgroundTask) userInfo:nil repeats:YES];
+    autoLogoutTimer = [NSTimer scheduledTimerWithTimeInterval:autoLogoutTimerInSeconds target:self selector:@selector(performBackgroundTask) userInfo:nil repeats:YES];
 }
 
 - (void)performBackgroundTask
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
         //remove session user defaults
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsUserKey];
         //remove session token
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsTokenKey];
+        
+        //set auto logout status
+        [Utils setAutoLogoutStatus:@"yes"];
+        
+        [autoLogoutTimer invalidate];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];
-            [self presentViewController:vc animated:YES completion:nil];
+            [autoLogoutTimer invalidate];
         });
     });
 }
@@ -183,6 +189,7 @@
                             [Utils addRememberMeEmailToUserDefault:@""];
                         }
                         
+                        [Utils setAutoLogoutStatus:@"no"];
                     } andFailureBlock:^(NSString *errorMessage) {
                         self.isLoginAlreadyClicked = NO;
                         
