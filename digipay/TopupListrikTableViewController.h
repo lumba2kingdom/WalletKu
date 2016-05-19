@@ -24,6 +24,7 @@
 @property (nonatomic, weak) UITextField* pinTF;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedNotifikasi;
 @property (nonatomic, weak) UITextField* emailAddressTextField;
+@property (nonatomic, weak) UITextField* phoneTextField;
 
 - (IBAction)selectProviderBtn:(UIButton *)sender;
 - (IBAction)beliBtn:(UIButton *)sender;

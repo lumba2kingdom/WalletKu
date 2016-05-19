@@ -18,7 +18,8 @@
 @implementation TopupListrikTableViewController {
     NSMutableArray *providerSelected, *nominalSelected;
     int providerId, nominalId;
-    NSString *emailForNotifikasi;
+    NSString *phoneForNotifikasi, *emailForNotifikasi;
+    BOOL notifikasiStatus;
 }
 
 - (void)viewDidLoad {
@@ -110,12 +111,66 @@
     switch (self.segmentedNotifikasi.selectedSegmentIndex) {
         case 0:
         {
-            [Utils showDefaultAlertWithViewController:self withTitle:@"Maaf" andMessage:@"Untuk sementara ini fitur belum tersedia, harap pilih email"];
+            notifikasiStatus = YES;
+            UIAlertController* alert =
+            [UIAlertController alertControllerWithTitle:@"Masukkan Nomer Handphone"
+                                                message:@"Silakan isi nomer handphone pengguna."
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                
+                textField.keyboardType = UIKeyboardTypeEmailAddress;
+                self.phoneTextField = textField;
+            }];
+            
+            [alert addAction: [UIAlertAction actionWithTitle:@"Selesai"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction *action) {
+                                                         
+                                                         if ([self.phoneTextField.text isEqualToString:@""]) {
+                                                             UIAlertController * alert=   [UIAlertController
+                                                                                           alertControllerWithTitle:@""
+                                                                                           message:@"Nomer Handphone kosong"
+                                                                                           preferredStyle:UIAlertControllerStyleAlert];
+                                                             
+                                                             UIAlertAction* okBtn = [UIAlertAction
+                                                                                     actionWithTitle:@"Ok"
+                                                                                     style:UIAlertActionStyleDefault
+                                                                                     handler:^(UIAlertAction * action)
+                                                                                     {
+                                                                                         
+                                                                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                                         
+                                                                                     }];
+                                                             
+                                                             [alert addAction:okBtn];
+                                                             [self presentViewController:alert animated:YES completion:nil];
+                                                         }else{
+                                                             
+                                                             phoneForNotifikasi = self.phoneTextField.text;
+                                                             
+                                                             [alert dismissViewControllerAnimated:YES completion:nil];
+                                                             
+                                                         }
+                                                         
+                                                         
+                                                     }]];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:@"Batal"
+                                                      style:UIAlertActionStyleCancel
+                                                    handler:^(UIAlertAction *action) {
+                                                        
+                                                        [alert dismissViewControllerAnimated:YES completion:nil];
+                                                        [self.segmentedNotifikasi setSelectedSegmentIndex:UISegmentedControlNoSegment];
+                                                    }]];
+            
+            [self presentViewController:alert animated:YES completion:nil];
         }
             break;
             
         case 1:
         {
+            notifikasiStatus = NO;
             UIAlertController* alert =
             [UIAlertController alertControllerWithTitle:@"Masukkan Email"
                                                 message:@"Silakan isi email pengguna."
@@ -165,6 +220,7 @@
                                                     handler:^(UIAlertAction *action) {
                                                         
                                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                                        [self.segmentedNotifikasi setSelectedSegmentIndex:UISegmentedControlNoSegment];
                                                         
                                                     }]];
             
@@ -186,6 +242,7 @@
 }
 
 - (IBAction)beliBtn:(UIButton *)sender {
+    
     if ([self.nominalTF.text  isEqual: @""])
     {
         [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom nominal kosong"];
@@ -193,6 +250,9 @@
     else if ([self.nomerMeterTF.text  isEqual: @""])
     {
         [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom Nomer Meter Kosong" ];
+    }
+    else if (self.segmentedNotifikasi.selectedSegmentIndex == -1){
+        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Pilih Notifikasi Transaksi"];
     }
     else{
         
@@ -256,7 +316,15 @@
 #pragma mark - API methods
 - (void)topUpPulsaAPIWithPIN:(NSString *)pin{
     
-    NSString *endpoint = [NSString stringWithFormat:@"%@/email=%@", kPostTopUpPulsa, emailForNotifikasi ? emailForNotifikasi:@""];
+    NSString *endpoint;
+    
+    if (notifikasiStatus) {
+        
+        endpoint = [NSString stringWithFormat:@"%@?phone=%@", kPostTopUpPulsa, phoneForNotifikasi ? phoneForNotifikasi:@""];
+    }else{
+        
+        endpoint = [NSString stringWithFormat:@"%@?email=%@", kPostTopUpPulsa, emailForNotifikasi ? emailForNotifikasi:@""];
+    }
     
     [APIClient postAPIWithParam:@{
                                   @"top_up":@{
