@@ -93,7 +93,7 @@
                                           @"to_source_name": _toSourceName.text,
                                           @"to_account_name": _toAccountName.text,
                                           @"to_account_number": _toAccountNumber.text,
-                                          @"ammount": _amount.text,
+                                          @"amount": _amount.text,
                                           @"image": @"",
                                           @"note": @""
                                           }

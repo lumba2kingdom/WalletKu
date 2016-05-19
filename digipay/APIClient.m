@@ -161,8 +161,10 @@
     
     NSString *messageError;
     
-    if ([jsonFailObject objectForKey:@"error"]) {
-        messageError = [NSString stringWithFormat:@"%@", [jsonFailObject objectForKey:@"error"]];
+    if ([jsonFailObject objectForKey:@"errors"]) {
+        
+        messageError = [NSString stringWithFormat:@"%@", [[jsonFailObject objectForKey:@"errors"] valueForKey:@"message"]];
+        
     }
     
     NSLog(@"Fail with error: %@", jsonFailObject);

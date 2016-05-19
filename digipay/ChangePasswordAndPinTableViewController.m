@@ -97,7 +97,7 @@
                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Password changed successfuly"];
                                  } andFailureBlock:^(NSString *errorMessage) {
-                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error changing password from server"];
+                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                  }];
 }
 
@@ -114,7 +114,7 @@
                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"PIN changed successfuly"];
                                      [Utils setPINStatus:@"yes"];
                                  } andFailureBlock:^(NSString *errorMessage) {
-                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error changing PIN from server"];
+                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                  }];
 }
 @end

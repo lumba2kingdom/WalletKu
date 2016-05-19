@@ -199,12 +199,12 @@
                                   }andEndPoint:kPostTopUpPulsa withAuthorization:YES successBlock:^(NSDictionary *response) {
                                       
                                       NSString *status = [response valueForKeyPath:@"payment.status"];
-                                      NSString *message = [response valueForKeyPath:@"payment.message"];
+//                                      NSString *message = [response valueForKeyPath:@"payment.message"];
                                       
-                                      [Utils showDefaultAlertWithViewController:self withTitle:status andMessage:message];
+                                      [Utils showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
-                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                   }];
 }
 
@@ -219,7 +219,7 @@
         
     } andFailureBlock:^(NSString *errorMessage) {
         
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+        [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
         
     }];
     

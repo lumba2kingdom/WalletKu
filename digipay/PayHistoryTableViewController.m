@@ -55,9 +55,9 @@
     cell.hargaLabel.text = [NSString stringWithFormat:@"Harga Rp.%@,-", payment.amount];
     
     if ([payment.payment_type isEqualToString:@"topup"]) {
-        cell.iconImg.image = [UIImage imageNamed:@"icon-hp.png"];
+        cell.iconImg.image = [UIImage imageNamed:@"icon-top-up-pulsa.png"];
     }else if ([payment.payment_type isEqualToString:@"pln"]){
-        cell.iconImg.image = [UIImage imageNamed:@"icon-listrik.png"];
+        cell.iconImg.image = [UIImage imageNamed:@"icon-bayar-listrik.png"];
     }else{
         cell.iconImg.image = nil;
     }

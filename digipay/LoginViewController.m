@@ -181,7 +181,6 @@
                         [self presentViewController:vc animated:YES completion:nil];
                         
                         [self logoutTask];
-                        [Utils setPINStatus:@"no"];
                         
                         if (self.rememberMeSwitch.on) {
                             [Utils addRememberMeEmailToUserDefault:self.usernameTF.text];
