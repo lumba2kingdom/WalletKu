@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface Utils : NSObject
+@interface DataManager : NSObject
 
 +(void)addUserToUserDefault:(User *)user;
 +(User *)getUserUserDefault;
@@ -20,11 +19,9 @@
 +(NSString *)getUserName;
 +(NSString *)getUserBalance;
 +(NSString *)getUserPoin;
-+(void)showDefaultAlertWithViewController:(UIViewController *)viewController withTitle:(NSString *)title andMessage:(NSString *)message;
++(NSString *)getPINStatus;
 +(void)addRememberMeEmailToUserDefault:(NSString *)email;
 +(NSString *)getUserRememberMeEmail;
-+(void)setPINStatus:(NSString *)status;
-+(NSString *)getPINStatus;
 +(void)setAutoLogoutStatus:(NSString *)status;
 +(NSString *)getAutoLogoutStatus;
 

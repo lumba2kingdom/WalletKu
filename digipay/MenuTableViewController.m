@@ -8,8 +8,9 @@
 
 #import "MenuTableViewController.h"
 #import "Constants.h"
-#import "APIClient.h"
-#import "Utils.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface MenuTableViewController ()
 
@@ -25,11 +26,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([[Utils getPINStatus] isEqualToString:@"no"]) {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Harap ganti PIN Anda terlebih dahulu. PIN lama Anda adalah 1234."];
+    if ([[DataManager getPINStatus] isEqualToString:@"1"]) {
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Harap ganti PIN Anda terlebih dahulu. PIN lama Anda adalah 1234."];
     }
     
-//    [self profileAPI];
+    [self profileAPI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +60,6 @@
                                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                     UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"loginController"];
                                     [self presentViewController:vc animated:YES completion:nil];
-                                    [Utils setPINStatus:@"no"];
                                 }];
         
         [alert addAction:okBtn];
@@ -83,17 +83,17 @@
 
 #pragma mark - API Call Methods
 - (void)profileAPI {
-    NSString* getUserDataEndPoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [Utils getUserId]];
-    [APIClient getAPIWithParam:nil andEndPoint:getUserDataEndPoint withAuthorization:YES successBlock:^(NSDictionary *response) {
+    NSString* getUserDataEndPoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
+    [APIManager getAPIWithParam:nil andEndPoint:getUserDataEndPoint withAuthorization:YES successBlock:^(NSDictionary *response) {
         if (response) {
             
             NSDictionary *userDict = (NSDictionary*)[response objectForKey:@"user"];
             User *newUser = [User userWithData:userDict];
             
-            [Utils addUserToUserDefault:newUser];
+            [DataManager addUserToUserDefault:newUser];
         }
     } andFailureBlock:^(NSString *errorMessage) {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Profile" andMessage:@"Error getting data from server"];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Profile" andMessage:@"Error getting data from server"];
     }];
 }
 

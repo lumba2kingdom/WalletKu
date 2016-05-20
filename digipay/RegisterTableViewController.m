@@ -7,7 +7,8 @@
 //
 
 #import "RegisterTableViewController.h"
-#import "Utils.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface RegisterTableViewController ()
 
@@ -35,14 +36,14 @@
     switch (self.premiumSegmented.selectedSegmentIndex) {
         case 0:
         {
-            [Utils showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Tidak ada deposit minimal\n 3. Saldo dapat digunakan keseluruh fitur di walletku."];
+            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Tidak ada deposit minimal\n 3. Saldo dapat digunakan keseluruh fitur di walletku."];
             [self.noReferralTF setHidden:YES];
         }
             break;
             
         case 1:
         {
-            [Utils showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Deposit minimum Rp 1000.000\n 3. Mendapatkan spanduk toko\n 4. Harga lebih murah daripada normal user\n 5. Berkesempatan mendapatkan point reward\n 6. Dapat merekrut premium user dibawah anda."];
+            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Deposit minimum Rp 1000.000\n 3. Mendapatkan spanduk toko\n 4. Harga lebih murah daripada normal user\n 5. Berkesempatan mendapatkan point reward\n 6. Dapat merekrut premium user dibawah anda."];
             [self.noReferralTF setHidden:NO];
         }
             break;
@@ -62,7 +63,7 @@
             
             self.isSignUpAlreadyClicked = NO;
             
-            [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
+            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
         }
         else
         {
@@ -74,17 +75,17 @@
             if (! myStringMatchesRegEx)
             {
                 
-                [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Alamat email tidak sesuai"];
+                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Alamat email tidak sesuai"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }else if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
                 
-                [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Password tidak sesuai"];
+                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Password tidak sesuai"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }else if (!self.pernyataanSwitch.isOn){
                 
-                [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Anda belum menyutujui pernyataan yang tertulis"];
+                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Anda belum menyutujui pernyataan yang tertulis"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }
@@ -117,7 +118,7 @@
                                                 terms = @"false";
                                             }
                                             
-                                            [APIClient postAPIWithParam:@{
+                                            [APIManager postAPIWithParam:@{
                                                                           @"user": @{
                                                                                   @"email":self.emailTF.text,
                                                                                   @"name":self.namaTF.text,
@@ -130,10 +131,9 @@
                                                                           }andEndPoint:kPostUsers withAuthorization:NO successBlock:^(NSDictionary *response) {
                                                                               
                                                                               
-                                                                              User *userData = [User userWithData:response];
-                                                                              [Utils addUserToUserDefault:userData];
+                                                                              User *userData = [User userWithData:[response objectForKey:@"user"]];
+                                                                              [DataManager addUserToUserDefault:userData];
                                                                               
-                                                                              [Utils setPINStatus:@"no"];
                                                                               
                                                                               UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                                                               UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
@@ -142,7 +142,7 @@
                                                                               
                                                                           } andFailureBlock:^(NSString *errorMessage) {
                                                                               
-                                                                              [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                                                              [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                                                                               
                                                                               self.isSignUpAlreadyClicked = NO;
                                                                           }];

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APIClient.h"
+#import "APIManager.h"
 
 @interface RegisterTableViewController : UITableViewController
 

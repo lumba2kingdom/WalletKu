@@ -8,8 +8,8 @@
 
 #import "PayViewController.h"
 #import "Constants.h"
-#import "Utils.h"
-#import "APIClient.h"
+#import "DataManager.h"
+#import "APIManager.h"
 
 @interface PayViewController ()
 
@@ -21,8 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.nameLabel.text = [NSString stringWithFormat:@"Hi %@,", [Utils getUserName]];
-    self.balanceLabel.text = [NSString stringWithFormat:@"Saldo Anda saat ini adalah Rp. %@,-", [Utils getUserBalance]];
+    self.nameLabel.text = [NSString stringWithFormat:@"Hi %@,", [DataManager getUserName]];
+    self.balanceLabel.text = [NSString stringWithFormat:@"Saldo Anda saat ini adalah Rp. %@,-", [DataManager getUserBalance]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

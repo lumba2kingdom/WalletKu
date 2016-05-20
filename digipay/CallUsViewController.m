@@ -7,8 +7,10 @@
 //
 
 #import "CallUsViewController.h"
-#import "APIClient.h"
-#import "Utils.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
+
 
 @interface CallUsViewController ()
 
@@ -28,23 +30,23 @@
 
 #pragma mark - API Calls
 - (void)callUsAPI {
-    [APIClient postAPIWithParam:@{
+    [APIManager postAPIWithParam:@{
                                   @"contact": @{
                                           @"division": self.divisionTF.text,
                                           @"message": self.messageTV.text
                                           }
                                   }
                     andEndPoint:kPostCallUs withAuthorization:YES successBlock:^(NSDictionary *response) {
-                        [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Pesan berhasil terkirim"];
+                        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Pesan berhasil terkirim"];
                     } andFailureBlock:^(NSString *errorMessage) {
-                        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                     }];
 }
 
 #pragma mark - Actions
 - (IBAction)sendBtn:(UIButton *)sender {
     if ([self.divisionTF.text isEqualToString:@""] || [self.messageTV.text isEqualToString:@""]) {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
     }else{
         [self callUsAPI];
     }

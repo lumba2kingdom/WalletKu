@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "Utils.h"
+#import "DataManager.h"
 #import "SlideNavigationController.h"
 #import "MenuTableViewController.h"
 #import <Fabric/Fabric.h>
@@ -64,7 +64,7 @@
     /*** CUSTOM METHOD ***/
     
     // LOGOUT IF ITS REACHED 15 MINUTES
-    if ([[Utils getAutoLogoutStatus] isEqualToString:@"yes"] || ![Utils getUserToken]) {
+    if ([[DataManager getAutoLogoutStatus] isEqualToString:@"yes"] || ![DataManager getUserToken]) {
         UINavigationController* navigation = (UINavigationController*) self.window.rootViewController;
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];

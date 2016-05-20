@@ -8,8 +8,9 @@
 
 #import "TopUpViewController.h"
 #import "TopupWalletFieldTableViewCell.h"
-#import "APIClient.h"
-#import "Utils.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface TopUpViewController ()
 
@@ -34,7 +35,7 @@
 #pragma mark - Actions
 - (IBAction)confirmBtn:(UIButton *)sender {
     if ([_fromAccountName.text isEqualToString:@""] || [_fromAccountNumber.text isEqualToString:@""] || [_toSourceName.text isEqualToString:@""] || [_toAccountName.text isEqualToString:@""] || [_toAccountNumber.text isEqualToString:@""] || [_amount.text isEqualToString:@""]) {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
     }else{
         [self callTransferConfirmationAPI];
     }
@@ -84,7 +85,7 @@
 
 #pragma mark - API Calls
 - (void)callTransferConfirmationAPI {
-    [APIClient postAPIWithParam:@{
+    [APIManager postAPIWithParam:@{
                                   @"transfer_confirmation":@{
                                           @"source_type": @"bank",
                                           @"from_source_name": _fromSourceName.text,
@@ -98,9 +99,9 @@
                                           @"note": @""
                                           }
                                   }andEndPoint:kPostTransferConfirmation withAuthorization:YES successBlock:^(NSDictionary *response) {
-                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Transfer Confirmation Success"];
+                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Transfer Confirmation Success"];
                                   } andFailureBlock:^(NSString *errorMessage) {
-                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                                   }];
 }
 

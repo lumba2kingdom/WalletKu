@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import "APIClient.h"
-#import "Utils.h"
+#import "APIManager.h"
+#import "DataManager.h"
 
-@implementation APIClient
+@implementation APIManager
 
 #pragma mark - APIs Method
 +(void)postAPIWithParam:(NSDictionary *)parameter
@@ -22,10 +22,10 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     if (authorization) {
-        NSString *token = [Utils getUserToken];
-        NSString *userEmail = [Utils getUserEmail];
+        NSString *token = [DataManager getUserToken];
+        NSString *userEmail = [DataManager getUserEmail];
         if (![token isEqualToString:@""] && ![userEmail isEqualToString:@""]) {
-            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [DataManager getUserToken], [DataManager getUserEmail]];
             [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
         }else{
             NSLog(@"ERROR: FAILED TO SET AUTHORIZATION HEADER");
@@ -68,10 +68,10 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     if (authorization) {
-        NSString *token = [Utils getUserToken];
-        NSString *userEmail = [Utils getUserEmail];
+        NSString *token = [DataManager getUserToken];
+        NSString *userEmail = [DataManager getUserEmail];
         if (![token isEqualToString:@""] && ![userEmail isEqualToString:@""]) {
-            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [DataManager getUserToken], [DataManager getUserEmail]];
             [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
         }else{
             NSLog(@"ERROR: FAILED TO SET AUTHORIZATION HEADER");
@@ -114,10 +114,10 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     if (authorization) {
-        NSString *token = [Utils getUserToken];
-        NSString *userEmail = [Utils getUserEmail];
+        NSString *token = [DataManager getUserToken];
+        NSString *userEmail = [DataManager getUserEmail];
         if (![token isEqualToString:@""] && ![userEmail isEqualToString:@""]) {
-            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [Utils getUserToken], [Utils getUserEmail]];
+            NSString *authHeader = [NSString stringWithFormat:@"Token token=%@,email=%@", [DataManager getUserToken], [DataManager getUserEmail]];
             [manager.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
         }else{
             NSLog(@"ERROR: FAILED TO SET AUTHORIZATION HEADER");

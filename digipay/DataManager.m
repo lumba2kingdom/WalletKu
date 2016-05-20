@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import "Utils.h"
+#import "DataManager.h"
 #import "Constants.h"
 
-@implementation Utils
+@implementation DataManager
 
 #pragma mark - NSUserDefaults
 +(void)addUserToUserDefault:(User *)user{
@@ -79,12 +79,9 @@
     return [users valueForKey:@"total_point"];
 }
 
-+(void)setPINStatus:(NSString *)status{
-    [[NSUserDefaults standardUserDefaults] setObject:status forKey:@"pinstatus"];
-}
-
 +(NSString *)getPINStatus{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"pinstatus"];
+    NSDictionary* users = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsUserKey];
+    return [users valueForKey:@"pin_empty"];
 }
 
 +(void)setAutoLogoutStatus:(NSString *)status {
@@ -93,24 +90,6 @@
 
 +(NSString *)getAutoLogoutStatus {
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"logoutstatus"];
-}
-
-#pragma mark - UIAlertController
-+(void)showDefaultAlertWithViewController:(UIViewController *)viewController withTitle:(NSString *)title andMessage:(NSString *)message {
-    
-    UIAlertController * alert =   [UIAlertController
-                                   alertControllerWithTitle:title
-                                   message:message
-                                   preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* okBtn = [UIAlertAction
-                            actionWithTitle:@"Ok"
-                            style:UIAlertActionStyleDefault
-                            handler:nil];
-    
-    [alert addAction:okBtn];
-    
-    [viewController presentViewController:alert animated:YES completion:nil];
 }
 
 @end

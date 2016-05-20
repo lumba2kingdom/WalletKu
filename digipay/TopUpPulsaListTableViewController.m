@@ -62,7 +62,7 @@
     if (!self.isForNominal) {
         cell.textLabel.text = [[self.providerList valueForKey:@"name"] objectAtIndex:indexPath.row];
     }else{
-        cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.providerList valueForKeyPath:@"nominals.amount"] objectAtIndex:indexPath.row]];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.providerList valueForKeyPath:@"nominals.name"] objectAtIndex:indexPath.row]];
     }
     
     return cell;

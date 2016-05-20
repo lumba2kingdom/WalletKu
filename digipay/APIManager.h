@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import "Constants.h"
 
-@interface APIClient : NSObject
+@interface APIManager : NSObject
 
 +(void)postAPIWithParam:(NSDictionary *)parameter
             andEndPoint:(NSString *)endPoint

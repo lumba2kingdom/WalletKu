@@ -7,9 +7,10 @@
 //
 
 #import "LoginViewController.h"
-#import "APIClient.h"
-#import "Utils.h"
 #import "User.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface LoginViewController ()
 
@@ -32,14 +33,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([Utils getUserToken]) {
+    if ([DataManager getUserToken]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
         [self presentViewController:vc animated:YES completion:nil];
     }
     
-    if ([Utils getUserRememberMeEmail]) {
-        self.usernameTF.text = [Utils getUserRememberMeEmail];
+    if ([DataManager getUserRememberMeEmail]) {
+        self.usernameTF.text = [DataManager getUserRememberMeEmail];
     }else{
         self.usernameTF.text = @"";
     }
@@ -68,7 +69,7 @@
     if (!self.isLoginAlreadyClicked) {
         if ([self.usernameTF.text isEqualToString:@""] || [self.passwordTF.text isEqualToString:@""]) {
             
-            [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Username/Password kosong"];
+            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Username/Password kosong"];
             
         }else{
             
@@ -153,7 +154,7 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDefaultsTokenKey];
         
         //set auto logout status
-        [Utils setAutoLogoutStatus:@"yes"];
+        [DataManager setAutoLogoutStatus:@"yes"];
         
         [autoLogoutTimer invalidate];
         
@@ -165,7 +166,7 @@
 
 #pragma mark - API Call Methods
 - (void)loginAPI{
-    [APIClient postAPIWithParam:@{
+    [APIManager postAPIWithParam:@{
                                   @"user": @{
                                           @"email":self.usernameTF.text,
                                           @"password":self.passwordTF.text
@@ -174,7 +175,7 @@
                     andEndPoint:kPostAuthentication withAuthorization:NO successBlock:^(NSDictionary *response) {
                         
                         User *userData = [User userWithData:response];
-                        [Utils addUserToUserDefault:userData];
+                        [DataManager addUserToUserDefault:userData];
                         
                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                         UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
@@ -183,23 +184,23 @@
                         [self logoutTask];
                         
                         if (self.rememberMeSwitch.on) {
-                            [Utils addRememberMeEmailToUserDefault:self.usernameTF.text];
+                            [DataManager addRememberMeEmailToUserDefault:self.usernameTF.text];
                         }else{
-                            [Utils addRememberMeEmailToUserDefault:@""];
+                            [DataManager addRememberMeEmailToUserDefault:@""];
                         }
                         
-                        [Utils setAutoLogoutStatus:@"no"];
+                        [DataManager setAutoLogoutStatus:@"no"];
                         self.isLoginAlreadyClicked = NO;
                     } andFailureBlock:^(NSString *errorMessage) {
                         self.isLoginAlreadyClicked = NO;
                         
-                        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                         
                     }];
 }
 
 - (void)forgotPasswordAPI {
-    [APIClient postAPIWithParam:@{
+    [APIManager postAPIWithParam:@{
                                   @"password_reset": @{
                                           @"email": self.emailAddressTextField.text
                                           }
@@ -226,7 +227,7 @@
                   [self presentViewController:alert animated:YES completion:nil];
               } andFailureBlock:^(NSString *errorMessage) {
                   
-                  [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                  [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                   
               }];
 }

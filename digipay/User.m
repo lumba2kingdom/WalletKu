@@ -83,6 +83,11 @@
         }else {
             self.uid = @"";
         }
+        if (![[data valueForKey:@"pin_empty"] isEqual:[NSNull null]]) {
+            self.isPinEmpty = [data valueForKey:@"pin_empty"];
+        }else {
+            self.isPinEmpty = @"";
+        }
         
     }
     return self;

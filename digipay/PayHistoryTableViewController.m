@@ -8,9 +8,10 @@
 
 #import "PayHistoryTableViewController.h"
 #import "PayHistoryTableViewCell.h"
-#import "APIClient.h"
-#import "Utils.h"
 #import "PaymentHistory.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface PayHistoryTableViewController ()
 
@@ -71,7 +72,7 @@
 
 #pragma mark - API Call Methods
 - (void)paymentHistoryAPI {
-    [APIClient getAPIWithParam:nil andEndPoint:kGetPayment withAuthorization:YES successBlock:^(NSDictionary *response) {
+    [APIManager getAPIWithParam:nil andEndPoint:kGetPayment withAuthorization:YES successBlock:^(NSDictionary *response) {
         NSLog(@"PAYMENT : %@", response);
         
         payments = [NSArray arrayWithArray:[response objectForKey:@"payments"]];
@@ -84,7 +85,7 @@
         [self.tableView reloadData];
         
     } andFailureBlock:^(NSString *errorMessage) {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
     }];
 }
 

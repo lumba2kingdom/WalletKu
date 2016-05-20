@@ -7,8 +7,9 @@
 //
 
 #import "ChangePasswordAndPinTableViewController.h"
-#import "APIClient.h"
-#import "Utils.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface ChangePasswordAndPinTableViewController ()
 
@@ -72,7 +73,7 @@
 - (IBAction)simpanBtn:(UIButton *)sender {
     
     if ([self.passwordLamaTF.text isEqualToString:@""] || [self.passwordBaruTF.text isEqualToString:@""] || [self.ulangiPasswordTF.text isEqualToString:@""]) {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
     }else{
         
         if (!isForPIN) {
@@ -87,34 +88,33 @@
 #pragma mark - API Calls
 - (void)changePassword {
     
-    NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [Utils getUserId]];
-    [APIClient putAPIWithParam:@{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
+    [APIManager putAPIWithParam:@{
                                  @"user":@{
                                          @"old_password": self.passwordLamaTF.text,
                                          @"password": self.passwordBaruTF.text,
                                          @"password_confirmation": self.ulangiPasswordTF.text
                                          }
                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
-                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Password changed successfuly"];
+                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Password changed successfuly"];
                                  } andFailureBlock:^(NSString *errorMessage) {
-                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                  }];
 }
 
 - (void)changePIN {
     
-    NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [Utils getUserId]];
-    [APIClient putAPIWithParam:@{
+    NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
+    [APIManager putAPIWithParam:@{
                                  @"user":@{
                                          @"old_pin": self.passwordLamaTF.text,
                                          @"pin": self.passwordBaruTF.text,
                                          @"pin_confirmation": self.ulangiPasswordTF.text
                                          }
                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
-                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"PIN changed successfuly"];
-                                     [Utils setPINStatus:@"yes"];
+                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"PIN changed successfuly"];
                                  } andFailureBlock:^(NSString *errorMessage) {
-                                     [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                  }];
 }
 @end

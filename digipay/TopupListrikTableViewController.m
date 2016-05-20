@@ -8,8 +8,9 @@
 
 #import "TopupListrikTableViewController.h"
 #import "TopUpPulsaListTableViewController.h"
-#import "APIClient.h"
-#import "Utils.h"
+#import "APIManager.h"
+#import "DataManager.h"
+#import "UtilityManager.h"
 
 @interface TopupListrikTableViewController ()
 
@@ -32,7 +33,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.balanceText.text = [NSString stringWithFormat:@"Sisa Saldo Anda : Rp. %@,-", [Utils getUserBalance]];
+    self.balanceText.text = [NSString stringWithFormat:@"Sisa Saldo Anda : Rp. %@,-", [DataManager getUserBalance]];
     
     if (providerSelected) {
         self.selectProviderTF.text = [providerSelected valueForKey:@"name"];
@@ -246,14 +247,14 @@
     
     if ([self.nominalTF.text  isEqual: @""])
     {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom nominal kosong"];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom nominal kosong"];
     }
     else if ([self.nomerMeterTF.text  isEqual: @""])
     {
-        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom Nomer Meter Kosong" ];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom Nomer Meter Kosong" ];
     }
     else if (self.segmentedNotifikasi.selectedSegmentIndex == -1){
-        [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Pilih Notifikasi Transaksi"];
+        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Pilih Notifikasi Transaksi"];
     }
     else{
         
@@ -330,7 +331,7 @@
         endpoint = [NSString stringWithFormat:@"%@?email=%@", kPostTopUpPulsa, emailForNotifikasi ? emailForNotifikasi:@""];
     }
     
-    [APIClient postAPIWithParam:@{
+    [APIManager postAPIWithParam:@{
                                   @"top_up":@{
                                           @"provider_id":@(providerId),
                                           @"nominal_id":@(nominalId),
@@ -344,17 +345,17 @@
 //                                      NSString *message = [response valueForKeyPath:@"payment.message"];
                                       
                                       apiCalledFlag = NO;
-                                      [Utils showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
+                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
                                       apiCalledFlag = NO;
-                                      [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                   }];
 }
 
 - (void)getProviderAPI{
     
-    [APIClient getAPIWithParam:@{
+    [APIManager getAPIWithParam:@{
                                  @"payment_type":@"pln"
                                  }
                    andEndPoint:kGetProvider withAuthorization:YES successBlock:^(NSDictionary *response) {
@@ -363,7 +364,7 @@
                        
                    } andFailureBlock:^(NSString *errorMessage) {
                        
-                       [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                       [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                        
                    }];
     

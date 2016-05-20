@@ -8,8 +8,9 @@
 
 #import "EditProfileTableViewController.h"
 #import "User.h"
-#import "Utils.h"
-#import "APIClient.h"
+#import "DataManager.h"
+#import "APIManager.h"
+#import "UtilityManager.h"
 
 @interface EditProfileTableViewController ()
 
@@ -23,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if ([Utils getUserUserDefault]) {
-        currentUser = [Utils getUserUserDefault];
+    if ([DataManager getUserUserDefault]) {
+        currentUser = [DataManager getUserUserDefault];
         
         NSString *imageURL = currentUser.avatarUrl;
         NSString *nama = currentUser.name;
@@ -35,13 +36,13 @@
         NSString *avatarURL = [NSString stringWithFormat:@"%@%@", kBaseURL, imageURL];
         
         if (avatarURL) {
-            [APIClient requestImageWithUrl:avatarURL withOnSuccessBlock:^(UIImage *image, BOOL reloadView) {
+            [APIManager requestImageWithUrl:avatarURL withOnSuccessBlock:^(UIImage *image, BOOL reloadView) {
                 
                 [self.changeProfileBtn setBackgroundImage:image forState:UIControlStateNormal];
                 
             } withOnFailureBlock:^{
                 
-                [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error when getting the image profile from server"];
+                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error when getting the image profile from server"];
                 
             }];
         }
@@ -83,7 +84,7 @@
                                   {
                                       if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                                           
-                                          [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Device tidak memiliki kamera"];
+                                          [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Device tidak memiliki kamera"];
                                           
                                       }else{
                                           //take photo
@@ -137,7 +138,7 @@
         if ([self.namaTF.text  isEqual: @""] || [self.noKTPTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.nomerHPTF.text  isEqual: @""])
         {
             
-            [Utils showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
+            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
         }
         else
         {
@@ -161,9 +162,9 @@
                                             currentUser.noKTP = self.noKTPTF.text;
                                             currentUser.noHP = self.nomerHPTF.text;
 
-                                            NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [Utils getUserId]];
+                                            NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
                                             
-                                            [APIClient putAPIWithParam:@{
+                                            [APIManager putAPIWithParam:@{
                                                                          @"user":@{
                                                                                  @"name":self.namaTF.text,
                                                                                  @"address":self.alamatTF.text,
@@ -173,11 +174,11 @@
                                                                                  }
                                                                          }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
                                                                              
-                                                                             [Utils showDefaultAlertWithViewController:self withTitle:@"Sukses" andMessage:@"Data tersimpan"];
+                                                                             [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sukses" andMessage:@"Data tersimpan"];
                                                                              
                                                                          } andFailureBlock:^(NSString *errorMessage) {
                                                                              
-                                                                             [Utils showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                                                             [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                                                                              
                                                                              self.isSaveAlreadyClicked = NO;
                                                                          }];

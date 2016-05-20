@@ -7,7 +7,7 @@
 //
 
 #import "MyWalletViewController.h"
-#import "Utils.h"
+#import "DataManager.h"
 
 @interface MyWalletViewController ()
 
@@ -23,8 +23,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.balanceText.text = [NSString stringWithFormat:@"Rp. %@,-", [Utils getUserBalance]];
-    self.pointText.text = [NSString stringWithFormat:@"%@", [Utils getUserPoin]];
+    self.balanceText.text = [NSString stringWithFormat:@"Rp. %@,-", [DataManager getUserBalance]];
+    self.pointText.text = [NSString stringWithFormat:@"%@", [DataManager getUserPoin]];
 }
 
 - (void)didReceiveMemoryWarning {
