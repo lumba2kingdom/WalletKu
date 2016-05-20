@@ -20,6 +20,7 @@
     int providerId, nominalId;
     NSString *phoneForNotifikasi, *emailForNotifikasi;
     BOOL notifikasiStatus;
+    BOOL apiCalledFlag;
 }
 
 - (void)viewDidLoad {
@@ -293,7 +294,9 @@
                                                          [self presentViewController:alert animated:YES completion:nil];
                                                      }else{
                                                          
-                                                         [self topUpPulsaAPIWithPIN:self.pinTF.text];
+                                                         if (!apiCalledFlag) {
+                                                             [self topUpPulsaAPIWithPIN:self.pinTF.text];
+                                                         }
                                                          
                                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                                          
@@ -317,6 +320,7 @@
 - (void)topUpPulsaAPIWithPIN:(NSString *)pin{
     
     NSString *endpoint;
+    apiCalledFlag = YES;
     
     if (notifikasiStatus) {
         
@@ -339,9 +343,11 @@
                                       NSString *status = [response valueForKeyPath:@"payment.status"];
 //                                      NSString *message = [response valueForKeyPath:@"payment.message"];
                                       
+                                      apiCalledFlag = NO;
                                       [Utils showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
+                                      apiCalledFlag = NO;
                                       [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                   }];
 }

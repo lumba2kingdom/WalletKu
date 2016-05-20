@@ -189,6 +189,7 @@
                         }
                         
                         [Utils setAutoLogoutStatus:@"no"];
+                        self.isLoginAlreadyClicked = NO;
                     } andFailureBlock:^(NSString *errorMessage) {
                         self.isLoginAlreadyClicked = NO;
                         

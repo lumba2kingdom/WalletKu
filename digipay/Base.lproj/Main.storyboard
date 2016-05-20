@@ -577,14 +577,14 @@
                                 <rect key="frame" x="0.0" y="155" width="600" height="396"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-3M-8Es">
-                                        <rect key="frame" x="149" y="106" width="120" height="50"/>
+                                        <rect key="frame" x="150" y="115" width="140" height="41"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="JCa-M4-LN4"/>
-                                            <constraint firstAttribute="height" constant="50" id="tbn-VZ-JoX"/>
+                                            <constraint firstAttribute="width" constant="140" id="JCa-M4-LN4"/>
+                                            <constraint firstAttribute="height" constant="41" id="tbn-VZ-JoX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <state key="normal" title="Transfer Bank">
+                                        <state key="normal" title="TRANSFER BANK">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -592,25 +592,18 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HR5-KO-YOf">
-                                        <rect key="frame" x="331" y="106" width="120" height="50"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="310" y="115" width="140" height="41"/>
+                                        <color key="backgroundColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="B02-3G-Nyw"/>
-                                            <constraint firstAttribute="width" constant="120" id="YsC-v8-rpM"/>
+                                            <constraint firstAttribute="height" constant="41" id="B02-3G-Nyw"/>
+                                            <constraint firstAttribute="width" constant="140" id="YsC-v8-rpM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <state key="normal" title="Credit Card">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="CREDIT CARD">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="creditCardBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="Jo0-Lb-4CZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-KE-xPc" userLabel="Button mandiri">
-                                        <rect key="frame" x="8" y="277" width="584" height="111"/>
-                                        <state key="normal" image="mandiri-logo"/>
-                                        <connections>
-                                            <action selector="mandiriBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="PuS-MT-ZwF"/>
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitur ini sedang dalam proses pengembangan, silahkan melakukan transaksi melalui transfer bank." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lj-ae-q19">
@@ -619,8 +612,21 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Wb-7FY" userLabel="Button bca">
-                                        <rect key="frame" x="8" y="165" width="584" height="104"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-KE-xPc" userLabel="Button mandiri">
+                                        <rect key="frame" x="8" y="277" width="584" height="111"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="111" id="Ivb-X2-ccH"/>
+                                        </constraints>
+                                        <state key="normal" image="mandiri-logo"/>
+                                        <connections>
+                                            <action selector="mandiriBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="PuS-MT-ZwF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Wb-7FY" userLabel="Button bca">
+                                        <rect key="frame" x="8" y="170" width="584" height="104"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="104" id="A0I-9D-80K"/>
+                                        </constraints>
                                         <state key="normal" image="bca-logo"/>
                                         <connections>
                                             <action selector="bcaBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="6ew-BV-Zgi"/>
@@ -640,23 +646,21 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="9Lj-ae-q19" secondAttribute="trailing" constant="8" id="3VH-dx-sae"/>
                                     <constraint firstItem="6Sy-t1-H7z" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="4tE-bB-Msd"/>
-                                    <constraint firstAttribute="bottom" secondItem="uGP-KE-xPc" secondAttribute="bottom" constant="8" id="6aZ-RE-gHh"/>
-                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="277" id="Dsu-fw-izV"/>
                                     <constraint firstAttribute="trailing" secondItem="6Sy-t1-H7z" secondAttribute="trailing" constant="8" id="HTf-AC-fpD"/>
                                     <constraint firstItem="6Sy-t1-H7z" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="8" id="HgQ-oH-fHQ"/>
                                     <constraint firstItem="9Lj-ae-q19" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="JQC-n5-CM2"/>
                                     <constraint firstAttribute="trailing" secondItem="uGP-KE-xPc" secondAttribute="trailing" constant="8" id="L7W-wm-4EF"/>
                                     <constraint firstAttribute="trailing" secondItem="M0l-Wb-7FY" secondAttribute="trailing" constant="8" id="T9j-yq-cRU"/>
                                     <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="TXJ-26-kka"/>
-                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="165" id="X4m-KF-Tr5"/>
-                                    <constraint firstItem="Udy-3M-8Es" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="-91" id="af7-DO-mgs"/>
+                                    <constraint firstItem="Udy-3M-8Es" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="-80" id="af7-DO-mgs"/>
                                     <constraint firstAttribute="bottom" secondItem="9Lj-ae-q19" secondAttribute="bottom" constant="8" id="dns-dV-gmA"/>
                                     <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="e8M-UO-D4v"/>
-                                    <constraint firstItem="Udy-3M-8Es" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-67" id="gUF-EB-zPK"/>
-                                    <constraint firstItem="HR5-KO-YOf" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-67" id="jrV-25-xlF"/>
-                                    <constraint firstItem="HR5-KO-YOf" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="91" id="nQu-kK-K0O"/>
+                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="top" secondItem="M0l-Wb-7FY" secondAttribute="bottom" constant="3" id="eI4-To-0bt"/>
+                                    <constraint firstItem="Udy-3M-8Es" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-62.5" id="gUF-EB-zPK"/>
+                                    <constraint firstItem="HR5-KO-YOf" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-62.5" id="jrV-25-xlF"/>
+                                    <constraint firstItem="HR5-KO-YOf" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="80" id="nQu-kK-K0O"/>
                                     <constraint firstItem="9Lj-ae-q19" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="165" id="pqr-uA-CIV"/>
-                                    <constraint firstAttribute="bottom" secondItem="M0l-Wb-7FY" secondAttribute="bottom" constant="127" id="u5b-VN-hfT"/>
+                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="top" secondItem="Udy-3M-8Es" secondAttribute="bottom" constant="14" id="w5f-dE-3eG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2622,13 +2626,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bca-logo" width="3414" height="1116"/>
+        <image name="bca-logo" width="715" height="302"/>
         <image name="digipay-logo" width="57" height="57"/>
         <image name="icon-bayar-hotel" width="359" height="378"/>
         <image name="icon-bayar-listrik" width="721" height="721"/>
         <image name="icon-bayar-tiket-pesawat" width="360" height="375"/>
         <image name="icon-top-up-pulsa" width="360" height="360"/>
-        <image name="mandiri-logo" width="1533" height="447"/>
+        <image name="mandiri-logo" width="770" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wDT-Ad-dXp"/>

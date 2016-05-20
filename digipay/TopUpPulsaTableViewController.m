@@ -8,6 +8,7 @@
 
 #import "TopUpPulsaTableViewController.h"
 #import "TopUpPulsaListTableViewController.h"
+#import "MBProgressHUD.h"
 #import "APIClient.h"
 #import "Utils.h"
 
@@ -18,6 +19,7 @@
 @implementation TopUpPulsaTableViewController {
     NSMutableArray *providerSelected, *nominalSelected;
     int providerId, nominalId;
+    BOOL apiCalledFlag;
 }
 
 - (void)viewDidLoad {
@@ -161,7 +163,9 @@
                                                          [self presentViewController:alert animated:YES completion:nil];
                                                      }else{
                                                          
-                                                         [self topUpPulsaAPIWithPIN:self.pinTF.text];
+                                                         if (!apiCalledFlag) {
+                                                             [self topUpPulsaAPIWithPIN:self.pinTF.text];
+                                                         }
                                                          
                                                          [alert dismissViewControllerAnimated:YES completion:nil];
                                                          
@@ -180,14 +184,13 @@
         
         [self presentViewController:alert animated:YES completion:nil];
         
-//        [self topUpPulsaAPI];
-        
     }
 }
 
 #pragma mark - API methods
 - (void)topUpPulsaAPIWithPIN:(NSString *)pin{
-    
+    apiCalledFlag = YES;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [APIClient postAPIWithParam:@{
                                   @"payment":@{
                                           @"provider_id":@(providerId),
@@ -200,25 +203,28 @@
                                       
                                       NSString *status = [response valueForKeyPath:@"payment.status"];
 //                                      NSString *message = [response valueForKeyPath:@"payment.message"];
-                                      
+                                      apiCalledFlag = NO;
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [Utils showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
+                                      apiCalledFlag = NO;
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                   }];
 }
 
 - (void)getProviderAPI{
-    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     [APIClient getAPIWithParam:@{
                                  @"payment_type":@"topup"
                                  }
                    andEndPoint:kGetProvider withAuthorization:YES successBlock:^(NSDictionary *response) {
         
         self.providerList = (NSMutableArray *)[response objectForKey:@"providers"];
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     } andFailureBlock:^(NSString *errorMessage) {
-        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [Utils showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
         
     }];

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bca-logo.jpg",
+      "filename" : "Bank BCA.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bca-logo-1.jpg",
+      "filename" : "Bank BCA-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bca-logo-2.jpg",
+      "filename" : "Bank BCA-2.png",
       "scale" : "3x"
     }
   ],
