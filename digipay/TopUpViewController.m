@@ -86,7 +86,7 @@
 #pragma mark - API Calls
 - (void)callTransferConfirmationAPI {
     [APIManager postAPIWithParam:@{
-                                  @"transfer_confirmation":@{
+                                  @"deposit":@{
                                           @"source_type": @"bank",
                                           @"from_source_name": _fromSourceName.text,
                                           @"from_account_name": _fromAccountName.text,
@@ -96,7 +96,7 @@
                                           @"to_account_number": _toAccountNumber.text,
                                           @"amount": _amount.text,
                                           @"image": @"",
-                                          @"note": @""
+                                          @"note": @"Baru isi saldo"
                                           }
                                   }andEndPoint:kPostTransferConfirmation withAuthorization:YES successBlock:^(NSDictionary *response) {
                                       [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Transfer Confirmation Success"];

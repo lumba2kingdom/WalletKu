@@ -21,7 +21,7 @@
 #define kPostForgotPassword             @"api/v1/password_resets"
 #define kPostTopUpPulsa                 @"api/v1/payments"
 #define kPostCallUs                     @"api/v1/contacts"
-#define kPostTransferConfirmation       @"api/v1/transfer_confirmations"
+#define kPostTransferConfirmation       @"api/v1/deposits"
 
 #define kGetProvider                    @"api/v1/providers"
 #define kGetPayment                     @"api/v1/payments"

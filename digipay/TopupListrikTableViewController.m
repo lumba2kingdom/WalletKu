@@ -332,7 +332,7 @@
     }
     
     [APIManager postAPIWithParam:@{
-                                  @"top_up":@{
+                                  @"payment":@{
                                           @"provider_id":@(providerId),
                                           @"nominal_id":@(nominalId),
                                           @"msisdn":self.nomerMeterTF.text,

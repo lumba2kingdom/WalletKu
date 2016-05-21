@@ -206,6 +206,7 @@
 //                                      NSString *message = [response valueForKeyPath:@"payment.message"];
                                       apiCalledFlag = NO;
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      
                                       [UtilityManager showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
