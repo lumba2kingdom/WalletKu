@@ -19,25 +19,25 @@
     // Do any additional setup after loading the view.
     
     //set tab bar icons
-//    UITabBarItem *tabBarItem1 = [self.tabBar.items objectAtIndex:0];
-//    UITabBarItem *tabBarItem2 = [self.tabBar.items objectAtIndex:1];
-//    UITabBarItem *tabBarItem3 = [self.tabBar.items objectAtIndex:2];
-//    UITabBarItem *tabBarItem4 = [self.tabBar.items objectAtIndex:3];
-//    
-//    tabBarItem1.selectedImage = [[UIImage imageNamed:@"tab-profile-active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    tabBarItem1.image = [[UIImage imageNamed:@"tab-profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    
-//    
-//    tabBarItem2.selectedImage = [[UIImage imageNamed:@"tab-pay-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    tabBarItem2.image = [[UIImage imageNamed:@"tab-pay"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    
-//    
-//    tabBarItem3.selectedImage = [[UIImage imageNamed:@"tab-mywallet-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    tabBarItem3.image = [[UIImage imageNamed:@"tab-mywallet"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    
-//    
-//    tabBarItem4.selectedImage = [[UIImage imageNamed:@"tab-payhistory-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-//    tabBarItem4.image = [[UIImage imageNamed:@"tab-payhistory"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    UITabBarItem *tabBarItem1 = [self.tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [self.tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [self.tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [self.tabBar.items objectAtIndex:3];
+    
+    tabBarItem1.selectedImage = [[UIImage imageNamed:@"tab-profile-active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabBarItem1.image = [[UIImage imageNamed:@"tab-profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    
+    tabBarItem2.selectedImage = [[UIImage imageNamed:@"tab-pay-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabBarItem2.image = [[UIImage imageNamed:@"tab-pay"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    
+    tabBarItem3.selectedImage = [[UIImage imageNamed:@"tab-mywallet-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabBarItem3.image = [[UIImage imageNamed:@"tab-mywallet"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    
+    
+    tabBarItem4.selectedImage = [[UIImage imageNamed:@"tab-payhistory-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+    tabBarItem4.image = [[UIImage imageNamed:@"tab-payhistory"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
     
     
     

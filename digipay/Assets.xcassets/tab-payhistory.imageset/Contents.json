@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Untitled-2-20.png",
+      "filename" : "tabpayhistory25.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Untitled-2-12.png",
+      "filename" : "tabpayhistory50.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Untitled-2-4.png",
+      "filename" : "tabpayhistory75.png",
       "scale" : "3x"
     }
   ],

@@ -2343,9 +2343,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitur ini sedang dalam proses pengembangan" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eao-QL-FTR">
-                                <rect key="frame" x="20" y="279" width="560" height="42"/>
+                                <rect key="frame" x="20" y="247" width="560" height="105"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="vXB-CS-nnD"/>
+                                    <constraint firstAttribute="height" constant="105" id="vXB-CS-nnD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="highlightedColor"/>
