@@ -25,6 +25,8 @@
     [super viewDidLoad];
     [self.bcaBtn setHidden:YES];
     [self.mandiriBtn setHidden:YES];
+    [self.bcaRadioBtnImg setHidden:YES];
+    [self.mandiriRadioBtnImg setHidden:YES];
     // Do any additional setup after loading the view.
 }
 
@@ -61,6 +63,9 @@
     sourceType = @"BCA";
     self.toAccountName.text = @"Dian Hariani";
     self.toAccountNumber.text = @"4910050180";
+    
+    self.bcaRadioBtnImg.image = [UIImage imageNamed:@"radio-btn-check"];
+    self.mandiriRadioBtnImg.image = [UIImage imageNamed:@"radio-btn-uncheck"];
 }
 
 - (IBAction)mandiriBtn:(UIButton *)sender {
@@ -70,17 +75,24 @@
     sourceType = @"MANDIRI";
     self.toAccountName.text = @"Dian Hariani";
     self.toAccountNumber.text = @"1250003238888";
+    
+    self.bcaRadioBtnImg.image = [UIImage imageNamed:@"radio-btn-uncheck"];
+    self.mandiriRadioBtnImg.image = [UIImage imageNamed:@"radio-btn-check"];
 }
 
 - (IBAction)transferBankBtn:(UIButton *)sender {
     [self.bcaBtn setHidden:NO];
     [self.mandiriBtn setHidden:NO];
+    [self.bcaRadioBtnImg setHidden:NO];
+    [self.mandiriRadioBtnImg setHidden:NO];
     [self.creditCardLabel setHidden:YES];
 }
 
 - (IBAction)creditCardBtn:(UIButton *)sender {
     [self.bcaBtn setHidden:YES];
     [self.mandiriBtn setHidden:YES];
+    [self.bcaRadioBtnImg setHidden:YES];
+    [self.mandiriRadioBtnImg setHidden:YES];
     [self.creditCardLabel setHidden:NO];
 }
 

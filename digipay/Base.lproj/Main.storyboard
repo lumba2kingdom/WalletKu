@@ -185,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="546" y="1113"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="l68-Lg-VBN">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" id="gzX-pl-M7d" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="gzX-pl-M7d" customClass="TabBarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="cwp-Wx-DXd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -613,7 +613,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-KE-xPc" userLabel="Button mandiri">
-                                        <rect key="frame" x="8" y="277" width="584" height="111"/>
+                                        <rect key="frame" x="40" y="277" width="552" height="111"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="111" id="Ivb-X2-ccH"/>
                                         </constraints>
@@ -623,7 +623,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Wb-7FY" userLabel="Button bca">
-                                        <rect key="frame" x="8" y="170" width="584" height="104"/>
+                                        <rect key="frame" x="40" y="170" width="552" height="104"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="104" id="A0I-9D-80K"/>
                                         </constraints>
@@ -641,6 +641,20 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio-btn-uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="baq-2d-rbm">
+                                        <rect key="frame" x="8" y="200" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="EdK-kM-iAV"/>
+                                            <constraint firstAttribute="height" constant="30" id="QhC-6b-5wz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio-btn-uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="RQW-n4-lCA">
+                                        <rect key="frame" x="8" y="318" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hCe-Dh-OEl"/>
+                                            <constraint firstAttribute="width" constant="30" id="sXZ-yq-Z22"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -651,15 +665,19 @@
                                     <constraint firstItem="9Lj-ae-q19" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="JQC-n5-CM2"/>
                                     <constraint firstAttribute="trailing" secondItem="uGP-KE-xPc" secondAttribute="trailing" constant="8" id="L7W-wm-4EF"/>
                                     <constraint firstAttribute="trailing" secondItem="M0l-Wb-7FY" secondAttribute="trailing" constant="8" id="T9j-yq-cRU"/>
-                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="TXJ-26-kka"/>
+                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="baq-2d-rbm" secondAttribute="trailing" constant="2" id="TPW-4n-Ru6"/>
+                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="40" id="TXJ-26-kka"/>
                                     <constraint firstItem="Udy-3M-8Es" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="-80" id="af7-DO-mgs"/>
+                                    <constraint firstItem="baq-2d-rbm" firstAttribute="centerY" secondItem="M0l-Wb-7FY" secondAttribute="centerY" constant="-7" id="dVT-dD-WN0"/>
                                     <constraint firstAttribute="bottom" secondItem="9Lj-ae-q19" secondAttribute="bottom" constant="8" id="dns-dV-gmA"/>
-                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="e8M-UO-D4v"/>
+                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="40" id="e8M-UO-D4v"/>
                                     <constraint firstItem="uGP-KE-xPc" firstAttribute="top" secondItem="M0l-Wb-7FY" secondAttribute="bottom" constant="3" id="eI4-To-0bt"/>
+                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="RQW-n4-lCA" secondAttribute="trailing" constant="2" id="ee6-A2-IQt"/>
                                     <constraint firstItem="Udy-3M-8Es" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-62.5" id="gUF-EB-zPK"/>
                                     <constraint firstItem="HR5-KO-YOf" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-62.5" id="jrV-25-xlF"/>
                                     <constraint firstItem="HR5-KO-YOf" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="80" id="nQu-kK-K0O"/>
                                     <constraint firstItem="9Lj-ae-q19" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="165" id="pqr-uA-CIV"/>
+                                    <constraint firstItem="RQW-n4-lCA" firstAttribute="centerY" secondItem="uGP-KE-xPc" secondAttribute="centerY" id="quB-mC-DJq"/>
                                     <constraint firstItem="M0l-Wb-7FY" firstAttribute="top" secondItem="Udy-3M-8Es" secondAttribute="bottom" constant="14" id="w5f-dE-3eG"/>
                                 </constraints>
                             </view>
@@ -687,6 +705,7 @@
                     <connections>
                         <outlet property="amount" destination="yye-qB-p9i" id="Cc4-fa-Z7d"/>
                         <outlet property="bcaBtn" destination="M0l-Wb-7FY" id="hEq-PL-6sT"/>
+                        <outlet property="bcaRadioBtnImg" destination="baq-2d-rbm" id="Fbz-Hq-d6c"/>
                         <outlet property="confirmScrollView" destination="Cph-u5-yZM" id="041-ju-Cv4"/>
                         <outlet property="creditCardLabel" destination="9Lj-ae-q19" id="jsP-nB-y7W"/>
                         <outlet property="dataPembayaranLabel" destination="cKx-sv-Phq" id="QOl-Ff-F7f"/>
@@ -696,6 +715,7 @@
                         <outlet property="fromSourceName" destination="1wL-N5-XqE" id="XR7-hf-BIX"/>
                         <outlet property="konfirmasiView" destination="S4y-1x-VDi" id="peN-CQ-4qk"/>
                         <outlet property="mandiriBtn" destination="uGP-KE-xPc" id="HOS-6z-DuZ"/>
+                        <outlet property="mandiriRadioBtnImg" destination="RQW-n4-lCA" id="C3b-8c-m7g"/>
                         <outlet property="pilihView" destination="f91-df-UT7" id="fGb-Ww-VoO"/>
                         <outlet property="toAccountName" destination="00a-zB-OYo" id="uBC-nW-WRR"/>
                         <outlet property="toAccountNumber" destination="uTy-mz-tg8" id="tgi-OU-lL8"/>
@@ -2633,6 +2653,7 @@
         <image name="icon-bayar-tiket-pesawat" width="360" height="375"/>
         <image name="icon-top-up-pulsa" width="360" height="360"/>
         <image name="mandiri-logo" width="770" height="302"/>
+        <image name="radio-btn-uncheck" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wDT-Ad-dXp"/>

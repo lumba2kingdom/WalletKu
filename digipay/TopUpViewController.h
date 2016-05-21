@@ -30,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *toAccountName;
 @property (weak, nonatomic) IBOutlet UITextField *toAccountNumber;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bcaRadioBtnImg;
+@property (weak, nonatomic) IBOutlet UIImageView *mandiriRadioBtnImg;
+
+
 - (IBAction)confirmBtn:(UIButton *)sender;
 
 
