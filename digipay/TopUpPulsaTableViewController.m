@@ -217,7 +217,7 @@
 }
 
 - (void)getProviderAPI{
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [APIManager getAPIWithParam:@{
                                  @"payment_type":@"topup"
                                  }

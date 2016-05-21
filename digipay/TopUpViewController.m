@@ -8,6 +8,7 @@
 
 #import "TopUpViewController.h"
 #import "TopupWalletFieldTableViewCell.h"
+#import "MBProgressHUD.h"
 #import "APIManager.h"
 #import "DataManager.h"
 #import "UtilityManager.h"
@@ -85,6 +86,7 @@
 
 #pragma mark - API Calls
 - (void)callTransferConfirmationAPI {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [APIManager postAPIWithParam:@{
                                   @"deposit":@{
                                           @"source_type": @"bank",
@@ -99,8 +101,10 @@
                                           @"note": @"Baru isi saldo"
                                           }
                                   }andEndPoint:kPostTransferConfirmation withAuthorization:YES successBlock:^(NSDictionary *response) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Transfer Confirmation Success"];
                                   } andFailureBlock:^(NSString *errorMessage) {
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
                                   }];
 }

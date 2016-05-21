@@ -9,6 +9,7 @@
 #import "PayHistoryTableViewController.h"
 #import "PayHistoryTableViewCell.h"
 #import "PaymentHistory.h"
+#import "MBProgressHUD.h"
 #import "APIManager.h"
 #import "DataManager.h"
 #import "UtilityManager.h"
@@ -72,6 +73,8 @@
 
 #pragma mark - API Call Methods
 - (void)paymentHistoryAPI {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [APIManager getAPIWithParam:nil andEndPoint:kGetPayment withAuthorization:YES successBlock:^(NSDictionary *response) {
         NSLog(@"PAYMENT : %@", response);
         
@@ -82,9 +85,11 @@
 //        paymentIcon = [NSArray arrayWithArray:[payments valueForKey:@"payment_type"]];
 //        paymentMessage = [NSArray arrayWithArray:[payments valueForKey:@"message"]];
         
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self.tableView reloadData];
         
     } andFailureBlock:^(NSString *errorMessage) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
     }];
 }

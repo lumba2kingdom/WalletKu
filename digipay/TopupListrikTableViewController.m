@@ -8,6 +8,7 @@
 
 #import "TopupListrikTableViewController.h"
 #import "TopUpPulsaListTableViewController.h"
+#import "MBProgressHUD.h"
 #import "APIManager.h"
 #import "DataManager.h"
 #import "UtilityManager.h"
@@ -324,13 +325,20 @@
     apiCalledFlag = YES;
     
     if (notifikasiStatus) {
-        
-        endpoint = [NSString stringWithFormat:@"%@?phone=%@", kPostTopUpPulsa, phoneForNotifikasi ? phoneForNotifikasi:@""];
+        if (![phoneForNotifikasi isEqualToString:@""]) {
+            endpoint = [NSString stringWithFormat:@"%@?phone=%@", kPostTopUpPulsa, phoneForNotifikasi];
+        }else{
+            endpoint = kPostTopUpPulsa;
+        }
     }else{
-        
-        endpoint = [NSString stringWithFormat:@"%@?email=%@", kPostTopUpPulsa, emailForNotifikasi ? emailForNotifikasi:@""];
+        if (![emailForNotifikasi isEqualToString:@""]) {
+            endpoint = [NSString stringWithFormat:@"%@?email=%@", kPostTopUpPulsa, emailForNotifikasi];
+        }else{
+            endpoint = kPostTopUpPulsa;
+        }
     }
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [APIManager postAPIWithParam:@{
                                   @"payment":@{
                                           @"provider_id":@(providerId),
@@ -345,16 +353,19 @@
 //                                      NSString *message = [response valueForKeyPath:@"payment.message"];
                                       
                                       apiCalledFlag = NO;
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [UtilityManager showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
                                       apiCalledFlag = NO;
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                                   }];
 }
 
 - (void)getProviderAPI{
     
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [APIManager getAPIWithParam:@{
                                  @"payment_type":@"pln"
                                  }
@@ -362,8 +373,10 @@
                        
                        self.providerList = (NSMutableArray *)[response objectForKey:@"providers"];
                        
+                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                    } andFailureBlock:^(NSString *errorMessage) {
                        
+                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
                        
                    }];
