@@ -53,6 +53,8 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -559,6 +561,16 @@
                                             <action selector="dataPembayaranBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="VEa-iP-v5m"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUC-Ml-cMP">
+                                        <rect key="frame" x="13" y="318" width="575" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="ujj-bk-9fE"/>
+                                        </constraints>
+                                        <string key="text">Deposit dapat dilakukan pada hari Senin - Jum'at pukul 09.00 - 17.00. Sabtu pukul 10.00 - 12.00. Deposit yang diluar jam tersebut, akan diproses pada hari kerja berikutnya.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -568,6 +580,9 @@
                                     <constraint firstAttribute="trailing" secondItem="0L2-vy-1o5" secondAttribute="trailing" constant="8" id="MBJ-gu-rdi"/>
                                     <constraint firstItem="cKx-sv-Phq" firstAttribute="leading" secondItem="dbs-Ua-Q3V" secondAttribute="leading" constant="8" id="R8h-gA-pOH"/>
                                     <constraint firstAttribute="trailing" secondItem="cKx-sv-Phq" secondAttribute="trailing" constant="8" id="RhZ-fc-T6B"/>
+                                    <constraint firstItem="tUC-Ml-cMP" firstAttribute="leading" secondItem="dbs-Ua-Q3V" secondAttribute="leading" constant="13" id="cr8-oy-7NO"/>
+                                    <constraint firstAttribute="bottom" secondItem="tUC-Ml-cMP" secondAttribute="bottom" constant="8" id="hBd-7p-co1"/>
+                                    <constraint firstAttribute="trailing" secondItem="tUC-Ml-cMP" secondAttribute="trailing" constant="12" id="pci-UO-hbA"/>
                                     <constraint firstItem="NmN-Bk-efR" firstAttribute="centerY" secondItem="dbs-Ua-Q3V" secondAttribute="centerY" constant="35" id="ueo-kr-dYP"/>
                                     <constraint firstAttribute="trailing" secondItem="8C3-s8-Cb4" secondAttribute="trailing" constant="8" id="v2s-od-YSo"/>
                                     <constraint firstItem="cKx-sv-Phq" firstAttribute="top" secondItem="dbs-Ua-Q3V" secondAttribute="top" constant="96" id="ys1-Hn-Um3"/>
@@ -576,8 +591,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f91-df-UT7" userLabel="PilihView">
                                 <rect key="frame" x="0.0" y="155" width="600" height="396"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sy-t1-H7z">
+                                        <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Pd1-HC-OBC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrG-mA-NbR">
+                                        <rect key="frame" x="17" y="317" width="575" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="6El-g3-Bxe"/>
+                                        </constraints>
+                                        <string key="text">Deposit dapat dilakukan pada hari Senin - Jum'at pukul 09.00 - 17.00. Sabtu pukul 10.00 - 12.00. Deposit yang diluar jam tersebut, akan diproses pada hari kerja berikutnya.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-3M-8Es">
-                                        <rect key="frame" x="150" y="115" width="140" height="41"/>
+                                        <rect key="frame" x="150" y="78" width="140" height="41"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="140" id="JCa-M4-LN4"/>
@@ -592,7 +626,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HR5-KO-YOf">
-                                        <rect key="frame" x="310" y="115" width="140" height="41"/>
+                                        <rect key="frame" x="310" y="78" width="140" height="41"/>
                                         <color key="backgroundColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="B02-3G-Nyw"/>
@@ -607,57 +641,50 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitur ini sedang dalam proses pengembangan, silahkan melakukan transaksi melalui transfer bank." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lj-ae-q19">
-                                        <rect key="frame" x="8" y="165" width="584" height="223"/>
+                                        <rect key="frame" x="8" y="128" width="584" height="223"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGP-KE-xPc" userLabel="Button mandiri">
-                                        <rect key="frame" x="40" y="277" width="552" height="111"/>
+                                        <rect key="frame" x="53" y="216" width="539" height="75"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="111" id="Ivb-X2-ccH"/>
-                                        </constraints>
-                                        <state key="normal" image="mandiri-logo"/>
-                                        <connections>
-                                            <action selector="mandiriBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="PuS-MT-ZwF"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Wb-7FY" userLabel="Button bca">
-                                        <rect key="frame" x="40" y="170" width="552" height="104"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="104" id="A0I-9D-80K"/>
+                                            <constraint firstAttribute="height" constant="75" id="Ivb-X2-ccH"/>
                                         </constraints>
                                         <state key="normal" image="bca-logo"/>
                                         <connections>
-                                            <action selector="bcaBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="6ew-BV-Zgi"/>
+                                            <action selector="bcaBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="E1M-hH-dcM"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sy-t1-H7z">
-                                        <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0l-Wb-7FY" userLabel="Button bca">
+                                        <rect key="frame" x="53" y="133" width="539" height="75"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Pd1-HC-OBC"/>
+                                            <constraint firstAttribute="height" constant="75" id="A0I-9D-80K"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" image="mandiri-logo"/>
+                                        <connections>
+                                            <action selector="mandiriBtn:" destination="eEe-oc-Dq8" eventType="touchUpInside" id="e3H-hX-sIO"/>
+                                        </connections>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio-btn-uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="baq-2d-rbm">
-                                        <rect key="frame" x="8" y="200" width="30" height="30"/>
+                                        <rect key="frame" x="17" y="161" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="EdK-kM-iAV"/>
-                                            <constraint firstAttribute="height" constant="30" id="QhC-6b-5wz"/>
+                                            <constraint firstAttribute="width" constant="20" id="EdK-kM-iAV"/>
+                                            <constraint firstAttribute="height" constant="20" id="QhC-6b-5wz"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio-btn-uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="RQW-n4-lCA">
-                                        <rect key="frame" x="8" y="318" width="30" height="30"/>
+                                        <rect key="frame" x="17" y="244" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="hCe-Dh-OEl"/>
-                                            <constraint firstAttribute="width" constant="30" id="sXZ-yq-Z22"/>
+                                            <constraint firstAttribute="height" constant="20" id="hCe-Dh-OEl"/>
+                                            <constraint firstAttribute="width" constant="20" id="sXZ-yq-Z22"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qrG-mA-NbR" secondAttribute="bottom" constant="9" id="0ja-9V-NK5"/>
+                                    <constraint firstItem="qrG-mA-NbR" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="17" id="2LC-bg-QOC"/>
                                     <constraint firstAttribute="trailing" secondItem="9Lj-ae-q19" secondAttribute="trailing" constant="8" id="3VH-dx-sae"/>
                                     <constraint firstItem="6Sy-t1-H7z" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="4tE-bB-Msd"/>
                                     <constraint firstAttribute="trailing" secondItem="6Sy-t1-H7z" secondAttribute="trailing" constant="8" id="HTf-AC-fpD"/>
@@ -665,19 +692,20 @@
                                     <constraint firstItem="9Lj-ae-q19" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="8" id="JQC-n5-CM2"/>
                                     <constraint firstAttribute="trailing" secondItem="uGP-KE-xPc" secondAttribute="trailing" constant="8" id="L7W-wm-4EF"/>
                                     <constraint firstAttribute="trailing" secondItem="M0l-Wb-7FY" secondAttribute="trailing" constant="8" id="T9j-yq-cRU"/>
-                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="baq-2d-rbm" secondAttribute="trailing" constant="2" id="TPW-4n-Ru6"/>
-                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="40" id="TXJ-26-kka"/>
+                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="baq-2d-rbm" secondAttribute="trailing" constant="16" id="TPW-4n-Ru6"/>
+                                    <constraint firstItem="M0l-Wb-7FY" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="53" id="TXJ-26-kka"/>
                                     <constraint firstItem="Udy-3M-8Es" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="-80" id="af7-DO-mgs"/>
-                                    <constraint firstItem="baq-2d-rbm" firstAttribute="centerY" secondItem="M0l-Wb-7FY" secondAttribute="centerY" constant="-7" id="dVT-dD-WN0"/>
-                                    <constraint firstAttribute="bottom" secondItem="9Lj-ae-q19" secondAttribute="bottom" constant="8" id="dns-dV-gmA"/>
-                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="40" id="e8M-UO-D4v"/>
-                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="top" secondItem="M0l-Wb-7FY" secondAttribute="bottom" constant="3" id="eI4-To-0bt"/>
-                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="RQW-n4-lCA" secondAttribute="trailing" constant="2" id="ee6-A2-IQt"/>
-                                    <constraint firstItem="Udy-3M-8Es" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-62.5" id="gUF-EB-zPK"/>
-                                    <constraint firstItem="HR5-KO-YOf" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-62.5" id="jrV-25-xlF"/>
+                                    <constraint firstItem="baq-2d-rbm" firstAttribute="centerY" secondItem="M0l-Wb-7FY" secondAttribute="centerY" constant="0.5" id="dVT-dD-WN0"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Lj-ae-q19" secondAttribute="bottom" constant="45" id="dns-dV-gmA"/>
+                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="f91-df-UT7" secondAttribute="leading" constant="53" id="e8M-UO-D4v"/>
+                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="top" secondItem="M0l-Wb-7FY" secondAttribute="bottom" constant="8" id="eI4-To-0bt"/>
+                                    <constraint firstItem="uGP-KE-xPc" firstAttribute="leading" secondItem="RQW-n4-lCA" secondAttribute="trailing" constant="16" id="ee6-A2-IQt"/>
+                                    <constraint firstItem="Udy-3M-8Es" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-99.5" id="gUF-EB-zPK"/>
+                                    <constraint firstAttribute="trailing" secondItem="qrG-mA-NbR" secondAttribute="trailing" constant="8" id="j6A-gH-xu5"/>
+                                    <constraint firstItem="HR5-KO-YOf" firstAttribute="centerY" secondItem="f91-df-UT7" secondAttribute="centerY" constant="-99.5" id="jrV-25-xlF"/>
                                     <constraint firstItem="HR5-KO-YOf" firstAttribute="centerX" secondItem="f91-df-UT7" secondAttribute="centerX" constant="80" id="nQu-kK-K0O"/>
-                                    <constraint firstItem="9Lj-ae-q19" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="165" id="pqr-uA-CIV"/>
-                                    <constraint firstItem="RQW-n4-lCA" firstAttribute="centerY" secondItem="uGP-KE-xPc" secondAttribute="centerY" id="quB-mC-DJq"/>
+                                    <constraint firstItem="9Lj-ae-q19" firstAttribute="top" secondItem="f91-df-UT7" secondAttribute="top" constant="128" id="pqr-uA-CIV"/>
+                                    <constraint firstItem="RQW-n4-lCA" firstAttribute="centerY" secondItem="uGP-KE-xPc" secondAttribute="centerY" constant="0.5" id="quB-mC-DJq"/>
                                     <constraint firstItem="M0l-Wb-7FY" firstAttribute="top" secondItem="Udy-3M-8Es" secondAttribute="bottom" constant="14" id="w5f-dE-3eG"/>
                                 </constraints>
                             </view>
@@ -704,7 +732,7 @@
                     <navigationItem key="navigationItem" title="Topup Wallet" id="4NN-7X-l70"/>
                     <connections>
                         <outlet property="amount" destination="yye-qB-p9i" id="Cc4-fa-Z7d"/>
-                        <outlet property="bcaBtn" destination="M0l-Wb-7FY" id="hEq-PL-6sT"/>
+                        <outlet property="bcaBtn" destination="uGP-KE-xPc" id="79R-cl-9aj"/>
                         <outlet property="bcaRadioBtnImg" destination="baq-2d-rbm" id="Fbz-Hq-d6c"/>
                         <outlet property="confirmScrollView" destination="Cph-u5-yZM" id="041-ju-Cv4"/>
                         <outlet property="creditCardLabel" destination="9Lj-ae-q19" id="jsP-nB-y7W"/>
@@ -713,8 +741,9 @@
                         <outlet property="fromAccountName" destination="VPq-EU-B6L" id="9N7-jH-P0W"/>
                         <outlet property="fromAccountNumber" destination="0eI-Ob-q5c" id="h2d-2w-ykT"/>
                         <outlet property="fromSourceName" destination="1wL-N5-XqE" id="XR7-hf-BIX"/>
+                        <outlet property="infoLabel" destination="qrG-mA-NbR" id="Dig-Af-SuQ"/>
                         <outlet property="konfirmasiView" destination="S4y-1x-VDi" id="peN-CQ-4qk"/>
-                        <outlet property="mandiriBtn" destination="uGP-KE-xPc" id="HOS-6z-DuZ"/>
+                        <outlet property="mandiriBtn" destination="M0l-Wb-7FY" id="9op-v9-Qir"/>
                         <outlet property="mandiriRadioBtnImg" destination="RQW-n4-lCA" id="C3b-8c-m7g"/>
                         <outlet property="pilihView" destination="f91-df-UT7" id="fGb-Ww-VoO"/>
                         <outlet property="toAccountName" destination="00a-zB-OYo" id="uBC-nW-WRR"/>
@@ -800,6 +829,9 @@
                                 <state key="normal" title="Contact Us: 021 85903636">
                                     <color key="titleColor" red="0.4549019608" green="0.4039215686" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="contactUsBtn:" destination="nj3-aP-sbH" eventType="touchUpInside" id="koo-bB-hdi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1675,7 +1707,7 @@
                                                 <constraint firstAttribute="width" constant="90" id="aLS-1Z-DLO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqu-Rq-s1J">
@@ -1684,7 +1716,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="t2Y-OL-9zz"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74g-Z2-SBl">
@@ -1694,7 +1726,7 @@
                                                 <constraint firstAttribute="width" constant="100" id="wxb-q2-LJV"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kc4-jm-I7b">

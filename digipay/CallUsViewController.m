@@ -56,4 +56,37 @@
     [self.divisionTF resignFirstResponder];
     [self.messageTV resignFirstResponder];
 }
+
+- (IBAction)contactUsBtn:(UIButton *)sender {
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Call"
+                                  message:@"021 85903636?"
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okBtn = [UIAlertAction
+                            actionWithTitle:@"Ya"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                NSURL* url =
+                                [NSURL URLWithString:@"tel://02185903636"];
+                                if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                                    
+                                    [[UIApplication sharedApplication] openURL:
+                                     url];
+                                }
+                            }];
+    
+    [alert addAction:okBtn];
+    
+    UIAlertAction* cancelBtn = [UIAlertAction
+                                actionWithTitle:@"Batal"
+                                style:UIAlertActionStyleCancel
+                                handler:nil];
+    
+    [alert addAction:cancelBtn];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 @end

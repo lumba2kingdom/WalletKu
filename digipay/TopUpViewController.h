@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *creditCardLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *dataPembayaranLabel;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *confirmScrollView;

@@ -142,6 +142,7 @@
 - (void)logoutTask
 {
     autoLogoutTimer = [NSTimer scheduledTimerWithTimeInterval:autoLogoutTimerInSeconds target:self selector:@selector(performBackgroundTask) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:autoLogoutTimer forMode:NSRunLoopCommonModes];
 }
 
 - (void)performBackgroundTask

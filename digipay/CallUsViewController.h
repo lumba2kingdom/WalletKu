@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *messageTV;
 - (IBAction)sendBtn:(UIButton *)sender;
 - (IBAction)backgroundTap:(UITapGestureRecognizer *)sender;
+- (IBAction)contactUsBtn:(UIButton *)sender;
 @end
