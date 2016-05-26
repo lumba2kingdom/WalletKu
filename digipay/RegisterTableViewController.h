@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 #import "APIManager.h"
 
-@interface RegisterTableViewController : UITableViewController
+@interface RegisterTableViewController : BaseTableViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *namaTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;

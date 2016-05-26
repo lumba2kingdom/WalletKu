@@ -10,7 +10,6 @@
 #import "Constants.h"
 #import "APIManager.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface MenuTableViewController ()
 
@@ -27,7 +26,7 @@
     [super viewWillAppear:animated];
     
     if ([[DataManager getPINStatus] isEqualToString:@"1"]) {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Harap ganti PIN Anda terlebih dahulu. PIN lama Anda adalah 1234."];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Harap ganti PIN Anda terlebih dahulu. PIN lama Anda adalah 1234."];
     }
     
     [self profileAPI];
@@ -93,7 +92,7 @@
             [DataManager addUserToUserDefault:newUser];
         }
     } andFailureBlock:^(NSString *errorMessage) {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Profile" andMessage:@"Error getting data from server"];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Error getting data from server"];
     }];
 }
 

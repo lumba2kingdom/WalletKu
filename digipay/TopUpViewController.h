@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface TopUpViewController : UIViewController
+@interface TopUpViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UIView *pilihView;
 @property (weak, nonatomic) IBOutlet UIView *dataPembayaranView;

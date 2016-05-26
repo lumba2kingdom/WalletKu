@@ -6,7 +6,7 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
 @protocol topUpProtocol
 
@@ -15,7 +15,7 @@
 
 @end
 
-@interface TopupListrikTableViewController : UITableViewController <topUpProtocol>
+@interface TopupListrikTableViewController : BaseTableViewController <topUpProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *balanceText;
 @property (weak, nonatomic) IBOutlet UITextField *selectProviderTF;

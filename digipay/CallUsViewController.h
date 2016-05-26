@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface CallUsViewController : UIViewController
+@interface CallUsViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *divisionTF;
 @property (weak, nonatomic) IBOutlet UITextView *messageTV;

@@ -10,7 +10,6 @@
 #import "User.h"
 #import "APIManager.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface LoginViewController ()
 
@@ -20,18 +19,10 @@
     NSTimer *autoLogoutTimer;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self hideNavigationBar];
     
     if ([DataManager getUserToken]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
@@ -45,6 +36,21 @@
         self.usernameTF.text = @"";
     }
     
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self showNavigationBar];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -69,7 +75,7 @@
     if (!self.isLoginAlreadyClicked) {
         if ([self.usernameTF.text isEqualToString:@""] || [self.passwordTF.text isEqualToString:@""]) {
             
-            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Username/Password kosong"];
+            [self showBasicAlertMessageWithTitle:@"" message:@"Username/Password kosong"];
             
         }else{
             
@@ -195,7 +201,7 @@
                     } andFailureBlock:^(NSString *errorMessage) {
                         self.isLoginAlreadyClicked = NO;
                         
-                        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                        [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                         
                     }];
 }
@@ -228,7 +234,7 @@
                   [self presentViewController:alert animated:YES completion:nil];
               } andFailureBlock:^(NSString *errorMessage) {
                   
-                  [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                  [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                   
               }];
 }

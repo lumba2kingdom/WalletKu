@@ -6,8 +6,8 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface MenuTableViewController : UITableViewController
+@interface MenuTableViewController : BaseTableViewController
 
 @end

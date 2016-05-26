@@ -14,10 +14,11 @@
 		9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639981CAE866A008C59D0 /* CallUsViewController.m */; };
 		9B5572461C61CF2600D4D938 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572451C61CF2600D4D938 /* APIManager.m */; };
 		9B55724A1C61D55B00D4D938 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572491C61D55B00D4D938 /* User.m */; };
+		9B5DA59F1CF6ED8700EC3AF8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5DA59E1CF6ED8700EC3AF8 /* BaseViewController.m */; };
+		9B5DA5A21CF6EEC100EC3AF8 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5DA5A11CF6EEC100EC3AF8 /* BaseTableViewController.m */; };
 		9B6FD9091CAD467E0037BC81 /* TopupListrikTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */; };
 		9B6FD90C1CAD4BDF0037BC81 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */; };
 		9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */; };
-		9B76DEA51CEF969300D7E1BC /* UtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B76DEA41CEF969300D7E1BC /* UtilityManager.m */; };
 		9B88C0EB1C720F1F00216A22 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B88C0EA1C720F1F00216A22 /* DataManager.m */; };
 		9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9B1C55D1E800DD7F24 /* main.m */; };
 		9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */; };
@@ -72,14 +73,16 @@
 		9B5572451C61CF2600D4D938 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		9B5572481C61D55B00D4D938 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9B5572491C61D55B00D4D938 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9B5DA59D1CF6ED8700EC3AF8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		9B5DA59E1CF6ED8700EC3AF8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		9B5DA5A01CF6EEC100EC3AF8 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		9B5DA5A11CF6EEC100EC3AF8 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		9B6FD9071CAD467E0037BC81 /* TopupListrikTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopupListrikTableViewController.h; sourceTree = "<group>"; };
 		9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopupListrikTableViewController.m; sourceTree = "<group>"; };
 		9B6FD90A1CAD4BDF0037BC81 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
 		9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		9B6FD90D1CAD60130037BC81 /* MyWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletViewController.h; sourceTree = "<group>"; };
 		9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletViewController.m; sourceTree = "<group>"; };
-		9B76DEA31CEF969300D7E1BC /* UtilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityManager.h; sourceTree = "<group>"; };
-		9B76DEA41CEF969300D7E1BC /* UtilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityManager.m; sourceTree = "<group>"; };
 		9B88C0E91C720F1F00216A22 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		9B88C0EA1C720F1F00216A22 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		9B9FDC971C55D1E800DD7F24 /* digipay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = digipay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +166,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		9B5572421C61CC9C00D4D938 /* Utils */ = {
+		9B5572421C61CC9C00D4D938 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				9B5572431C61CCBF00D4D938 /* Constants.h */,
@@ -171,10 +174,8 @@
 				9B5572451C61CF2600D4D938 /* APIManager.m */,
 				9B88C0E91C720F1F00216A22 /* DataManager.h */,
 				9B88C0EA1C720F1F00216A22 /* DataManager.m */,
-				9B76DEA31CEF969300D7E1BC /* UtilityManager.h */,
-				9B76DEA41CEF969300D7E1BC /* UtilityManager.m */,
 			);
-			name = Utils;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		9B5572471C61D54500D4D938 /* Models */ = {
@@ -186,6 +187,152 @@
 				9BDC2F2F1CEB177200385A08 /* PaymentHistory.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		9B5DA5A31CF6F3D700EC3AF8 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				9B5DA5AD1CF6F4D000EC3AF8 /* Top Up Pulsa */,
+				9B5DA5AE1CF6F4EC00EC3AF8 /* Top Up Listrik */,
+				9B5DA5AF1CF6F50100EC3AF8 /* History */,
+				9B5DA5AC1CF6F4C400EC3AF8 /* Profile Menu */,
+				9B5DA5AA1CF6F46C00EC3AF8 /* Pay Menu */,
+				9B5DA5A91CF6F44300EC3AF8 /* My Wallet */,
+				9B5DA5A81CF6F42200EC3AF8 /* Call Us */,
+				9B5DA5A71CF6F41200EC3AF8 /* Change Password & PIN */,
+				9B5DA5AB1CF6F4A500EC3AF8 /* Top Up Deposit */,
+				9B5DA5A61CF6F3F700EC3AF8 /* Edit Profile */,
+				9B5DA5A51CF6F3E700EC3AF8 /* Regsiter */,
+				9B5DA5A41CF6F3DD00EC3AF8 /* Login */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		9B5DA5A41CF6F3DD00EC3AF8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9B9FDCD11C55D43700DD7F24 /* LoginViewController.h */,
+				9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		9B5DA5A51CF6F3E700EC3AF8 /* Regsiter */ = {
+			isa = PBXGroup;
+			children = (
+				9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */,
+				9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */,
+			);
+			name = Regsiter;
+			sourceTree = "<group>";
+		};
+		9B5DA5A61CF6F3F700EC3AF8 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9B24FC381C59F7160095917D /* EditProfileTableViewController.h */,
+				9B24FC391C59F7160095917D /* EditProfileTableViewController.m */,
+			);
+			name = "Edit Profile";
+			sourceTree = "<group>";
+		};
+		9B5DA5A71CF6F41200EC3AF8 /* Change Password & PIN */ = {
+			isa = PBXGroup;
+			children = (
+				9B2639931CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.h */,
+				9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */,
+			);
+			name = "Change Password & PIN";
+			sourceTree = "<group>";
+		};
+		9B5DA5A81CF6F42200EC3AF8 /* Call Us */ = {
+			isa = PBXGroup;
+			children = (
+				9B2639971CAE866A008C59D0 /* CallUsViewController.h */,
+				9B2639981CAE866A008C59D0 /* CallUsViewController.m */,
+			);
+			name = "Call Us";
+			sourceTree = "<group>";
+		};
+		9B5DA5A91CF6F44300EC3AF8 /* My Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				9B6FD90D1CAD60130037BC81 /* MyWalletViewController.h */,
+				9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */,
+			);
+			name = "My Wallet";
+			sourceTree = "<group>";
+		};
+		9B5DA5AA1CF6F46C00EC3AF8 /* Pay Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9B6FD90A1CAD4BDF0037BC81 /* PayViewController.h */,
+				9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */,
+			);
+			name = "Pay Menu";
+			sourceTree = "<group>";
+		};
+		9B5DA5AB1CF6F4A500EC3AF8 /* Top Up Deposit */ = {
+			isa = PBXGroup;
+			children = (
+				9B1789A41CBD339600E48844 /* TopupWalletFieldTableViewCell.h */,
+				9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */,
+				9BB1B64E1C577E78007587E0 /* TopUpViewController.h */,
+				9BB1B64F1C577E78007587E0 /* TopUpViewController.m */,
+			);
+			name = "Top Up Deposit";
+			sourceTree = "<group>";
+		};
+		9B5DA5AC1CF6F4C400EC3AF8 /* Profile Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */,
+				9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */,
+			);
+			name = "Profile Menu";
+			sourceTree = "<group>";
+		};
+		9B5DA5AD1CF6F4D000EC3AF8 /* Top Up Pulsa */ = {
+			isa = PBXGroup;
+			children = (
+				9BE6B6A01C5B0CC000D783B9 /* TopUpPulsaTableViewController.h */,
+				9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */,
+				9BD4283A1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.h */,
+				9BD4283B1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m */,
+			);
+			name = "Top Up Pulsa";
+			sourceTree = "<group>";
+		};
+		9B5DA5AE1CF6F4EC00EC3AF8 /* Top Up Listrik */ = {
+			isa = PBXGroup;
+			children = (
+				9B6FD9071CAD467E0037BC81 /* TopupListrikTableViewController.h */,
+				9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */,
+			);
+			name = "Top Up Listrik";
+			sourceTree = "<group>";
+		};
+		9B5DA5AF1CF6F50100EC3AF8 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				9B9FDCD81C5621D100DD7F24 /* PayHistoryTableViewCell.h */,
+				9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */,
+				9B9FDCD41C56215B00DD7F24 /* PayHistoryTableViewController.h */,
+				9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		9B5DA5B01CF6F51700EC3AF8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9B5DA59D1CF6ED8700EC3AF8 /* BaseViewController.h */,
+				9B5DA59E1CF6ED8700EC3AF8 /* BaseViewController.m */,
+				9B5DA5A01CF6EEC100EC3AF8 /* BaseTableViewController.h */,
+				9B5DA5A11CF6EEC100EC3AF8 /* BaseTableViewController.m */,
+				9BEDB6941CF0596600ECDB1F /* TabBarViewController.h */,
+				9BEDB6951CF0596600ECDB1F /* TabBarViewController.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		9B9FDC8E1C55D1E800DD7F24 = {
@@ -213,9 +360,9 @@
 		9B9FDC991C55D1E800DD7F24 /* digipay */ = {
 			isa = PBXGroup;
 			children = (
-				9B9FDCD71C5621C000DD7F24 /* Cells */,
-				9B9FDCD01C55D41D00DD7F24 /* Controllers */,
-				9B5572421C61CC9C00D4D938 /* Utils */,
+				9B5DA5B01CF6F51700EC3AF8 /* Base */,
+				9B5DA5A31CF6F3D700EC3AF8 /* Features */,
+				9B5572421C61CC9C00D4D938 /* Managers */,
 				9B5572471C61D54500D4D938 /* Models */,
 				9B9FDC9D1C55D1E800DD7F24 /* AppDelegate.h */,
 				9B9FDC9E1C55D1E800DD7F24 /* AppDelegate.m */,
@@ -253,52 +400,6 @@
 				9B9FDCC41C55D1E800DD7F24 /* Info.plist */,
 			);
 			path = digipayUITests;
-			sourceTree = "<group>";
-		};
-		9B9FDCD01C55D41D00DD7F24 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9BB1B6511C577F9F007587E0 /* MenuTableViewController.h */,
-				9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */,
-				9B9FDCD11C55D43700DD7F24 /* LoginViewController.h */,
-				9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */,
-				9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */,
-				9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */,
-				9B24FC381C59F7160095917D /* EditProfileTableViewController.h */,
-				9B24FC391C59F7160095917D /* EditProfileTableViewController.m */,
-				9B9FDCD41C56215B00DD7F24 /* PayHistoryTableViewController.h */,
-				9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */,
-				9BB1B64E1C577E78007587E0 /* TopUpViewController.h */,
-				9BB1B64F1C577E78007587E0 /* TopUpViewController.m */,
-				9BE6B6A01C5B0CC000D783B9 /* TopUpPulsaTableViewController.h */,
-				9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */,
-				9BD4283A1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.h */,
-				9BD4283B1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m */,
-				9B6FD9071CAD467E0037BC81 /* TopupListrikTableViewController.h */,
-				9B6FD9081CAD467E0037BC81 /* TopupListrikTableViewController.m */,
-				9B6FD90A1CAD4BDF0037BC81 /* PayViewController.h */,
-				9B6FD90B1CAD4BDF0037BC81 /* PayViewController.m */,
-				9B6FD90D1CAD60130037BC81 /* MyWalletViewController.h */,
-				9B6FD90E1CAD60130037BC81 /* MyWalletViewController.m */,
-				9B2639931CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.h */,
-				9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */,
-				9B2639971CAE866A008C59D0 /* CallUsViewController.h */,
-				9B2639981CAE866A008C59D0 /* CallUsViewController.m */,
-				9BEDB6941CF0596600ECDB1F /* TabBarViewController.h */,
-				9BEDB6951CF0596600ECDB1F /* TabBarViewController.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		9B9FDCD71C5621C000DD7F24 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				9B9FDCD81C5621D100DD7F24 /* PayHistoryTableViewCell.h */,
-				9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */,
-				9B1789A41CBD339600E48844 /* TopupWalletFieldTableViewCell.h */,
-				9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,15 +606,16 @@
 				9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */,
 				9B88C0EB1C720F1F00216A22 /* DataManager.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
+				9B5DA5A21CF6EEC100EC3AF8 /* BaseTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
 				9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */,
+				9B5DA59F1CF6ED8700EC3AF8 /* BaseViewController.m in Sources */,
 				9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */,
 				9B6FD9091CAD467E0037BC81 /* TopupListrikTableViewController.m in Sources */,
 				9B55724A1C61D55B00D4D938 /* User.m in Sources */,
 				9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */,
 				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
-				9B76DEA51CEF969300D7E1BC /* UtilityManager.m in Sources */,
 				9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
 				9B5572461C61CF2600D4D938 /* APIManager.m in Sources */,

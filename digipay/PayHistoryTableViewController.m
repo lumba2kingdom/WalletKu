@@ -12,7 +12,6 @@
 #import "MBProgressHUD.h"
 #import "APIManager.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface PayHistoryTableViewController ()
 
@@ -22,10 +21,14 @@
     NSArray *payments;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     [self paymentHistoryAPI];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
 }
 
@@ -90,7 +93,7 @@
         
     } andFailureBlock:^(NSString *errorMessage) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+        [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
     }];
 }
 

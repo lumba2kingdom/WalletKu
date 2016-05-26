@@ -8,7 +8,6 @@
 
 #import "RegisterTableViewController.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface RegisterTableViewController ()
 
@@ -36,14 +35,14 @@
     switch (self.premiumSegmented.selectedSegmentIndex) {
         case 0:
         {
-            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Tidak ada deposit minimal\n 3. Saldo dapat digunakan keseluruh fitur di walletku."];
+            [self showBasicAlertMessageWithTitle:@"Syarat & Ketentuan" message:@"1. Biaya Pendaftaran Gratis\n 2. Tidak ada deposit minimal\n 3. Saldo dapat digunakan keseluruh fitur di walletku."];
             [self.noReferralTF setHidden:YES];
         }
             break;
             
         case 1:
         {
-            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Syarat & Ketentuan" andMessage:@"1. Biaya Pendaftaran Gratis\n 2. Deposit minimum Rp 1000.000\n 3. Mendapatkan spanduk toko\n 4. Harga lebih murah daripada normal user\n 5. Berkesempatan mendapatkan point reward\n 6. Dapat merekrut premium user dibawah anda."];
+            [self showBasicAlertMessageWithTitle:@"Syarat & Ketentuan" message:@"1. Biaya Pendaftaran Gratis\n 2. Deposit minimum Rp 1000.000\n 3. Mendapatkan spanduk toko\n 4. Harga lebih murah daripada normal user\n 5. Berkesempatan mendapatkan point reward\n 6. Dapat merekrut premium user dibawah anda."];
             [self.noReferralTF setHidden:NO];
         }
             break;
@@ -63,7 +62,7 @@
             
             self.isSignUpAlreadyClicked = NO;
             
-            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
+            [self showBasicAlertMessageWithTitle:@"" message:@"Mohon isi kolom yang kosong"];
         }
         else
         {
@@ -75,17 +74,17 @@
             if (! myStringMatchesRegEx)
             {
                 
-                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Alamat email tidak sesuai"];
+                [self showBasicAlertMessageWithTitle:@"" message:@"Alamat email tidak sesuai"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }else if (![self.passwordTF.text isEqualToString:self.ulangPasswordTF.text]){
                 
-                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Password tidak sesuai"];
+                [self showBasicAlertMessageWithTitle:@"" message:@"Password tidak sesuai"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }else if (!self.pernyataanSwitch.isOn){
                 
-                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Anda belum menyutujui pernyataan yang tertulis"];
+                [self showBasicAlertMessageWithTitle:@"" message:@"Anda belum menyutujui pernyataan yang tertulis"];
                 
                 self.isSignUpAlreadyClicked = NO;
             }
@@ -142,7 +141,7 @@
                                                                               
                                                                           } andFailureBlock:^(NSString *errorMessage) {
                                                                               
-                                                                              [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                                                              [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                                                                               
                                                                               self.isSignUpAlreadyClicked = NO;
                                                                           }];

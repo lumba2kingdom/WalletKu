@@ -11,7 +11,6 @@
 #import "MBProgressHUD.h"
 #import "APIManager.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface TopupListrikTableViewController ()
 
@@ -248,14 +247,15 @@
     
     if ([self.nominalTF.text  isEqual: @""])
     {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom nominal kosong"];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Kolom nominal kosong"];
     }
     else if ([self.nomerMeterTF.text  isEqual: @""])
     {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom Nomer Meter Kosong" ];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Kolom Nomer Meter Kosong"];
     }
-    else if (self.segmentedNotifikasi.selectedSegmentIndex == -1){
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Pilih Notifikasi Transaksi"];
+    else if (self.segmentedNotifikasi.selectedSegmentIndex == -1)
+    {
+        [self showBasicAlertMessageWithTitle:@"" message:@"Pilih Notifikasi Transaksi"];
     }
     else{
         
@@ -354,12 +354,12 @@
                                       
                                       apiCalledFlag = NO;
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
+                                      [self showBasicAlertMessageWithTitle:status message:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
                                       apiCalledFlag = NO;
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                      [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                                   }];
 }
 
@@ -377,7 +377,7 @@
                    } andFailureBlock:^(NSString *errorMessage) {
                        
                        [MBProgressHUD hideHUDForView:self.view animated:YES];
-                       [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                       [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                        
                    }];
     

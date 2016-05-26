@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 #import "TopUpPulsaTableViewController.h"
 
-@interface TopUpPulsaListTableViewController : UITableViewController
+@interface TopUpPulsaListTableViewController : BaseTableViewController
 
 @property (nonatomic, weak) id<topUpProtocol> delegate;
 

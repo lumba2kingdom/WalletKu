@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface EditProfileTableViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface EditProfileTableViewController : BaseTableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *namaTF;
 @property (weak, nonatomic) IBOutlet UITextField *noKTPTF;

@@ -11,7 +11,6 @@
 #import "MBProgressHUD.h"
 #import "APIManager.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface TopUpPulsaTableViewController ()
 
@@ -119,11 +118,11 @@
 - (IBAction)beliBtn:(UIButton *)sender {
     if ([self.nominalTF.text  isEqual: @""])
     {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom nominal kosong"];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Kolom nominal kosong"];
     }
     else if ([self.nomerHPTF.text  isEqual: @""])
     {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Kolom No. HP Kosong" ];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Kolom No. HP Kosong"];
     }
     else{
         
@@ -207,12 +206,12 @@
                                       apiCalledFlag = NO;
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
                                       
-                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:status andMessage:@"Transaksi Berhasil"];
+                                      [self showBasicAlertMessageWithTitle:status message:@"Transaksi Berhasil"];
                                       
                                   } andFailureBlock:^(NSString *errorMessage) {
                                       apiCalledFlag = NO;
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                      [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                      [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                                   }];
 }
 
@@ -227,7 +226,7 @@
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     } andFailureBlock:^(NSString *errorMessage) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+        [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
         
     }];
     

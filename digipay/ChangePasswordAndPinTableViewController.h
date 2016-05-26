@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface ChangePasswordAndPinTableViewController : UITableViewController
+@interface ChangePasswordAndPinTableViewController : BaseTableViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (weak, nonatomic) IBOutlet UILabel *passwordLamaLabel;

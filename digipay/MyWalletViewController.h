@@ -6,9 +6,9 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface MyWalletViewController : UIViewController
+@interface MyWalletViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *balanceText;
 @property (weak, nonatomic) IBOutlet UILabel *pointText;

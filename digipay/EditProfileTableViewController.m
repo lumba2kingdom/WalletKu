@@ -10,7 +10,6 @@
 #import "User.h"
 #import "DataManager.h"
 #import "APIManager.h"
-#import "UtilityManager.h"
 
 @interface EditProfileTableViewController ()
 
@@ -41,8 +40,6 @@
                 [self.changeProfileBtn setBackgroundImage:image forState:UIControlStateNormal];
                 
             } withOnFailureBlock:^{
-                
-                [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Error when getting the image profile from server"];
                 
             }];
         }
@@ -84,7 +81,7 @@
                                   {
                                       if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                                           
-                                          [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Device tidak memiliki kamera"];
+                                          [self showBasicAlertMessageWithTitle:@"" message:@"Device tidak memiliki kamera"];
                                           
                                       }else{
                                           //take photo
@@ -138,7 +135,7 @@
         if ([self.namaTF.text  isEqual: @""] || [self.noKTPTF.text  isEqual: @""] || [self.alamatTF.text  isEqual: @""] || [self.nomerHPTF.text  isEqual: @""])
         {
             
-            [UtilityManager showDefaultAlertWithViewController:self withTitle:@"" andMessage:@"Mohon isi kolom yang kosong"];
+            [self showBasicAlertMessageWithTitle:@"" message:@"Mohon isi kolom yang kosong"];
         }
         else
         {
@@ -174,11 +171,11 @@
                                                                                  }
                                                                          }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
                                                                              
-                                                                             [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sukses" andMessage:@"Data tersimpan"];
+                                                                             [self showBasicAlertMessageWithTitle:@"Sukses" message:@"Data tersimpan"];
                                                                              
                                                                          } andFailureBlock:^(NSString *errorMessage) {
                                                                              
-                                                                             [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:errorMessage];
+                                                                             [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                                                                              
                                                                              self.isSaveAlreadyClicked = NO;
                                                                          }];

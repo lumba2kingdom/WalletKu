@@ -6,10 +6,10 @@
 //  Copyright © 2016 Lutfi Azhar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 #import "SlideNavigationController.h"
 
-@interface LoginViewController : UIViewController <SlideNavigationControllerDelegate>
+@interface LoginViewController : BaseViewController <SlideNavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;

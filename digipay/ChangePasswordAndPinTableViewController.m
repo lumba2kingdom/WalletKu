@@ -9,7 +9,6 @@
 #import "ChangePasswordAndPinTableViewController.h"
 #import "APIManager.h"
 #import "DataManager.h"
-#import "UtilityManager.h"
 
 @interface ChangePasswordAndPinTableViewController ()
 
@@ -73,7 +72,7 @@
 - (IBAction)simpanBtn:(UIButton *)sender {
     
     if ([self.passwordLamaTF.text isEqualToString:@""] || [self.passwordBaruTF.text isEqualToString:@""] || [self.ulangiPasswordTF.text isEqualToString:@""]) {
-        [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Error" andMessage:@"Mohon isi kolom yang kosong"];
+        [self showBasicAlertMessageWithTitle:@"" message:@"Mohon isi kolom yang kosong"];
     }else{
         
         if (!isForPIN) {
@@ -96,9 +95,9 @@
                                          @"password_confirmation": self.ulangiPasswordTF.text
                                          }
                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
-                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"Password changed successfuly"];
+                                     [self showBasicAlertMessageWithTitle:@"Success" message:@"Password changed successfuly"];
                                  } andFailureBlock:^(NSString *errorMessage) {
-                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                     [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                                  }];
 }
 
@@ -112,9 +111,9 @@
                                          @"pin_confirmation": self.ulangiPasswordTF.text
                                          }
                                  }andEndPoint:endpoint withAuthorization:YES successBlock:^(NSDictionary *response) {
-                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Success" andMessage:@"PIN changed successfuly"];
+                                     [self showBasicAlertMessageWithTitle:@"Success" message:@"PIN changed successfuly"];
                                  } andFailureBlock:^(NSString *errorMessage) {
-                                     [UtilityManager showDefaultAlertWithViewController:self withTitle:@"Sorry" andMessage:errorMessage];
+                                     [self showBasicAlertMessageWithTitle:@"" message:errorMessage];
                                  }];
 }
 @end
