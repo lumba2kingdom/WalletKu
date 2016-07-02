@@ -22,9 +22,13 @@
 #define kPostTopUpPulsa                 @"api/v1/payments"
 #define kPostCallUs                     @"api/v1/contacts"
 #define kPostTransferConfirmation       @"api/v1/deposits"
+#define kPostFlightsSearch              @"api/v1/flights"
 
 #define kGetProvider                    @"api/v1/providers"
 #define kGetPayment                     @"api/v1/payments"
+
+#define AEROFLIGHT_ACCESS_CODE          @"MTA2DiaNjIz"
+#define AEROFLIGHT_URL                  @"http://dev.aeroaffiliate.com/service/v2"
 
 #define kUserDefaultsUserKey            @"userDefaultsUser"
 #define kUserDefaultsTokenKey           @"userDefaultsToken"
