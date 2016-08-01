@@ -22,7 +22,7 @@
 #define kPostTopUpPulsa                 @"api/v1/payments"
 #define kPostCallUs                     @"api/v1/contacts"
 #define kPostTransferConfirmation       @"api/v1/deposits"
-#define kPostFlightsSearch              @"api/v1/flights"
+#define kPostFlightsSearch              @"api/v1/flights/search"
 
 #define kGetProvider                    @"api/v1/providers"
 #define kGetPayment                     @"api/v1/payments"

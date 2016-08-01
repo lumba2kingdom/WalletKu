@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "Constants.h"
 #import "APIManager.h"
+#import "HasilPencarianViewController.h"
 
 #define RADIO_SELECTED_IMAGE_NAME @"radio-btn-check-orange"
 #define RADIO_UNSELECTED_IMAGE_NAME @"radio-btn-uncheck-orange"
@@ -25,7 +26,9 @@
 @property (nonatomic) NSArray *airlinesArray;
 @property (nonatomic) NSArray *departureArray;
 @property (nonatomic) NSArray *destinationArray;
-@property (strong, nonatomic) IBOutlet UIPickerView *dataPicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *dataAirlinePicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *dataDeparturePicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *dataDestinationPicker;
 @end
 
 @implementation TicketPesawatTableViewController
@@ -36,6 +39,8 @@
     [self onewaySelected];
     [self createNextToolbar];
     [self createAirlinePicker];
+    [self createDeparturePicker];
+    [self createDestinationPicker];
     [self createDepartDatePicker];
     [self getAirlinesList];
     [self createDashLineWithView:_dashLine1];
@@ -106,14 +111,30 @@
 }
 
 - (void)createAirlinePicker{
-    _dataPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 216)];
-    _dataPicker.delegate = self;
-    _dataPicker.dataSource = self;
-    _dataPicker.showsSelectionIndicator = YES;
+    _dataAirlinePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 216)];
+    _dataAirlinePicker.delegate = self;
+    _dataAirlinePicker.dataSource = self;
+    _dataAirlinePicker.showsSelectionIndicator = YES;
     
-    _airlineTextField.inputView = _dataPicker;
-    _departureTextField.inputView = _dataPicker;
-    _destinationTextField.inputView = _dataPicker;
+    _airlineTextField.inputView = _dataAirlinePicker;
+}
+
+- (void)createDeparturePicker{
+    _dataDeparturePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 216)];
+    _dataDeparturePicker.delegate = self;
+    _dataDeparturePicker.dataSource = self;
+    _dataDeparturePicker.showsSelectionIndicator = YES;
+    
+    _departureTextField.inputView = _dataDeparturePicker;
+}
+
+- (void)createDestinationPicker{
+    _dataDestinationPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 216)];
+    _dataDestinationPicker.delegate = self;
+    _dataDestinationPicker.dataSource = self;
+    _dataDestinationPicker.showsSelectionIndicator = YES;
+    
+    _destinationTextField.inputView = _dataDestinationPicker;
 }
 
 - (void)createDepartDatePicker{
@@ -208,58 +229,65 @@
     
 }
 
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+//    [_dataPicker reloadAllComponents];
+//    return YES;
+//}
+
 #pragma mark PickerView DataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
 
 - (NSInteger) pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if ([pickerView isEqual:_dataPicker])
+    if ([pickerView isEqual:_dataAirlinePicker])
     {
-        if (_airlineTextField.isFirstResponder) {
-            return [_airlinesArray count];
-        }
-        else if (_departureTextField.isFirstResponder) {
-            return [_departureArray count];
-        }
-        else if (_destinationTextField.isFirstResponder) {
-            return [_destinationArray count];
-        }
+        return [_airlinesArray count];
+    }
+    else if ([pickerView isEqual:_dataDeparturePicker]){
+        return [_departureArray count];
+    }
+    else if ([pickerView isEqual:_dataDestinationPicker]){
+        return [_destinationArray count];
     }
     return 0;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    if (_airlineTextField.isFirstResponder) {
+    if ([pickerView isEqual:_dataAirlinePicker]) {
         return [[_airlinesArray objectAtIndex:row] valueForKey:@"airlines_name"];
     }
-    else if (_departureTextField.isFirstResponder) {
+    else if ([pickerView isEqual:_dataDeparturePicker]) {
         return [[_departureArray objectAtIndex:row] valueForKey:@"airport_city"];
     }
-    else if (_destinationTextField.isFirstResponder) {
-        return [[_airlinesArray objectAtIndex:row] valueForKey:@"airlines_name"];
+    else if ([pickerView isEqual:_dataDestinationPicker]) {
+        return [[_destinationArray objectAtIndex:row] valueForKey:@"airport_city"];
     }
     return @"";
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (_airlineTextField.isFirstResponder) {
+    if ([pickerView isEqual:_dataAirlinePicker]) {
         _airlineTextField.text = [[_airlinesArray objectAtIndex:row] valueForKey:@"airlines_name"];
         airlinesID = [NSString stringWithFormat:@"%@",[[_airlinesArray objectAtIndex:row] valueForKey:@"airlines_id"]];
-        [self getDepartureListWithAirlineID:[[_airlinesArray objectAtIndex:row] valueForKey:@"airlines_id"]];
+        [self getDepartureListWithAirlineID:airlinesID];
     }
-    else if (_departureTextField.isFirstResponder) {
+    else if ([pickerView isEqual:_dataDeparturePicker]) {
         _departureTextField.text = [[_departureArray objectAtIndex:row] valueForKey:@"airport_city"];
         departure = [NSString stringWithFormat:@"%@",[[_departureArray objectAtIndex:row] valueForKey:@"airport_code"]];
         [self getDestinationListWithAirlineID:airlinesID WithDepartureID:departure];
+    }
+    else if ([pickerView isEqual:_dataDestinationPicker]) {
+        _destinationTextField.text = [[_destinationArray objectAtIndex:row] valueForKey:@"airport_city"];
+        destination = [[_destinationArray objectAtIndex:row] valueForKey:@"airport_code"];
     }
 }
 
 #pragma mark - Fetch AERO
 
 - (void)getAirlinesList{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:YES];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
@@ -271,8 +299,8 @@
          } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              NSLog(@"%@",responseObject);
              _airlinesArray = [responseObject valueForKey:@"airlines_data"];
-             [_dataPicker reloadAllComponents];
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [_dataAirlinePicker reloadAllComponents];
+             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
              if (_airlinesArray.count > 0) {
                  _airlineTextField.text = [[_airlinesArray firstObject] valueForKey:@"airlines_name"];
                  airlinesID = [NSString stringWithFormat:@"%@",[[_airlinesArray firstObject] valueForKey:@"airlines_id"]];
@@ -281,12 +309,12 @@
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"%@",error);
              [self disableField];
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
          }];
 }
 
 - (void)getDepartureListWithAirlineID:(NSString *)airlineID{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:YES];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
@@ -299,8 +327,8 @@
          } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              NSLog(@"%@",responseObject);
              _departureArray = [responseObject valueForKey:@"departure_airport"];
-             [_dataPicker reloadAllComponents];
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [_dataDeparturePicker reloadAllComponents];
+             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
              if (_departureArray.count > 0) {
                  _departureTextField.text = [[_departureArray firstObject] valueForKey:@"airport_city"];
                  departure = [[_departureArray firstObject] valueForKey:@"airport_code"];
@@ -308,12 +336,12 @@
              }
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"%@",error);
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
          }];
 }
 
 - (void)getDestinationListWithAirlineID:(NSString *)airlineID WithDepartureID:(NSString *)departureID{
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:YES];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
@@ -332,15 +360,15 @@
          } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              NSLog(@"%@",responseObject);
              _destinationArray = [responseObject valueForKey:@"arrival_airport"];
-             [_dataPicker reloadAllComponents];
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [_dataDestinationPicker reloadAllComponents];
+             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
              if (_departureArray.count > 0) {
                  _destinationTextField.text = [[_destinationArray firstObject] valueForKey:@"airport_city"];
                  destination = [[_destinationArray firstObject] valueForKey:@"airport_code"];
              }
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              NSLog(@"%@",error);
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
          }];
 }
 
@@ -375,8 +403,7 @@
     NSDateFormatter * dformatted = [[NSDateFormatter alloc] init];
     [dformatted setDateFormat:@"yyyy-MM-dd"];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setObject:@"search" forKey:@"act"];
-    [params setObject:airlinesID forKey:@"airlines"];
+    [params setObject:airlinesID forKey:@"airline"];
     if (isOnewaySelected) {
         [params setObject:@"oneway" forKey:@"roundtrip"];
     }
@@ -396,14 +423,24 @@
     if (![infantQuantity isEqualToString:@"0"] && ![infantQuantity isEqualToString:@""]) {
         [params setObject:infantQuantity forKey:@"infant"];
     }
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [APIManager postAPIWithParam:params
-                                   andEndPoint:kPostFlightsSearch withAuthorization:YES successBlock:^(NSDictionary *response) {
+    [MBProgressHUD showHUDAddedTo:[[[UIApplication sharedApplication] delegate] window] animated:YES];
+    [APIManager getAPIWithParam:params
+                                   andEndPoint:kPostFlightsSearch withAuthorization:NO successBlock:^(NSDictionary *response) {
                                        NSLog(@"response %@",response);
-                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                       [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
+                                       if (![[response valueForKey:@"error_no"] isEqualToString:@"0"]) {
+                                           return;
+                                       }
+                                       HasilPencarianViewController *hasilpencarianVC = [self.storyboard instantiateViewControllerWithIdentifier:@"HasilPencarianVC"];
+                                       hasilpencarianVC.departureAirport = _departureTextField.text;
+                                       hasilpencarianVC.destinationAirport = _destinationTextField.text;
+                                       hasilpencarianVC.departureList = [[response valueForKey:@"schedule"] valueForKey:@"depart"];
+                                       hasilpencarianVC.airlineData = [response valueForKey:@"airlines_detail"];
+                                       hasilpencarianVC.searchInfo = [response valueForKey:@"search_info"];
+                                       [self.navigationController pushViewController:hasilpencarianVC animated:YES];
                                    } andFailureBlock:^(NSString *errorMessage) {
                                        NSLog(@"error %@",errorMessage);
-                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                       [MBProgressHUD hideHUDForView:[[[UIApplication sharedApplication] delegate] window] animated:YES];
                                    }];
 }
 
