@@ -3,8 +3,10 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
-pod 'AFNetworking'
-pod 'iOS-Slide-Menu'
-pod 'Fabric'
-pod 'Crashlytics'
-pod 'MBProgressHUD'
+target "digipay" do
+    pod 'AFNetworking'
+    pod 'iOS-Slide-Menu'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'MBProgressHUD'
+end
