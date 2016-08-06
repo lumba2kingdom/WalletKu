@@ -336,7 +336,7 @@
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [APIManager postAPIWithParam:@{
+    [[APIManager sharedManager] postAPIWithParam:@{
                                   @"payment":@{
                                           @"provider_id":@(providerId),
                                           @"nominal_id":@(nominalId),
@@ -363,7 +363,7 @@
 - (void)getProviderAPI{
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [APIManager getAPIWithParam:@{
+    [[APIManager sharedManager] getAPIWithParam:@{
                                  @"payment_type":@"pln"
                                  }
                    andEndPoint:kGetProvider withAuthorization:YES successBlock:^(NSDictionary *response) {

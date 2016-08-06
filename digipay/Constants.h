@@ -25,7 +25,10 @@
 #define kPostFlightsSearch              @"api/v1/flights/search"
 
 #define kGetProvider                    @"api/v1/providers"
+
 #define kGetAirlines                    @"api/v1/flights/get_airlines"
+#define kGetDepartureAirport            @"api/v1/flights/get_departure_airport"
+#define kGetArrivalAirport              @"api/v1/flights/get_arrival_airport"
 
 #define kGetPayment                     @"api/v1/payments"
 

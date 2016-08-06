@@ -26,7 +26,7 @@
 
 #pragma mark - API Calls
 - (void)callUsAPI {
-    [APIManager postAPIWithParam:@{
+    [[APIManager sharedManager] postAPIWithParam:@{
                                   @"contact": @{
                                           @"division": self.divisionTF.text,
                                           @"message": self.messageTV.text

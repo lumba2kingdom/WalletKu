@@ -8,6 +8,9 @@
 
 #import "BaseTableViewController.h"
 
-@interface TiketPesawatTableViewController : BaseTableViewController
+@interface TiketPesawatTableViewController : BaseTableViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITextField *chooseAirlineTextField;
+@property (weak, nonatomic) IBOutlet UITextField *departureTextField;
+@property (weak, nonatomic) IBOutlet UITextField *destinationTextField;
 @end

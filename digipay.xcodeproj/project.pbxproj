@@ -39,6 +39,8 @@
 		9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */; };
 		9BEDB6961CF0596600ECDB1F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDB6951CF0596600ECDB1F /* TabBarViewController.m */; };
 		9BF7A3BC1D55CF9900105AB1 /* TiketPesawatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */; };
+		9BF7A3C01D55D8B400105AB1 /* Airline.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7A3BF1D55D8B400105AB1 /* Airline.m */; };
+		9BF7A3C31D55E73500105AB1 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7A3C21D55E73500105AB1 /* Airport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,10 @@
 		9BF7A3BA1D55CF9900105AB1 /* TiketPesawatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiketPesawatTableViewController.h; sourceTree = "<group>"; };
 		9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiketPesawatTableViewController.m; sourceTree = "<group>"; };
 		9BF7A3BD1D55D4CA00105AB1 /* digipay-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "digipay-prefix.pch"; sourceTree = "<group>"; };
+		9BF7A3BE1D55D8B400105AB1 /* Airline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airline.h; sourceTree = "<group>"; };
+		9BF7A3BF1D55D8B400105AB1 /* Airline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airline.m; sourceTree = "<group>"; };
+		9BF7A3C11D55E73500105AB1 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		9BF7A3C21D55E73500105AB1 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		C399A59B13B6F3B14D56D2EA /* Pods-digipay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digipay.release.xcconfig"; path = "Pods/Target Support Files/Pods-digipay/Pods-digipay.release.xcconfig"; sourceTree = "<group>"; };
 		F0B8E33F33E61D28B8AEA789 /* libPods-digipay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-digipay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -189,6 +195,10 @@
 				9B5572491C61D55B00D4D938 /* User.m */,
 				9BDC2F2E1CEB177200385A08 /* PaymentHistory.h */,
 				9BDC2F2F1CEB177200385A08 /* PaymentHistory.m */,
+				9BF7A3BE1D55D8B400105AB1 /* Airline.h */,
+				9BF7A3BF1D55D8B400105AB1 /* Airline.m */,
+				9BF7A3C11D55E73500105AB1 /* Airport.h */,
+				9BF7A3C21D55E73500105AB1 /* Airport.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -622,6 +632,8 @@
 				9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */,
 				9B88C0EB1C720F1F00216A22 /* DataManager.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
+				9BF7A3C31D55E73500105AB1 /* Airport.m in Sources */,
+				9BF7A3C01D55D8B400105AB1 /* Airline.m in Sources */,
 				9B5DA5A21CF6EEC100EC3AF8 /* BaseTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,

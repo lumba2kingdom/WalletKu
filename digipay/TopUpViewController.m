@@ -100,7 +100,7 @@
 #pragma mark - API Calls
 - (void)callTransferConfirmationAPI {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [APIManager postAPIWithParam:@{
+    [[APIManager sharedManager] postAPIWithParam:@{
                                   @"deposit":@{
                                           @"source_type": @"bank",
                                           @"from_source_name": _fromSourceName.text,

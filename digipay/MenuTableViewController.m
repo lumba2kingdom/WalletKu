@@ -81,7 +81,7 @@
 #pragma mark - API Call Methods
 - (void)profileAPI {
     NSString* getUserDataEndPoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
-    [APIManager getAPIWithParam:nil andEndPoint:getUserDataEndPoint withAuthorization:YES successBlock:^(NSDictionary *response) {
+    [[APIManager sharedManager] getAPIWithParam:nil andEndPoint:getUserDataEndPoint withAuthorization:YES successBlock:^(NSDictionary *response) {
         if (response) {
             
             NSDictionary *userDict = (NSDictionary*)[response objectForKey:@"user"];

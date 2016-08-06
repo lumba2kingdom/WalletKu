@@ -171,7 +171,7 @@
 
 #pragma mark - API Call Methods
 - (void)loginAPI{
-    [APIManager postAPIWithParam:@{
+    [[APIManager sharedManager] postAPIWithParam:@{
                                   @"user": @{
                                           @"email":self.usernameTF.text,
                                           @"password":self.passwordTF.text
@@ -205,7 +205,7 @@
 }
 
 - (void)forgotPasswordAPI {
-    [APIManager postAPIWithParam:@{
+    [[APIManager sharedManager] postAPIWithParam:@{
                                   @"password_reset": @{
                                           @"email": self.emailAddressTextField.text
                                           }

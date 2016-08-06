@@ -86,7 +86,7 @@
 - (void)changePassword {
     
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
-    [APIManager putAPIWithParam:@{
+    [[APIManager sharedManager] putAPIWithParam:@{
                                  @"user":@{
                                          @"old_password": self.passwordLamaTF.text,
                                          @"password": self.passwordBaruTF.text,
@@ -102,7 +102,7 @@
 - (void)changePIN {
     
     NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
-    [APIManager putAPIWithParam:@{
+    [[APIManager sharedManager] putAPIWithParam:@{
                                  @"user":@{
                                          @"old_pin": self.passwordLamaTF.text,
                                          @"pin": self.passwordBaruTF.text,

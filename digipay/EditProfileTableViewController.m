@@ -33,7 +33,7 @@
         NSString *avatarURL = [NSString stringWithFormat:@"%@%@", kBaseURL, imageURL];
         
         if (avatarURL) {
-            [APIManager requestImageWithUrl:avatarURL withOnSuccessBlock:^(UIImage *image, BOOL reloadView) {
+            [[APIManager sharedManager] requestImageWithUrl:avatarURL withOnSuccessBlock:^(UIImage *image, BOOL reloadView) {
                 
                 [self.changeProfileBtn setBackgroundImage:image forState:UIControlStateNormal];
                 
@@ -159,7 +159,7 @@
 
                                             NSString *endpoint = [NSString stringWithFormat:@"%@/%@", kPostUsers, [DataManager getUserId]];
                                             
-                                            [APIManager putAPIWithParam:@{
+                                            [[APIManager sharedManager] putAPIWithParam:@{
                                                                          @"user":@{
                                                                                  @"name":self.namaTF.text,
                                                                                  @"address":self.alamatTF.text,

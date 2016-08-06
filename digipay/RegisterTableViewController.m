@@ -117,7 +117,7 @@
                                                 terms = @"false";
                                             }
                                             
-                                            [APIManager postAPIWithParam:@{
+                                            [[APIManager sharedManager] postAPIWithParam:@{
                                                                           @"user": @{
                                                                                   @"email":self.emailTF.text,
                                                                                   @"name":self.namaTF.text,

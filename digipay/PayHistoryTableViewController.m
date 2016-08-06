@@ -75,7 +75,7 @@
 - (void)paymentHistoryAPI {
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [APIManager getAPIWithParam:nil andEndPoint:kGetPayment withAuthorization:YES successBlock:^(NSDictionary *response) {
+    [[APIManager sharedManager] getAPIWithParam:nil andEndPoint:kGetPayment withAuthorization:YES successBlock:^(NSDictionary *response) {
         NSLog(@"PAYMENT : %@", response);
         
         payments = [NSArray arrayWithArray:[response objectForKey:@"payments"]];

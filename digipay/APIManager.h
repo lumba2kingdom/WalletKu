@@ -14,25 +14,27 @@
 
 @interface APIManager : NSObject
 
-+(void)postAPIWithParam:(NSDictionary *)parameter
++ (APIManager *)sharedManager;
+
+- (void)postAPIWithParam:(NSDictionary *)parameter
             andEndPoint:(NSString *)endPoint
       withAuthorization:(BOOL)authorization
            successBlock:(void (^)(NSDictionary *response))successBlock
         andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
-+(void)putAPIWithParam:(NSDictionary *)parameter
+- (void)putAPIWithParam:(NSDictionary *)parameter
            andEndPoint:(NSString *)endPoint
      withAuthorization:(BOOL)authorization
           successBlock:(void (^)(NSDictionary *response))successBlock
        andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
-+(void)getAPIWithParam:(NSDictionary *)parameter
+- (void)getAPIWithParam:(NSDictionary *)parameter
            andEndPoint:(NSString *)endPoint
      withAuthorization:(BOOL)authorization
           successBlock:(void (^)(NSDictionary *response))successBlock
        andFailureBlock:(void (^)(NSString *errorMessage))failureBlock;
 
-+(void)requestImageWithUrl:(NSString *)url
+- (void)requestImageWithUrl:(NSString *)url
         withOnSuccessBlock:(void (^)(UIImage * image, BOOL reloadView))successBlock
         withOnFailureBlock:(void (^)(void))failureBlock;
 @end

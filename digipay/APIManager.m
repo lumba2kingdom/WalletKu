@@ -11,8 +11,26 @@
 
 @implementation APIManager
 
+#pragma mark - Lifecycle
++ (APIManager *)sharedManager {
+    static APIManager *sharedManager;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedManager = [[APIManager alloc] init];
+    });
+    return sharedManager;
+}
+
+- (id)init {
+    self = [super init];
+    
+    if(self) {}
+    
+    return self;
+}
+
 #pragma mark - APIs Method
-+(void)postAPIWithParam:(NSDictionary *)parameter
+- (void)postAPIWithParam:(NSDictionary *)parameter
             andEndPoint:(NSString *)endPoint
       withAuthorization:(BOOL)authorization
            successBlock:(void (^)(NSDictionary *response))successBlock
@@ -58,7 +76,7 @@
     
 }
 
-+(void)putAPIWithParam:(NSDictionary *)parameter
+- (void)putAPIWithParam:(NSDictionary *)parameter
            andEndPoint:(NSString *)endPoint
      withAuthorization:(BOOL)authorization
           successBlock:(void (^)(NSDictionary *response))successBlock
@@ -104,7 +122,7 @@
     
 }
 
-+(void)getAPIWithParam:(NSDictionary *)parameter
+- (void)getAPIWithParam:(NSDictionary *)parameter
            andEndPoint:(NSString *)endPoint
      withAuthorization:(BOOL)authorization
           successBlock:(void (^)(NSDictionary *response))successBlock
@@ -151,7 +169,7 @@
 }
 
 #pragma mark - Custom Methods
-+(NSString *)getErrorMessageObjectWithString:(NSString *)errorString {
+- (NSString *)getErrorMessageObjectWithString:(NSString *)errorString {
     NSError *jsonError;
     
     NSData *objectData = [errorString dataUsingEncoding:NSUTF8StringEncoding];
@@ -172,7 +190,7 @@
     return messageError;
 }
 
-+(void)requestImageWithUrl:(NSString *)url
+- (void)requestImageWithUrl:(NSString *)url
         withOnSuccessBlock:(void (^)(UIImage * image, BOOL reloadView))successBlock
         withOnFailureBlock:(void (^)(void))failureBlock {
     
