@@ -25,6 +25,8 @@
 #define kPostFlightsSearch              @"api/v1/flights/search"
 
 #define kGetProvider                    @"api/v1/providers"
+#define kGetAirlines                    @"api/v1/flights/get_airlines"
+
 #define kGetPayment                     @"api/v1/payments"
 
 #define AEROFLIGHT_ACCESS_CODE          @"MTA2DiaNjIz"

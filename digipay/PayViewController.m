@@ -8,8 +8,6 @@
 
 #import "PayViewController.h"
 #import "Constants.h"
-#import "DataManager.h"
-#import "APIManager.h"
 
 @interface PayViewController ()
 

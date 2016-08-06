@@ -8,8 +8,6 @@
 
 #import "EditProfileTableViewController.h"
 #import "User.h"
-#import "DataManager.h"
-#import "APIManager.h"
 
 @interface EditProfileTableViewController ()
 

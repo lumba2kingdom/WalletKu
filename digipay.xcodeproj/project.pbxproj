@@ -38,6 +38,7 @@
 		9BDC2F301CEB177200385A08 /* PaymentHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC2F2F1CEB177200385A08 /* PaymentHistory.m */; };
 		9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */; };
 		9BEDB6961CF0596600ECDB1F /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDB6951CF0596600ECDB1F /* TabBarViewController.m */; };
+		9BF7A3BC1D55CF9900105AB1 /* TiketPesawatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,9 @@
 		9BE6B6A11C5B0CC000D783B9 /* TopUpPulsaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUpPulsaTableViewController.m; sourceTree = "<group>"; };
 		9BEDB6941CF0596600ECDB1F /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		9BEDB6951CF0596600ECDB1F /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		9BF7A3BA1D55CF9900105AB1 /* TiketPesawatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiketPesawatTableViewController.h; sourceTree = "<group>"; };
+		9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiketPesawatTableViewController.m; sourceTree = "<group>"; };
+		9BF7A3BD1D55D4CA00105AB1 /* digipay-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "digipay-prefix.pch"; sourceTree = "<group>"; };
 		C399A59B13B6F3B14D56D2EA /* Pods-digipay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digipay.release.xcconfig"; path = "Pods/Target Support Files/Pods-digipay/Pods-digipay.release.xcconfig"; sourceTree = "<group>"; };
 		F0B8E33F33E61D28B8AEA789 /* libPods-digipay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-digipay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,6 +161,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9B0697DD1D550433009FD1F7 /* Tiket Pesawat */ = {
+			isa = PBXGroup;
+			children = (
+				9BF7A3BA1D55CF9900105AB1 /* TiketPesawatTableViewController.h */,
+				9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */,
+			);
+			name = "Tiket Pesawat";
+			sourceTree = "<group>";
+		};
 		9B5572421C61CC9C00D4D938 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +196,7 @@
 		9B5DA5A31CF6F3D700EC3AF8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				9B0697DD1D550433009FD1F7 /* Tiket Pesawat */,
 				9B5DA5AD1CF6F4D000EC3AF8 /* Top Up Pulsa */,
 				9B5DA5AE1CF6F4EC00EC3AF8 /* Top Up Listrik */,
 				9B5DA5AF1CF6F50100EC3AF8 /* History */,
@@ -371,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				9B9FDC9B1C55D1E800DD7F24 /* main.m */,
+				9BF7A3BD1D55D4CA00105AB1 /* digipay-prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -599,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */,
+				9BF7A3BC1D55CF9900105AB1 /* TiketPesawatTableViewController.m in Sources */,
 				9B6FD90C1CAD4BDF0037BC81 /* PayViewController.m in Sources */,
 				9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */,
 				9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */,
@@ -765,6 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: dian hariani (A979M863UV)";
+				GCC_PREFIX_HEADER = "digipay/digipay-prefix.pch";
 				INFOPLIST_FILE = digipay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -780,6 +797,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: dian hariani (A979M863UV)";
+				GCC_PREFIX_HEADER = "digipay/digipay-prefix.pch";
 				INFOPLIST_FILE = digipay/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

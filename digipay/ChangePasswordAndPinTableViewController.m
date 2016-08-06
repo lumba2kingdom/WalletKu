@@ -7,8 +7,6 @@
 //
 
 #import "ChangePasswordAndPinTableViewController.h"
-#import "APIManager.h"
-#import "DataManager.h"
 
 @interface ChangePasswordAndPinTableViewController ()
 

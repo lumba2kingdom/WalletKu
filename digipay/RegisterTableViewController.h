@@ -7,7 +7,6 @@
 //
 
 #import "BaseTableViewController.h"
-#import "APIManager.h"
 
 @interface RegisterTableViewController : BaseTableViewController
 

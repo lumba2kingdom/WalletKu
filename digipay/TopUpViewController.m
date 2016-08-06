@@ -8,9 +8,6 @@
 
 #import "TopUpViewController.h"
 #import "TopupWalletFieldTableViewCell.h"
-#import "MBProgressHUD.h"
-#import "APIManager.h"
-#import "DataManager.h"
 
 @interface TopUpViewController ()
 

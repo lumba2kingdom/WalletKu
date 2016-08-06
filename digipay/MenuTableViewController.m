@@ -8,8 +8,6 @@
 
 #import "MenuTableViewController.h"
 #import "Constants.h"
-#import "APIManager.h"
-#import "DataManager.h"
 
 @interface MenuTableViewController ()
 

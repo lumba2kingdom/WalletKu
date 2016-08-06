@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IHX-Cy-m9N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IHX-Cy-m9N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1511,11 +1511,11 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ATL-bb-lqi" id="Ysr-hc-IBC">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RbF-4l-jc5">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1661,7 +1661,7 @@
                                 <rect key="frame" x="0.0" y="136" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xWj-zU-G1g" id="h7t-qk-k0n">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="provider + nominal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEU-3e-QuR">
@@ -2371,10 +2371,10 @@
             </objects>
             <point key="canvasLocation" x="3424" y="2532"/>
         </scene>
-        <!--Ticket Pesawat Table View Controller-->
+        <!--Tiket Pesawat Table View Controller-->
         <scene sceneID="kRU-b0-d6x">
             <objects>
-                <tableViewController id="JKv-qB-qX8" customClass="TicketPesawatTableViewController" sceneMemberID="viewController">
+                <tableViewController id="JKv-qB-qX8" customClass="TiketPesawatTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3oe-cM-V7z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2410,7 +2410,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ticket Pesawat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="krB-c8-WYc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiket Pesawat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="krB-c8-WYc">
                                                     <rect key="frame" x="20" y="25" width="560" height="47"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="41"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -2435,9 +2435,6 @@
                                                     <rect key="frame" x="20" y="10" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JKv-qB-qX8" id="5U4-WI-rp2"/>
-                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3E-k3-0uQ">
                                                     <rect key="frame" x="30" y="60" width="140" height="50"/>
@@ -2449,41 +2446,29 @@
                                                                 <constraint firstAttribute="height" constant="35" id="LHK-Xv-M2D"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oneway-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="wMS-Oe-oUP">
-                                                            <rect key="frame" x="43" y="18" width="15" height="15"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="15" id="LnB-Yj-04k"/>
-                                                                <constraint firstAttribute="width" constant="15" id="lJ2-77-Bbl"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oneway" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="N8N-u7-afL">
-                                                            <rect key="frame" x="63" y="12" width="77" height="25"/>
+                                                            <rect key="frame" x="43" y="13" width="77" height="25"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="21"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGu-p8-YTA">
                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
-                                                            <connections>
-                                                                <action selector="radioOnewayButtonAction:" destination="JKv-qB-qX8" eventType="touchUpInside" id="DYi-yX-bP8"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.78823529410000004" green="0.90588235289999997" blue="0.35294117650000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="wMS-Oe-oUP" firstAttribute="leading" secondItem="PBD-W7-O6J" secondAttribute="trailing" constant="8" id="3Es-1B-VIr"/>
                                                         <constraint firstItem="N8N-u7-afL" firstAttribute="centerY" secondItem="F3E-k3-0uQ" secondAttribute="centerY" id="3wO-El-ELM"/>
-                                                        <constraint firstItem="wMS-Oe-oUP" firstAttribute="centerY" secondItem="F3E-k3-0uQ" secondAttribute="centerY" id="BDZ-i7-Uy5"/>
                                                         <constraint firstAttribute="height" constant="50" id="C18-kN-VXw"/>
                                                         <constraint firstItem="bGu-p8-YTA" firstAttribute="leading" secondItem="F3E-k3-0uQ" secondAttribute="leading" id="Ikz-RP-tZt"/>
                                                         <constraint firstItem="bGu-p8-YTA" firstAttribute="top" secondItem="F3E-k3-0uQ" secondAttribute="top" id="KE9-Of-PKM"/>
                                                         <constraint firstAttribute="width" constant="140" id="RsB-BR-4nr"/>
+                                                        <constraint firstItem="N8N-u7-afL" firstAttribute="leading" secondItem="PBD-W7-O6J" secondAttribute="trailing" constant="8" id="TUL-e1-07i"/>
                                                         <constraint firstItem="PBD-W7-O6J" firstAttribute="leading" secondItem="F3E-k3-0uQ" secondAttribute="leading" id="VEO-aL-YkC"/>
                                                         <constraint firstItem="PBD-W7-O6J" firstAttribute="centerY" secondItem="F3E-k3-0uQ" secondAttribute="centerY" id="Vuc-Sx-sYV"/>
                                                         <constraint firstAttribute="trailing" secondItem="bGu-p8-YTA" secondAttribute="trailing" id="XMx-kp-9xp"/>
                                                         <constraint firstAttribute="bottom" secondItem="bGu-p8-YTA" secondAttribute="bottom" id="mS0-2u-g29"/>
-                                                        <constraint firstItem="N8N-u7-afL" firstAttribute="leading" secondItem="wMS-Oe-oUP" secondAttribute="trailing" constant="5" id="qs3-YQ-v5a"/>
-                                                        <constraint firstAttribute="trailing" secondItem="N8N-u7-afL" secondAttribute="trailing" id="x2p-5E-kXa"/>
+                                                        <constraint firstAttribute="trailing" secondItem="N8N-u7-afL" secondAttribute="trailing" constant="20" id="x2p-5E-kXa"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUz-0e-vef">
@@ -2496,39 +2481,27 @@
                                                                 <constraint firstAttribute="width" constant="35" id="weA-bu-lYy"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="return-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="0Sd-5u-NtE">
-                                                            <rect key="frame" x="43" y="18" width="15" height="15"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="15" id="Idp-8W-SCY"/>
-                                                                <constraint firstAttribute="height" constant="15" id="zlQ-CO-QSs"/>
-                                                            </constraints>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sBa-Xk-gL4">
-                                                            <rect key="frame" x="63" y="12" width="77" height="25"/>
+                                                            <rect key="frame" x="43" y="12" width="77" height="25"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="21"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yd-Z1-M1s">
                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="50"/>
-                                                            <connections>
-                                                                <action selector="radioReturnButtonAction:" destination="JKv-qB-qX8" eventType="touchUpInside" id="Bqs-rb-ecV"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.78823529410000004" green="0.90588235289999997" blue="0.35294117650000001" alpha="0.5" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="sBa-Xk-gL4" firstAttribute="leading" secondItem="i2R-1R-aLH" secondAttribute="trailing" constant="8" id="0cV-yW-cwA"/>
                                                         <constraint firstItem="i2R-1R-aLH" firstAttribute="centerY" secondItem="eUz-0e-vef" secondAttribute="centerY" id="5P4-Ks-sdz"/>
                                                         <constraint firstAttribute="bottom" secondItem="1Yd-Z1-M1s" secondAttribute="bottom" id="DbT-Zy-AR0"/>
                                                         <constraint firstItem="1Yd-Z1-M1s" firstAttribute="leading" secondItem="eUz-0e-vef" secondAttribute="leading" id="Kbs-NQ-fUx"/>
-                                                        <constraint firstItem="0Sd-5u-NtE" firstAttribute="leading" secondItem="i2R-1R-aLH" secondAttribute="trailing" constant="8" id="Ute-9B-ImU"/>
                                                         <constraint firstItem="i2R-1R-aLH" firstAttribute="leading" secondItem="eUz-0e-vef" secondAttribute="leading" id="VYy-QT-vnO"/>
                                                         <constraint firstAttribute="height" constant="50" id="WaA-Nr-bTd"/>
                                                         <constraint firstAttribute="trailing" secondItem="1Yd-Z1-M1s" secondAttribute="trailing" id="acw-qj-zFm"/>
-                                                        <constraint firstItem="sBa-Xk-gL4" firstAttribute="leading" secondItem="0Sd-5u-NtE" secondAttribute="trailing" constant="5" id="dpS-6M-LOL"/>
-                                                        <constraint firstAttribute="trailing" secondItem="sBa-Xk-gL4" secondAttribute="trailing" id="lBn-Dt-645"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sBa-Xk-gL4" secondAttribute="trailing" constant="20" id="lBn-Dt-645"/>
                                                         <constraint firstAttribute="width" constant="140" id="mEn-vk-MxG"/>
-                                                        <constraint firstItem="0Sd-5u-NtE" firstAttribute="centerY" secondItem="eUz-0e-vef" secondAttribute="centerY" id="qXJ-rw-RgY"/>
                                                         <constraint firstItem="1Yd-Z1-M1s" firstAttribute="top" secondItem="eUz-0e-vef" secondAttribute="top" id="riP-IK-kS8"/>
                                                         <constraint firstItem="sBa-Xk-gL4" firstAttribute="centerY" secondItem="eUz-0e-vef" secondAttribute="centerY" id="wnt-jP-Fqi"/>
                                                     </constraints>
@@ -2578,9 +2551,6 @@
                                                     <rect key="frame" x="20" y="58" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JKv-qB-qX8" id="h2p-dU-ZI8"/>
-                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5r-hq-cVe">
                                                     <rect key="frame" x="126" y="113" width="9" height="21"/>
@@ -2605,9 +2575,6 @@
                                                     <rect key="frame" x="20" y="141" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JKv-qB-qX8" id="1Ia-lt-kLt"/>
-                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -2723,9 +2690,6 @@
                                                     <rect key="frame" x="20" y="58" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JKv-qB-qX8" id="8Y5-Tl-81x"/>
-                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Child" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubf-IN-3d4">
                                                     <rect key="frame" x="40" y="113" width="40" height="20"/>
@@ -2736,9 +2700,6 @@
                                                     <rect key="frame" x="20" y="141" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="next"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JKv-qB-qX8" id="ldQ-nz-704"/>
-                                                    </connections>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE2-ap-LNZ">
                                                     <rect key="frame" x="0.0" y="323" width="600" height="2"/>
@@ -2756,9 +2717,6 @@
                                                     <rect key="frame" x="20" y="224" width="560" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JKv-qB-qX8" id="Ua3-ae-xLu"/>
-                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 - 23 Month (Non Garuda)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rie-ig-33r">
                                                     <rect key="frame" x="40" y="262" width="177" height="19"/>
@@ -2807,9 +2765,6 @@
                                                         <constraint firstAttribute="height" constant="125" id="H9L-1f-hyg"/>
                                                     </constraints>
                                                     <state key="normal" image="search-result-button"/>
-                                                    <connections>
-                                                        <action selector="searchButtonAction:" destination="JKv-qB-qX8" eventType="touchUpInside" id="Q80-4R-NXj"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2828,28 +2783,6 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1500"/>
-                    <connections>
-                        <outlet property="adultQuantityTextField" destination="DF0-4R-LMG" id="cQu-5T-YbA"/>
-                        <outlet property="airlineTextField" destination="2nB-TB-2IO" id="c73-NY-q8e"/>
-                        <outlet property="childQuantityTextField" destination="jHQ-vP-6Ve" id="KBl-cy-e2k"/>
-                        <outlet property="dashLine1" destination="Du3-ic-wKs" id="dkv-tD-phE"/>
-                        <outlet property="dashLine2" destination="bqj-Qe-vnh" id="cwb-xV-nap"/>
-                        <outlet property="dashLine3" destination="0SD-oJ-rtZ" id="167-Ym-1Qg"/>
-                        <outlet property="dashLine4" destination="FE2-ap-LNZ" id="iMG-yp-qyM"/>
-                        <outlet property="dateDepartLabel" destination="3A4-1f-27t" id="jHy-Ap-2eW"/>
-                        <outlet property="dateDepartTextField" destination="HiT-IE-NHr" id="NaW-jY-ibs"/>
-                        <outlet property="dateReturnLabel" destination="fW7-i6-YvU" id="KGi-QW-peq"/>
-                        <outlet property="dateReturnTextField" destination="AyS-0P-8dU" id="t1f-Ek-abt"/>
-                        <outlet property="departureLabel" destination="vnu-SU-3vp" id="H6t-iq-Q4d"/>
-                        <outlet property="departureTextField" destination="N8u-ol-Pf5" id="epN-QW-Lae"/>
-                        <outlet property="destinationLabel" destination="gWg-RK-4sM" id="lRR-lU-sMj"/>
-                        <outlet property="destinationTextField" destination="hSd-EJ-G9p" id="n7m-p5-rl3"/>
-                        <outlet property="infantQuantityTextField" destination="JGP-NZ-acM" id="J3o-on-dU9"/>
-                        <outlet property="radioOnewayImageView" destination="PBD-W7-O6J" id="hAJ-nW-zRk"/>
-                        <outlet property="radioOnewayView" destination="F3E-k3-0uQ" id="QYZ-yn-Ivk"/>
-                        <outlet property="radioReturnImageView" destination="i2R-1R-aLH" id="nsI-tc-Vbb"/>
-                        <outlet property="radioReturnView" destination="eUz-0e-vef" id="Egj-eE-CBY"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WdE-S5-IiU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2917,7 +2850,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="540" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dZk-fn-gI4" id="P2T-Bc-dYk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="99"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="99.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNi-UM-ns3">
@@ -3063,7 +2996,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="540" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Osh-Me-Tl5" id="8rn-Hq-YQU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="99"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="99.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCR-B0-TBD">
@@ -3495,10 +3428,8 @@
         <image name="icon-top-up-pulsa" width="360" height="360"/>
         <image name="lanjut-button" width="303" height="303"/>
         <image name="mandiri-logo" width="770" height="302"/>
-        <image name="oneway-arrow" width="34" height="30"/>
         <image name="radio-btn-uncheck" width="100" height="100"/>
         <image name="radio-btn-uncheck-orange" width="100" height="100"/>
-        <image name="return-arrow" width="34" height="30"/>
         <image name="search-result-button" width="303" height="303"/>
     </resources>
     <inferredMetricsTieBreakers>

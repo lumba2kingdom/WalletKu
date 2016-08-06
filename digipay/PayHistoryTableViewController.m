@@ -9,9 +9,6 @@
 #import "PayHistoryTableViewController.h"
 #import "PayHistoryTableViewCell.h"
 #import "PaymentHistory.h"
-#import "MBProgressHUD.h"
-#import "APIManager.h"
-#import "DataManager.h"
 
 @interface PayHistoryTableViewController ()
 

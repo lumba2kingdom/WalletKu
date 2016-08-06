@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 #import "Constants.h"
+#import "DataManager.h"
+#import "MBProgressHUD.h"
 
 @interface APIManager : NSObject
 
