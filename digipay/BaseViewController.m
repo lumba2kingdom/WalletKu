@@ -38,6 +38,10 @@
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
+- (NSLocale *)getLocale {
+    return [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+}
+
 #pragma mark - Show Alert View
 - (void)showBasicAlertMessageWithTitle:(NSString *)title message:(NSString *)message {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8) {

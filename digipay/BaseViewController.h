@@ -12,7 +12,7 @@
 
 - (void)showNavigationBar;
 - (void)hideNavigationBar;
-
+- (NSLocale *)getLocale;
 - (void)showBasicAlertMessageWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

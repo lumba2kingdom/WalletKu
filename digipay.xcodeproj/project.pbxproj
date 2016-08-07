@@ -12,6 +12,14 @@
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
 		9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */; };
 		9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639981CAE866A008C59D0 /* CallUsViewController.m */; };
+		9B47819B1D5767C300FE7397 /* FlightClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47819A1D5767C300FE7397 /* FlightClass.m */; };
+		9B47819E1D57683600FE7397 /* FlightConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B47819D1D57683600FE7397 /* FlightConnection.m */; };
+		9B4781A11D576AA200FE7397 /* FlightSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4781A01D576AA200FE7397 /* FlightSchedule.m */; };
+		9B4781A41D576CF400FE7397 /* FlightSearchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4781A31D576CF400FE7397 /* FlightSearchInfo.m */; };
+		9B4781A71D57724C00FE7397 /* FlightSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4781A61D57724C00FE7397 /* FlightSearchResult.m */; };
+		9B4781AA1D57751200FE7397 /* TiketSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4781A91D57751200FE7397 /* TiketSearchResultViewController.m */; };
+		9B4781AE1D5777BD00FE7397 /* DepartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4781AD1D5777BD00FE7397 /* DepartTableViewCell.m */; };
+		9B4781B11D5777C600FE7397 /* ReturnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4781B01D5777C600FE7397 /* ReturnTableViewCell.m */; };
 		9B5572461C61CF2600D4D938 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572451C61CF2600D4D938 /* APIManager.m */; };
 		9B55724A1C61D55B00D4D938 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5572491C61D55B00D4D938 /* User.m */; };
 		9B5DA59F1CF6ED8700EC3AF8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5DA59E1CF6ED8700EC3AF8 /* BaseViewController.m */; };
@@ -70,6 +78,22 @@
 		9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordAndPinTableViewController.m; sourceTree = "<group>"; };
 		9B2639971CAE866A008C59D0 /* CallUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallUsViewController.h; sourceTree = "<group>"; };
 		9B2639981CAE866A008C59D0 /* CallUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallUsViewController.m; sourceTree = "<group>"; };
+		9B4781991D5767C300FE7397 /* FlightClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightClass.h; sourceTree = "<group>"; };
+		9B47819A1D5767C300FE7397 /* FlightClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightClass.m; sourceTree = "<group>"; };
+		9B47819C1D57683600FE7397 /* FlightConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightConnection.h; sourceTree = "<group>"; };
+		9B47819D1D57683600FE7397 /* FlightConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightConnection.m; sourceTree = "<group>"; };
+		9B47819F1D576AA200FE7397 /* FlightSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSchedule.h; sourceTree = "<group>"; };
+		9B4781A01D576AA200FE7397 /* FlightSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSchedule.m; sourceTree = "<group>"; };
+		9B4781A21D576CF400FE7397 /* FlightSearchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchInfo.h; sourceTree = "<group>"; };
+		9B4781A31D576CF400FE7397 /* FlightSearchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchInfo.m; sourceTree = "<group>"; };
+		9B4781A51D57724C00FE7397 /* FlightSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchResult.h; sourceTree = "<group>"; };
+		9B4781A61D57724C00FE7397 /* FlightSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchResult.m; sourceTree = "<group>"; };
+		9B4781A81D57751200FE7397 /* TiketSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiketSearchResultViewController.h; sourceTree = "<group>"; };
+		9B4781A91D57751200FE7397 /* TiketSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiketSearchResultViewController.m; sourceTree = "<group>"; };
+		9B4781AC1D5777BD00FE7397 /* DepartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepartTableViewCell.h; sourceTree = "<group>"; };
+		9B4781AD1D5777BD00FE7397 /* DepartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepartTableViewCell.m; sourceTree = "<group>"; };
+		9B4781AF1D5777C600FE7397 /* ReturnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnTableViewCell.h; sourceTree = "<group>"; };
+		9B4781B01D5777C600FE7397 /* ReturnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnTableViewCell.m; sourceTree = "<group>"; };
 		9B5572431C61CCBF00D4D938 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		9B5572441C61CF2600D4D938 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		9B5572451C61CF2600D4D938 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
@@ -170,10 +194,24 @@
 		9B0697DD1D550433009FD1F7 /* Tiket Pesawat */ = {
 			isa = PBXGroup;
 			children = (
+				9B4781AB1D5777A200FE7397 /* Table View Cell */,
 				9BF7A3BA1D55CF9900105AB1 /* TiketPesawatTableViewController.h */,
 				9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */,
+				9B4781A81D57751200FE7397 /* TiketSearchResultViewController.h */,
+				9B4781A91D57751200FE7397 /* TiketSearchResultViewController.m */,
 			);
 			name = "Tiket Pesawat";
+			sourceTree = "<group>";
+		};
+		9B4781AB1D5777A200FE7397 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9B4781AC1D5777BD00FE7397 /* DepartTableViewCell.h */,
+				9B4781AD1D5777BD00FE7397 /* DepartTableViewCell.m */,
+				9B4781AF1D5777C600FE7397 /* ReturnTableViewCell.h */,
+				9B4781B01D5777C600FE7397 /* ReturnTableViewCell.m */,
+			);
+			name = "Table View Cell";
 			sourceTree = "<group>";
 		};
 		9B5572421C61CC9C00D4D938 /* Managers */ = {
@@ -199,6 +237,16 @@
 				9BF7A3BF1D55D8B400105AB1 /* Airline.m */,
 				9BF7A3C11D55E73500105AB1 /* Airport.h */,
 				9BF7A3C21D55E73500105AB1 /* Airport.m */,
+				9B4781991D5767C300FE7397 /* FlightClass.h */,
+				9B47819A1D5767C300FE7397 /* FlightClass.m */,
+				9B47819C1D57683600FE7397 /* FlightConnection.h */,
+				9B47819D1D57683600FE7397 /* FlightConnection.m */,
+				9B47819F1D576AA200FE7397 /* FlightSchedule.h */,
+				9B4781A01D576AA200FE7397 /* FlightSchedule.m */,
+				9B4781A21D576CF400FE7397 /* FlightSearchInfo.h */,
+				9B4781A31D576CF400FE7397 /* FlightSearchInfo.m */,
+				9B4781A51D57724C00FE7397 /* FlightSearchResult.h */,
+				9B4781A61D57724C00FE7397 /* FlightSearchResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -624,25 +672,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */,
+				9B4781A71D57724C00FE7397 /* FlightSearchResult.m in Sources */,
 				9BF7A3BC1D55CF9900105AB1 /* TiketPesawatTableViewController.m in Sources */,
 				9B6FD90C1CAD4BDF0037BC81 /* PayViewController.m in Sources */,
 				9BE6B6A21C5B0CC000D783B9 /* TopUpPulsaTableViewController.m in Sources */,
+				9B4781AE1D5777BD00FE7397 /* DepartTableViewCell.m in Sources */,
 				9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */,
 				9BEDB6961CF0596600ECDB1F /* TabBarViewController.m in Sources */,
 				9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */,
 				9B88C0EB1C720F1F00216A22 /* DataManager.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
 				9BF7A3C31D55E73500105AB1 /* Airport.m in Sources */,
+				9B4781AA1D57751200FE7397 /* TiketSearchResultViewController.m in Sources */,
 				9BF7A3C01D55D8B400105AB1 /* Airline.m in Sources */,
 				9B5DA5A21CF6EEC100EC3AF8 /* BaseTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
+				9B4781A41D576CF400FE7397 /* FlightSearchInfo.m in Sources */,
+				9B47819E1D57683600FE7397 /* FlightConnection.m in Sources */,
+				9B4781A11D576AA200FE7397 /* FlightSchedule.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
 				9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */,
 				9B5DA59F1CF6ED8700EC3AF8 /* BaseViewController.m in Sources */,
 				9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */,
+				9B4781B11D5777C600FE7397 /* ReturnTableViewCell.m in Sources */,
 				9B6FD9091CAD467E0037BC81 /* TopupListrikTableViewController.m in Sources */,
 				9B55724A1C61D55B00D4D938 /* User.m in Sources */,
 				9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */,
+				9B47819B1D5767C300FE7397 /* FlightClass.m in Sources */,
 				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
 				9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,

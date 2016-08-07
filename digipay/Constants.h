@@ -22,15 +22,14 @@
 #define kPostTopUpPulsa                 @"api/v1/payments"
 #define kPostCallUs                     @"api/v1/contacts"
 #define kPostTransferConfirmation       @"api/v1/deposits"
-#define kPostFlightsSearch              @"api/v1/flights/search"
 
 #define kGetProvider                    @"api/v1/providers"
+#define kGetPayment                     @"api/v1/payments"
 
 #define kGetAirlines                    @"api/v1/flights/get_airlines"
 #define kGetDepartureAirport            @"api/v1/flights/get_departure_airport"
 #define kGetArrivalAirport              @"api/v1/flights/get_arrival_airport"
-
-#define kGetPayment                     @"api/v1/payments"
+#define kGetSearchFlight                @"api/v1/flights/search"
 
 #define AEROFLIGHT_ACCESS_CODE          @"MTA2DiaNjIz"
 #define AEROFLIGHT_URL                  @"http://dev.aeroaffiliate.com/service/v2"
