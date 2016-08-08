@@ -10,6 +10,7 @@
 #import "DepartTableViewCell.h"
 #import "ReturnTableViewCell.h"
 #import "FlightSearchResult.h"
+#import "DataPemesanTableViewController.h"
 
 @interface TiketSearchResultViewController ()
 
@@ -17,6 +18,7 @@
 
 @implementation TiketSearchResultViewController {
     FlightSearchResult *flightResult;
+    NSIndexPath *departSelectedIndexPath, *returnSelectedIndexPath;
 }
 
 - (void)viewDidLoad {
@@ -86,6 +88,12 @@
             departCell.airlineTimeLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@ - %@)", flightSchedule.scheduleEtd, flightSchedule.scheduleEta, flightSchedule.scheduleFrom, flightSchedule.scheduleTo];
         }
         
+        if ([indexPath isEqual:departSelectedIndexPath]) {
+            [departCell.selectButton setTitle:@"Selected" forState:UIControlStateNormal];
+        }else{
+            [departCell.selectButton setTitle:@"Select" forState:UIControlStateNormal];
+        }
+        
         return departCell;
     }else{
         ReturnTableViewCell *returnCell = [tableView dequeueReusableCellWithIdentifier:@"returnCell" forIndexPath:indexPath];
@@ -107,6 +115,12 @@
             returnCell.airlineTimeLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@ - %@)", flightSchedule.scheduleEtd, flightSchedule.scheduleEta, flightSchedule.scheduleFrom, flightSchedule.scheduleTo];
         }
         
+        if ([indexPath isEqual:returnSelectedIndexPath]) {
+            [returnCell.selectButton setTitle:@"Selected" forState:UIControlStateNormal];
+        }else{
+            [returnCell.selectButton setTitle:@"Select" forState:UIControlStateNormal];
+        }
+        
         
         return returnCell;
     }
@@ -115,6 +129,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (tableView.tag == 1) {
+        departSelectedIndexPath = indexPath;
+        [self.departTableView reloadData];
+    }else{
+        returnSelectedIndexPath = indexPath;
+        [self.returnTableView reloadData];
+    }
+}
+
+#pragma mark - Action Methods
+- (IBAction)nextButtonAction:(UIButton *)sender {
+    if (departSelectedIndexPath) {
+        [self performSegueWithIdentifier:@"searchToDataPemesan" sender:nil];
+    }else{
+        [self showBasicAlertMessageWithTitle:@"" message:@"Silakan pilih jadwal"];
+    }
+}
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"searchToDataPemesan"]) {
+        DataPemesanTableViewController *dataPemesanController = (DataPemesanTableViewController *)[segue destinationViewController];
+        dataPemesanController.totalPassenger = [flightResult.searchInfo.infoAdult intValue] + [flightResult.searchInfo.infoChild intValue] + [flightResult.searchInfo.infoInfant intValue];
+        dataPemesanController.sessionId = flightResult.sessionId;
+        
+    }
 }
 
 @end

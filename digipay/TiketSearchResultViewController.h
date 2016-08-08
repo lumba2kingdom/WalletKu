@@ -26,4 +26,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *departTableView;
 @property (weak, nonatomic) IBOutlet UITableView *returnTableView;
 
+- (IBAction)nextButtonAction:(UIButton *)sender;
 @end

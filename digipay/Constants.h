@@ -30,6 +30,7 @@
 #define kGetDepartureAirport            @"api/v1/flights/get_departure_airport"
 #define kGetArrivalAirport              @"api/v1/flights/get_arrival_airport"
 #define kGetSearchFlight                @"api/v1/flights/search"
+#define kPostSearchBook                 @"api/v1/flights/search_book"
 
 #define AEROFLIGHT_ACCESS_CODE          @"MTA2DiaNjIz"
 #define AEROFLIGHT_URL                  @"http://dev.aeroaffiliate.com/service/v2"

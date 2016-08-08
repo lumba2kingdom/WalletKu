@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4A0F0E6B33BE155C4F428E50 /* libPods-digipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8E33F33E61D28B8AEA789 /* libPods-digipay.a */; };
 		9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */; };
+		9B1878D91D58D44E00948FAE /* DataPemesanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1878D81D58D44E00948FAE /* DataPemesanTableViewController.m */; };
+		9B1878DC1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1878DB1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m */; };
+		9B1878DF1D58D47500948FAE /* DataPemesanContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1878DE1D58D47500948FAE /* DataPemesanContentTableViewCell.m */; };
+		9B1878E21D58D47F00948FAE /* NextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1878E11D58D47F00948FAE /* NextTableViewCell.m */; };
 		9B24FC3A1C59F7160095917D /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B24FC391C59F7160095917D /* EditProfileTableViewController.m */; };
 		9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639941CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m */; };
 		9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2639981CAE866A008C59D0 /* CallUsViewController.m */; };
@@ -72,6 +76,14 @@
 		01B636AE150F2386A0E675D2 /* Pods-digipay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digipay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digipay/Pods-digipay.debug.xcconfig"; sourceTree = "<group>"; };
 		9B1789A41CBD339600E48844 /* TopupWalletFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopupWalletFieldTableViewCell.h; sourceTree = "<group>"; };
 		9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopupWalletFieldTableViewCell.m; sourceTree = "<group>"; };
+		9B1878D71D58D44E00948FAE /* DataPemesanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPemesanTableViewController.h; sourceTree = "<group>"; };
+		9B1878D81D58D44E00948FAE /* DataPemesanTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPemesanTableViewController.m; sourceTree = "<group>"; };
+		9B1878DA1D58D46600948FAE /* DataPemesanHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPemesanHeaderTableViewCell.h; sourceTree = "<group>"; };
+		9B1878DB1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPemesanHeaderTableViewCell.m; sourceTree = "<group>"; };
+		9B1878DD1D58D47500948FAE /* DataPemesanContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPemesanContentTableViewCell.h; sourceTree = "<group>"; };
+		9B1878DE1D58D47500948FAE /* DataPemesanContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPemesanContentTableViewCell.m; sourceTree = "<group>"; };
+		9B1878E01D58D47F00948FAE /* NextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextTableViewCell.h; sourceTree = "<group>"; };
+		9B1878E11D58D47F00948FAE /* NextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextTableViewCell.m; sourceTree = "<group>"; };
 		9B24FC381C59F7160095917D /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
 		9B24FC391C59F7160095917D /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		9B2639931CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordAndPinTableViewController.h; sourceTree = "<group>"; };
@@ -199,6 +211,8 @@
 				9BF7A3BB1D55CF9900105AB1 /* TiketPesawatTableViewController.m */,
 				9B4781A81D57751200FE7397 /* TiketSearchResultViewController.h */,
 				9B4781A91D57751200FE7397 /* TiketSearchResultViewController.m */,
+				9B1878D71D58D44E00948FAE /* DataPemesanTableViewController.h */,
+				9B1878D81D58D44E00948FAE /* DataPemesanTableViewController.m */,
 			);
 			name = "Tiket Pesawat";
 			sourceTree = "<group>";
@@ -210,6 +224,12 @@
 				9B4781AD1D5777BD00FE7397 /* DepartTableViewCell.m */,
 				9B4781AF1D5777C600FE7397 /* ReturnTableViewCell.h */,
 				9B4781B01D5777C600FE7397 /* ReturnTableViewCell.m */,
+				9B1878DA1D58D46600948FAE /* DataPemesanHeaderTableViewCell.h */,
+				9B1878DB1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m */,
+				9B1878DD1D58D47500948FAE /* DataPemesanContentTableViewCell.h */,
+				9B1878DE1D58D47500948FAE /* DataPemesanContentTableViewCell.m */,
+				9B1878E01D58D47F00948FAE /* NextTableViewCell.h */,
+				9B1878E11D58D47F00948FAE /* NextTableViewCell.m */,
 			);
 			name = "Table View Cell";
 			sourceTree = "<group>";
@@ -679,8 +699,10 @@
 				9B4781AE1D5777BD00FE7397 /* DepartTableViewCell.m in Sources */,
 				9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */,
 				9BEDB6961CF0596600ECDB1F /* TabBarViewController.m in Sources */,
+				9B1878E21D58D47F00948FAE /* NextTableViewCell.m in Sources */,
 				9B2639991CAE866A008C59D0 /* CallUsViewController.m in Sources */,
 				9B88C0EB1C720F1F00216A22 /* DataManager.m in Sources */,
+				9B1878DF1D58D47500948FAE /* DataPemesanContentTableViewCell.m in Sources */,
 				9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */,
 				9BF7A3C31D55E73500105AB1 /* Airport.m in Sources */,
 				9B4781AA1D57751200FE7397 /* TiketSearchResultViewController.m in Sources */,
@@ -700,8 +722,10 @@
 				9B6FD90F1CAD60130037BC81 /* MyWalletViewController.m in Sources */,
 				9B47819B1D5767C300FE7397 /* FlightClass.m in Sources */,
 				9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */,
+				9B1878D91D58D44E00948FAE /* DataPemesanTableViewController.m in Sources */,
 				9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
+				9B1878DC1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m in Sources */,
 				9B5572461C61CF2600D4D938 /* APIManager.m in Sources */,
 				9B9FDCA81C55D1E800DD7F24 /* digipay.xcdatamodeld in Sources */,
 				9BD4283C1C899B3D007C1AE5 /* TopUpPulsaListTableViewController.m in Sources */,
