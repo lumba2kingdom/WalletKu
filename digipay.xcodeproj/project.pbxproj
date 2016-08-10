@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4A0F0E6B33BE155C4F428E50 /* libPods-digipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B8E33F33E61D28B8AEA789 /* libPods-digipay.a */; };
+		9B0C5EAF1D598A2400F848BF /* PesanHotelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C5EAE1D598A2400F848BF /* PesanHotelViewController.m */; };
+		9B0C5EB61D59B72700F848BF /* HotelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C5EB51D59B72700F848BF /* HotelListViewController.m */; };
+		9B0C5EB91D59B73700F848BF /* HotelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0C5EB81D59B73700F848BF /* HotelTableViewCell.m */; };
 		9B1789A61CBD339600E48844 /* TopupWalletFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */; };
 		9B1878D91D58D44E00948FAE /* DataPemesanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1878D81D58D44E00948FAE /* DataPemesanTableViewController.m */; };
 		9B1878DC1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1878DB1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m */; };
@@ -43,6 +46,10 @@
 		9B9FDCD31C55D43700DD7F24 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCD21C55D43700DD7F24 /* LoginViewController.m */; };
 		9B9FDCD61C56215B00DD7F24 /* PayHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */; };
 		9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */; };
+		9BA6E8931D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6E8921D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.m */; };
+		9BA6E8961D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6E8951D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.m */; };
+		9BA6E8991D5AD6FC00CF42FA /* HotelRoomListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6E8981D5AD6FC00CF42FA /* HotelRoomListTableViewCell.m */; };
+		9BA6E89C1D5AD70C00CF42FA /* HotelDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6E89B1D5AD70C00CF42FA /* HotelDetailTableViewController.m */; };
 		9BB1B64D1C575882007587E0 /* RegisterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */; };
 		9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B64F1C577E78007587E0 /* TopUpViewController.m */; };
 		9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB1B6521C577F9F007587E0 /* MenuTableViewController.m */; };
@@ -74,6 +81,12 @@
 
 /* Begin PBXFileReference section */
 		01B636AE150F2386A0E675D2 /* Pods-digipay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digipay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-digipay/Pods-digipay.debug.xcconfig"; sourceTree = "<group>"; };
+		9B0C5EAD1D598A2400F848BF /* PesanHotelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PesanHotelViewController.h; sourceTree = "<group>"; };
+		9B0C5EAE1D598A2400F848BF /* PesanHotelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PesanHotelViewController.m; sourceTree = "<group>"; };
+		9B0C5EB41D59B72700F848BF /* HotelListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelListViewController.h; sourceTree = "<group>"; };
+		9B0C5EB51D59B72700F848BF /* HotelListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelListViewController.m; sourceTree = "<group>"; };
+		9B0C5EB71D59B73700F848BF /* HotelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelTableViewCell.h; sourceTree = "<group>"; };
+		9B0C5EB81D59B73700F848BF /* HotelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelTableViewCell.m; sourceTree = "<group>"; };
 		9B1789A41CBD339600E48844 /* TopupWalletFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopupWalletFieldTableViewCell.h; sourceTree = "<group>"; };
 		9B1789A51CBD339600E48844 /* TopupWalletFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopupWalletFieldTableViewCell.m; sourceTree = "<group>"; };
 		9B1878D71D58D44E00948FAE /* DataPemesanTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPemesanTableViewController.h; sourceTree = "<group>"; };
@@ -144,6 +157,14 @@
 		9B9FDCD51C56215B00DD7F24 /* PayHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayHistoryTableViewController.m; sourceTree = "<group>"; };
 		9B9FDCD81C5621D100DD7F24 /* PayHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayHistoryTableViewCell.h; sourceTree = "<group>"; };
 		9B9FDCD91C5621D100DD7F24 /* PayHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayHistoryTableViewCell.m; sourceTree = "<group>"; };
+		9BA6E8911D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelImageHeaderTableViewCell.h; sourceTree = "<group>"; };
+		9BA6E8921D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelImageHeaderTableViewCell.m; sourceTree = "<group>"; };
+		9BA6E8941D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelDescHeaderTableViewCell.h; sourceTree = "<group>"; };
+		9BA6E8951D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelDescHeaderTableViewCell.m; sourceTree = "<group>"; };
+		9BA6E8971D5AD6FC00CF42FA /* HotelRoomListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelRoomListTableViewCell.h; sourceTree = "<group>"; };
+		9BA6E8981D5AD6FC00CF42FA /* HotelRoomListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelRoomListTableViewCell.m; sourceTree = "<group>"; };
+		9BA6E89A1D5AD70C00CF42FA /* HotelDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelDetailTableViewController.h; sourceTree = "<group>"; };
+		9BA6E89B1D5AD70C00CF42FA /* HotelDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelDetailTableViewController.m; sourceTree = "<group>"; };
 		9BB1B64B1C575882007587E0 /* RegisterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterTableViewController.h; sourceTree = "<group>"; };
 		9BB1B64C1C575882007587E0 /* RegisterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTableViewController.m; sourceTree = "<group>"; };
 		9BB1B64E1C577E78007587E0 /* TopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUpViewController.h; sourceTree = "<group>"; };
@@ -217,6 +238,35 @@
 			name = "Tiket Pesawat";
 			sourceTree = "<group>";
 		};
+		9B0C5EAC1D5989F500F848BF /* Pesan Hotel */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C5EB01D59B6D600F848BF /* Table View Cell */,
+				9B0C5EAD1D598A2400F848BF /* PesanHotelViewController.h */,
+				9B0C5EAE1D598A2400F848BF /* PesanHotelViewController.m */,
+				9B0C5EB41D59B72700F848BF /* HotelListViewController.h */,
+				9B0C5EB51D59B72700F848BF /* HotelListViewController.m */,
+				9BA6E89A1D5AD70C00CF42FA /* HotelDetailTableViewController.h */,
+				9BA6E89B1D5AD70C00CF42FA /* HotelDetailTableViewController.m */,
+			);
+			name = "Pesan Hotel";
+			sourceTree = "<group>";
+		};
+		9B0C5EB01D59B6D600F848BF /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9B0C5EB71D59B73700F848BF /* HotelTableViewCell.h */,
+				9B0C5EB81D59B73700F848BF /* HotelTableViewCell.m */,
+				9BA6E8911D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.h */,
+				9BA6E8921D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.m */,
+				9BA6E8941D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.h */,
+				9BA6E8951D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.m */,
+				9BA6E8971D5AD6FC00CF42FA /* HotelRoomListTableViewCell.h */,
+				9BA6E8981D5AD6FC00CF42FA /* HotelRoomListTableViewCell.m */,
+			);
+			name = "Table View Cell";
+			sourceTree = "<group>";
+		};
 		9B4781AB1D5777A200FE7397 /* Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +324,7 @@
 		9B5DA5A31CF6F3D700EC3AF8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				9B0C5EAC1D5989F500F848BF /* Pesan Hotel */,
 				9B0697DD1D550433009FD1F7 /* Tiket Pesawat */,
 				9B5DA5AD1CF6F4D000EC3AF8 /* Top Up Pulsa */,
 				9B5DA5AE1CF6F4EC00EC3AF8 /* Top Up Listrik */,
@@ -709,10 +760,15 @@
 				9BF7A3C01D55D8B400105AB1 /* Airline.m in Sources */,
 				9B5DA5A21CF6EEC100EC3AF8 /* BaseTableViewController.m in Sources */,
 				9BB1B6501C577E78007587E0 /* TopUpViewController.m in Sources */,
+				9B0C5EAF1D598A2400F848BF /* PesanHotelViewController.m in Sources */,
 				9B4781A41D576CF400FE7397 /* FlightSearchInfo.m in Sources */,
 				9B47819E1D57683600FE7397 /* FlightConnection.m in Sources */,
 				9B4781A11D576AA200FE7397 /* FlightSchedule.m in Sources */,
+				9BA6E89C1D5AD70C00CF42FA /* HotelDetailTableViewController.m in Sources */,
 				9B9FDC9F1C55D1E800DD7F24 /* AppDelegate.m in Sources */,
+				9B0C5EB91D59B73700F848BF /* HotelTableViewCell.m in Sources */,
+				9B0C5EB61D59B72700F848BF /* HotelListViewController.m in Sources */,
+				9BA6E8961D5AD6E600CF42FA /* HotelDescHeaderTableViewCell.m in Sources */,
 				9BB1B6531C577F9F007587E0 /* MenuTableViewController.m in Sources */,
 				9B5DA59F1CF6ED8700EC3AF8 /* BaseViewController.m in Sources */,
 				9B9FDC9C1C55D1E800DD7F24 /* main.m in Sources */,
@@ -725,6 +781,8 @@
 				9B1878D91D58D44E00948FAE /* DataPemesanTableViewController.m in Sources */,
 				9B2639951CAE5EE9008C59D0 /* ChangePasswordAndPinTableViewController.m in Sources */,
 				9B9FDCDA1C5621D100DD7F24 /* PayHistoryTableViewCell.m in Sources */,
+				9BA6E8931D5AD6DB00CF42FA /* HotelImageHeaderTableViewCell.m in Sources */,
+				9BA6E8991D5AD6FC00CF42FA /* HotelRoomListTableViewCell.m in Sources */,
 				9B1878DC1D58D46600948FAE /* DataPemesanHeaderTableViewCell.m in Sources */,
 				9B5572461C61CF2600D4D938 /* APIManager.m in Sources */,
 				9B9FDCA81C55D1E800DD7F24 /* digipay.xcdatamodeld in Sources */,

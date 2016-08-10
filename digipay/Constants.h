@@ -26,6 +26,9 @@
 #define kGetProvider                    @"api/v1/providers"
 #define kGetPayment                     @"api/v1/payments"
 
+#define kGetHotelSearch                 @"api/v1/hotels/hotel_search"
+#define kGetHotelDetail                 @"api/v1/hotels/hotel_detail"
+
 #define kGetAirlines                    @"api/v1/flights/get_airlines"
 #define kGetDepartureAirport            @"api/v1/flights/get_departure_airport"
 #define kGetArrivalAirport              @"api/v1/flights/get_arrival_airport"
